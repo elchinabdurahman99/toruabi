@@ -1,0 +1,25 @@
+# Ajsan
+
+> A professional home and commercial services company based in Tallinn, Estonia, operating across Harjumaa. Core trades include plumbing, electrical work, renovation, and building maintenance.
+
+## Primary URLs
+
+- [Estonian](https://ajsan.ee/et/): Peamine eestikeelne veebileht teenuste infoga.
+- [English](https://ajsan.ee/en/): Main website in English with service details.
+- [Russian](https://ajsan.ee/ru/): Основной сайт на русском языке с информацией об услугах.
+
+## Key Service Sections
+
+- [Services Index](https://ajsan.ee/et/teenused): Browse all available trades and maintenance services.
+- [Price List](https://ajsan.ee/et/hinnakiri): Hourly rates and service fees with VAT.
+- [Emergency Plumbing 24/7](https://ajsan.ee/et/teenused/plumber-24h-tallinn): Immediate assistance for pipe leaks and sewer issues.
+- [Electrical Works](https://ajsan.ee/et/teenused/electrician-services): Licensed electrical installations and repairs.
+- [Bathroom Renovation](https://ajsan.ee/et/teenused/bathroom-repair): Full bathroom remodeling and plumbing updates.
+- [Blog](https://ajsan.ee/et/blogi): Maintenance tips and plumbing advice for homeowners.
+- [Contact](https://ajsan.ee/et/kontakt): Phone and email details for bookings and emergency help.
+
+## Legal Details
+
+- [Terms of Service](https://ajsan.ee/et/tingimused): Standard conditions of service and liability.
+- [Privacy Policy](https://ajsan.ee/et/privaatsuspoliitika): How we handle your data and cookies.
+- **Entity**: SNN RAKENTAMINEN OÜ based in Tallinn.

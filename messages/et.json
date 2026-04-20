@@ -1,0 +1,399 @@
+{
+  "meta": {
+    "title": "TorudeAbi24 — torutööd, elekter ja remont Tallinnas ja Harjumaal | torudeabi24.ee",
+    "description": "Litsentseeritud toru-, ehitus- ja elektritööd ning 24/7 avariiabi Tallinnas ja Harjumaal. -30% soodustus kõigile teenustele. Kiire reageerimine, tasuta hinnapakkumine — torudeabi24.ee",
+    "keywords": "torutööd Tallinn, ehitus Tallinn, elektrik Tallinn, avariitoru, torudeabi24, survepesu, remont"
+  },
+  "nav": {
+    "home": "Avaleht",
+    "services": "Teenused",
+    "emergency": "Avariiabi",
+    "whyUs": "Miks Meie",
+    "reviews": "Arvustused",
+    "pricing": "Hinnad",
+    "contact": "Kontakt",
+    "blog": "Blogi",
+    "partners": "Partnerid",
+    "priceList": "Hinnakiri",
+    "freeQuote": "Tasuta Pakkumine",
+    "callNow": "Helista — Tasuta",
+    "selectService": "Vali teenus"
+  },
+  "promoBar": {
+    "discountHint": "Soodustus kehtib vastavalt kampaaniale — erandid ja öised hinnad on hinnakirjas.",
+    "emergencyTitle": "Ööpäevaringne avariiabi — helista igal ajal"
+  },
+  "hero": {
+    "badge": "Avariiteenus",
+    "title": "Professionaalsed Koduteenused",
+    "titleHighlight": "Siis Kui Vajate",
+    "subtitle": "Kiired torutööd, elektritööd, renoveerimis- ja puhastusteenused Tallinnas ja Harjumaal. Sertifitseeritud tehnikud.",
+    "tags": ["Torutööd", "Elekter", "Renoveerimine", "Puhastus"],
+    "cta": "Küsi Tasuta Pakkumist",
+    "ctaSecondary": "Helista Kohe",
+    "sliderAlts": [
+      "Avariiline torumees ja torutööd Tallinnas ja Harjumaal — professionaalsed torutööd, TorudeAbi24 torudeabi24.ee",
+      "Elektrik ja elektritööd: juhtmestik, pistikud, remont Tallinnas — TorudeAbi24 koduteenused",
+      "Renoveerimine ja ehitus: sise- ja remonditööd Harjumaal — TorudeAbi24 Eesti",
+      "Kodu- ja kontorite puhastus Tallinnas — professionaalne puhastusteenus | TorudeAbi24 torudeabi24.ee"
+    ],
+    "sliderPrev": "Eelmine foto",
+    "sliderNext": "Järgmine foto",
+    "emergencyLabel": "Kiirabi 24/7",
+    "statJobs": "rahulolev klient",
+    "statYears": "aastat kogemust",
+    "statAvail": "ööpäevaringne",
+    "statRating": "hinnang",
+    "stats": {
+      "clients": "500+",
+      "clientsLabel": "Rahulolev Klient",
+      "response": "60 min",
+      "responseLabel": "Reageerimisaeg",
+      "available": "24/7",
+      "availableLabel": "Saadaval",
+      "discount": "-30%",
+      "discountLabel": "Soodustus"
+    }
+  },
+  "emergency": {
+    "title": "Avarii? Oleme siin 24/7",
+    "subtitle": "Torupurse? Elektririke? Ärge paanitsege. Meie avariimeeskond jõuab kohale 60 minuti jooksul, ööpäevaringselt.",
+    "cta": "Helista Avariiliinile",
+    "badge": "24H Avariitööd",
+    "features": {
+      "fast": "60-minutiline reageerimisaeg",
+      "available": "Saadaval 24/7, ka pühadel",
+      "certified": "Sertifitseeritud avariitehnikud",
+      "guaranteed": "Töö garantiiga"
+    }
+  },
+  "emergencyBand": {
+    "discount": "-30% soodustus teenustele",
+    "services": "Torutööd, elekter ja renoveerimine — Tallinn ja Harjumaa",
+    "guarantee": "Töökindlus garanteeritud",
+    "cta": "Helista tasuta pakkumiseks"
+  },
+  "servicesPreview": {
+    "kicker": "Mida me teeme",
+    "title": "Kõik erialad. Üks usaldusväärne meeskond.",
+    "subtitle": "Siin on levinumad teenused. Puuduta ruutu üksikasjadeks või ava kogu kataloog.",
+    "viewAll": "Kõik teenused",
+    "countHint": "Näidatakse {shown} / {total} teenust — täieliku nimekirja saad menüüst «Kõik teenused»."
+  },
+  "services": {
+    "title": "Meie Teenused",
+    "subtitle": "Pakume järgmisi teenuseid:",
+    "viewAll": "Vaata Kõiki Teenuseid",
+    "galleryLabel": "Teenuse fotogalerii",
+    "learnMore": "Loe Lähemalt",
+    "asideKicker": "Vajad abi täna?",
+    "pageCtaTitle": "Küsi tasuta pakkumist selle teenuse kohta",
+    "pageCtaSubtitle": "Helista, kirjuta või saada sõnum — vastame kiiresti Tallinnas ja Harjumaal.",
+    "pageCtaButton": "Küsi pakkumist",
+    "relatedServices": "Seotud teenused",
+    "allServicesCta": "Kõik teenused",
+    "guarantee": "Garanteerime kõrge kvaliteedi! Saavutame selle selge planeerimise, uusimate tehnoloogiate, kaasaegse varustuse ja professionaalsete töötajate kaudu.",
+    "searchLabel": "Otsi teenuseid",
+    "searchPlaceholder": "Otsi nime järgi…",
+    "noResults": "Ükski teenus ei vasta otsingule.",
+    "items": {
+      "plumbing": "Torumees — 24 Tundi",
+      "pressureFlushing": "Kanalisatsiooni Survepesu",
+      "constructionWorks": "Ehitustööd",
+      "apartmentRepair": "Korterite ja Kontorite Remont",
+      "concreteWorks": "Betoonitööd",
+      "replacementRisers": "Püstakute Vahetus",
+      "wells": "Kaevud (Müük ja Paigaldus)",
+      "apartmentAssociations": "Korteriühistutele",
+      "containers": "Konteinerite Rent",
+      "cleaning": "Puhastusteenused",
+      "bathroomRepair": "Vannitoa Remont",
+      "waterMeter": "Veemõõtja Vahetus",
+      "roofing": "Katustööd, Katuse Remont",
+      "pipeRepair": "Torude Remont ja Vahetus",
+      "externalWaterSupply": "Välisveevarustuse Ehitus",
+      "electrical": "Elektritööd",
+      "boilerInstallation": "Katla Paigaldus",
+      "pavers": "Sillutuskivide Paigaldus",
+      "floorHeating": "Põrandakütte Paigaldus",
+      "radiators": "Radiaatorite Paigaldus",
+      "toiletInstallation": "WC Paigaldus",
+      "blockageClearing": "Ummistuste Likvideerimine",
+      "gasWorks": "Gaasitööd",
+      "defrostingPipes": "Torude Sulatamine",
+      "design": "Projekteerimine",
+      "balconyRepair": "Rõdude Remont",
+      "entranceRepair": "Trepikoja Remont",
+      "insuredAccident": "Kindlustusjuhtum — Hindamine ja Remont",
+      "pipeFreezing": "Torude Külmutamine",
+      "plumbingWorks": "Torutööd Tallinnas",
+      "polyethyleneWelding": "Polüetüleentorude Keevitus",
+      "applianceRepair": "Kodumasinate Remont",
+      "handymanServices": "Kodumeistri teenused",
+      "sewerageVideo": "Kanalisatsiooni Videouuring"
+    },
+    "itemShort": {
+      "plumbing": "Ööpäevaringne avariiabis — kiire väljakutse Tallinnas.",
+      "pressureFlushing": "Kanalisatsiooni survepesu ja ummistuste eemaldamine.",
+      "constructionWorks": "Kips, vaheseinad ja üldehitustööd.",
+      "apartmentRepair": "Korteri ja kontori renoveerimine võtmed kätte.",
+      "concreteWorks": "Betoonpõrandad, vundament ja betoonitööd.",
+      "replacementRisers": "Kütte ja kanalisatsiooni püstakute vahetus.",
+      "wells": "Kaevu ehitus, süvendid ja veevarustus krundil.",
+      "apartmentAssociations": "Korterelamute hooldus ja ühistööd.",
+      "containers": "Ehitus- ja olmeprügi konteinerite rent.",
+      "cleaning": "Süvapuhastus, ehitusjärgne ja kodukoristus.",
+      "bathroomRepair": "Vannitoa remont, plaatimine ja sanitaartehnika.",
+      "waterMeter": "Veemõtjate vahetus, plomm ja akt.",
+      "roofing": "Lame- ja viilkatused, lekete kõrvaldamine.",
+      "pipeRepair": "Torustiku remont, vahetus ja ühendused.",
+      "externalWaterSupply": "Välistrassid, kaevetööd ja septikud.",
+      "electrical": "Juhtmestik, kilbid ja valgustus — sertifitseeritud.",
+      "boilerInstallation": "Elektriboileri paigaldus ja hooldus.",
+      "pavers": "Tänavakivi, äärekivid ja haljastuse alus.",
+      "floorHeating": "Põrandakütte paigaldus ja lekete otsing.",
+      "radiators": "Radiaatorite ja termostaatide paigaldus.",
+      "toiletInstallation": "WC, loputuskast ja paigaldus sanitaaris.",
+      "blockageClearing": "Ummistuste avamine ja kanalisatsiooni läbipesu.",
+      "gasWorks": "Gaasipaigaldised vastavalt kehtivatele nõuetele.",
+      "defrostingPipes": "Külmutatud torude sulatamine ja taastus.",
+      "design": "Sisekujundus, planeerimine ja visualiseeringud.",
+      "balconyRepair": "Rõdu remont, tihendamine ja kate.",
+      "entranceRepair": "Trepikoja renoveerimine ja viimistlus.",
+      "insuredAccident": "Kindlustusjuhtum: hindamine ja taastusremont.",
+      "pipeFreezing": "Torude külmutamine töödeks ilma tühjenduseta.",
+      "plumbingWorks": "Torutööd, sanitaartehnika ja lekete kõrvaldamine.",
+      "polyethyleneWelding": "PE torude keevitus ja survetrassid.",
+      "applianceRepair": "Kodumasinate remont ja paigaldus.",
+      "handymanServices": "Pisiremont, montaaž ja kodumeister.",
+      "sewerageVideo": "Toru videouuring ja diagnostika kaameraga."
+    }
+  },
+  "whyUs": {
+    "title": "Miks Valida Meid",
+    "subtitle": "Aastatepikkune kogemus, sertifitseeritud spetsialistid ja garanteeritud tulemused.",
+    "items": {
+      "experience": "Aastatepikkune Kogemus",
+      "experienceDesc": "Professionaalne meeskond laia kogemusega kõikides koduteenustes.",
+      "certified": "Sertifitseeritud Tehnikud",
+      "certifiedDesc": "Kõik meie spetsialistid on sertifitseeritud ja pidevalt koolitatud uusimate tehnoloogiate alal.",
+      "guarantee": "Töö Garantii",
+      "guaranteeDesc": "Seisame oma töö taga. 2-aastane garantii kõikidele teostatud töödele.",
+      "pricing": "Aus Hinnakujundus",
+      "pricingDesc": "Läbipaistev hinnakujundus ilma varjatud tasudeta. -30% soodustus kõikidele teenustele.",
+      "emergency": "24/7 Avariiteenus",
+      "emergencyDesc": "Ööpäevaringne avariiteenus. Jõuame kohale 60 minuti jooksul.",
+      "quality": "Kvaliteetsed Materjalid",
+      "qualityDesc": "Kasutame ainult sertifitseeritud ja kvaliteetseid materjale usaldusväärsetelt tarnijatelt."
+    }
+  },
+  "process": {
+    "title": "Kuidas See Toimib",
+    "subtitle": "Lihtne 4-sammuline protsess teie probleemi lahendamiseks.",
+    "steps": {
+      "call": "Helistage Meile",
+      "callDesc": "Võtke meiega ühendust telefoni teel või täitke vorm. Kirjeldage oma probleemi.",
+      "diagnose": "Tasuta Diagnostika",
+      "diagnoseDesc": "Meie spetsialist tuleb kohale, diagnoosib probleemi ja annab tasuta hinnapakkumise.",
+      "fix": "Me Parandame",
+      "fixDesc": "Meie sertifitseeritud tehnik teostab töö kvaliteetsete materjalidega.",
+      "done": "Makske Pärast",
+      "doneDesc": "Maksate alles pärast töö valmimist ja rahulolu tulemusega."
+    }
+  },
+  "pricing": {
+    "title": "Hinnad",
+    "subtitle": "Läbipaistev hinnakujundus -30% soodustusega kõikidele teenustele.",
+    "from": "Alates",
+    "requestQuote": "Küsi Pakkumist",
+    "note": "Lõplik hind sõltub tööde mahust. Tasuta kohapeal hindamine."
+  },
+  "reviews": {
+    "kicker": "Arvustused",
+    "title": "Mida kliendid ütlevad",
+    "subtitle": "Päris tagasiside Tallinnast ja Harjumaalt.",
+    "empty": "Arvustused ilmuvad siia, kui need CMS-is lisada.",
+    "formTitle": "Jäta arvustus",
+    "formHint": "Avaldamine pärast modereerimist.",
+    "yourName": "Sinu nimi",
+    "yourReview": "Sinu arvustus",
+    "rating": "Hinnang",
+    "submit": "Saada arvustus",
+    "success": "Aitäh! Arvustus ilmub pärast kinnitust.",
+    "error": "Saatmine ebaõnnestus. Helista või proovi uuesti.",
+    "prevReview": "Eelmine arvustus",
+    "nextReview": "Järgmine arvustus"
+  },
+  "contact": {
+    "title": "Võtke Ühendust",
+    "subtitle": "Kirjutage meile — vastame 30 minuti jooksul tööajal.",
+    "form": {
+      "name": "Teie Nimi",
+      "phone": "Telefoninumber",
+      "email": "E-posti Aadress",
+      "service": "Valige Teenus",
+      "message": "Kirjeldage Oma Probleemi",
+      "submit": "Saada Päring",
+      "success": "Täname! Võtame teiega peagi ühendust.",
+      "attachments": "Fotod või video (valikuline)",
+      "attachmentsHint": "Kuni 6 faili, kuni 12 MB faili kohta.",
+      "fileSizeInfo": "Üle 12 MB suuruseid faile ei saa selle vormi kaudu saata. Saatke need palun e-postiga aadressile info@torudeabi24.ee.",
+      "fileTooLarge": "Mõni fail on suurem kui 12 MB. Eemaldage need või saatke suuremad failid e-postiga aadressile info@torudeabi24.ee.",
+      "uploadFailLargeFile": "Teie sõnumit ei õnnestunud nende manustega saata. Kui mõni fail on üle 2 MB, saatke failid otse aadressile info@torudeabi24.ee ja lisage kirjas oma nimi, telefon ja sõnum.",
+      "error": "Saatmine ebaõnnestus. Helista või proovi uuesti."
+    },
+    "info": {
+      "phone": "Telefon",
+      "phoneSub": "Avariiliin",
+      "email": "E-post",
+      "address": "Aadress",
+      "area": "Tallinn ja Harjumaa",
+      "hours": "Tööaeg",
+      "hoursValue": "24/7 Saadaval",
+      "emergency": "Soovituste või kaebuste korral:",
+      "emergencyEmail": "info@torudeabi24.ee"
+    },
+    "orderHere": "Telli siit. Soodus -30%!"
+  },
+  "cta": {
+    "notSure": "Pole kindel, millist teenust vajate?",
+    "notSureSubtitle": "Kirjeldage oma probleemi — diagnoosime tasuta ja soovitame õige lahenduse. Ilma kohustuseta.",
+    "ready": "Valmis oma probleemi lahendama?",
+    "readySubtitle": "Liitu 500+ rahuloleva kliendiga. Tasuta pakkumine, 60-min reageerimine, makske pärast valmimist."
+  },
+  "seo": {
+    "title": "Professionaalsed erialad Tallinnas ja Harjumaal",
+    "content": "TorudeAbi24 (torudeabi24.ee) pakub toru-, ehitus-, elektritöid ja tehnosüsteemide avariitöid Tallinnas ja Harjumaal — planeeritud tööd ja kiire väljakutse läbipaistvate hindadega."
+  },
+  "footer": {
+    "scrollTop": "Üles",
+    "phoneSub": "Avariiliin",
+    "description": "Professionaalsed koduteenused. Saadaval 24/7. Sertifitseeritud tehnikud. Garanteeritud töö.",
+    "servicesTitle": "Teenused",
+    "companyTitle": "Ettevõte",
+    "contactTitle": "Kontakt",
+    "aboutUs": "Meist",
+    "howItWorks": "Kuidas See Toimib",
+    "available247": "24/7 Saadaval",
+    "includingHolidays": "Ka pühadel",
+    "emailAnytime": "Kirjuta igal ajal",
+    "fullCoverage": "Kogu teeninduspiirkond",
+    "copyright_navalab_v1": "Made with ❤️ by Navalab © {year}. All rights reserved.",
+    "privacyPolicy": "Privaatsuspoliitika",
+    "termsOfService": "Teenusetingimused",
+    "cookiePolicy": "Küpsiste Poliitika",
+    "regNr": "TorudeAbi24",
+    "companyName": "TorudeAbi24",
+    "companyAddress": "Tallinn, Eesti"
+  },
+  "priceList": {
+    "kicker": "Hinnakiri",
+    "title": "Hinnakiri",
+    "intro": "Hinnad torutööde, ehitustööde, elektritööde ja avariitööde jaoks.",
+    "vatNote": "",
+    "notesTitle": "Üldtingimused",
+    "notes": [
+      "Teenuse miinimumhind on esimese töötunni hind.",
+      "Loetlemata teenuste hinnad arvutatakse eraldi.",
+      "Mahukate tööde puhul hind kokkuleppel.",
+      "Soodustus ei kehti toru videouuringule (kaameraga).",
+      "Akti koostamine on eraldi kokkuleppel, hinnad alates 15+km",
+      "Soodustus ei kehti välistöödele (kanalisatsiooni, vee- ja küttetorude, kaevude, pumpade vahetus jne).",
+      "Tunnitasu arvestatakse ühe inimese töö alusel; mitme töötaja korral vastavalt tegelikule ajale."
+    ],
+    "discountLabel": "Soodustuse aken",
+    "discountHours": "Soodustused kehtivad kell 8:00–19:00 (vastavalt kampaaniatele).",
+    "nightLabel": "Öine väljakutse",
+    "nightSurcharge": "Kell 19:00–8:00 lisandub arvele 10 € väljakutsumaks.",
+    "transportTallinn": "Transport Tallinna piires on tasuta kell 8:00–19:00, välja arvatud survepesu ja fekaalivedu.",
+    "parking": "Kui tööauto peab kasutama tasulist parklat, lisandub arvele tegelik parkimiskulu. Teavitame ette, kui tasuline parkimine on vajalik.",
+    "hourlyOnePerson": "NB! Tunnitasu arvestatakse ühe töötaja kohta, kui pole kokku lepitud teisiti.",
+    "qualityTitle": "Kvaliteet",
+    "qualityBody": "Garanteerime kõrge kvaliteedi. Teenused läbivad selge planeerimise, kaasaegsed meetodid, varustus ja materjalid ning professionaalsed töötajad.",
+    "warrantyNb": "NB! Garantii ei laiene ummistuste likvideerimisele.",
+    "taxNote": "Maksud lisanduvad hinnale vastavalt kehtivatele reeglitele.",
+    "callIntro": "Helista ööpäevaringselt — avarii ja broneeringud.",
+    "pressureFlushingVehicle": "Suur survepesuauto"
+  },
+  "blog": {
+    "title": "Blogi",
+    "readMore": "Loe Edasi",
+    "backToBlog": "Tagasi Blogisse",
+    "publishedOn": "Avaldatud",
+    "serviceLinksTitle": "Populaarsed teenused",
+    "serviceLinksIntro": "Avasta meie teenused Tallinnas ja Harjumaal:"
+  },
+  "partners": {
+    "title": "Partnerid",
+    "subtitle": "Ettevõtted ja organisatsioonid, kellega Eestis uhkusega koostööd teeme.",
+    "empty": "Partnerite logod ilmuvad siia, kui need on CMS-is lisatud.",
+    "sliderHint": "Hõljutamine peatab liuguri · Logo viib partneri lehele, kui link on määratud."
+  },
+  "terms": {
+    "title": "Tingimused",
+    "items": [
+      "Kraavi tagasitäitmine toimub välja kaevatud pinnasega. Pinnas tasandatakse.",
+      "Haljastuse (muru) taastamine on võimalik lisalepingu alusel lisatasu eest. Kinnisvara omanik peab enne kaevetööde algust teavitama olemasolevatest kommunikatsioonidest (elektri- ja sideliinid maa all).",
+      "Kui on vajalikud lisatööd (eelkõige võimalikud raudbetoon- või metallkonstruktsioonid maa all, millest klient ei tea), lepitakse nende teostamine ja tasumine kokku eraldi lisalepinguga.",
+      "Käesolev hinnapakkumine ei sisalda soojustusmaterjalide maksumust olemasoleva torustiku katmiseks maja vahetus läheduses.",
+      "Klient peab teostama pidevat tööde ülevaatust ja kvaliteedinõuete järgimise kontrolli igal ajal, vajadusel ekspertide kaasamisel.",
+      "Klient peab kontrollima tööde edenemist ja andma töövõtjale juhiseid tööde jätkamise osas.",
+      "Teostatud tööd on kaetud kaheaastase garantiiga tavapärase igapäevase kasutuse korral.",
+      "Ettevõte ei vastuta kliendi enda ostetud materjalide paigaldamise eest.",
+      "Klient on kohustatud tasuma töövõtulepingu alusel väljastatud arve põhjal ettevõtte arvelduskontole.",
+      "Väiksemad ja avariitööd teostab TorudeAbi24. Uuenda litsentsiandmeid Studio-s vajadusel."
+    ]
+  },
+  "cookieBanner": {
+    "ariaLabel": "Küpsiste nõusolek",
+    "title": "Kasutame küpsiseid",
+    "body": "Kasutame küpsiseid kasutuskogemuse parandamiseks ja lehe külastatavuse analüüsimiseks.",
+    "learnMore": "Loe lähemalt",
+    "accept": "Nõustu",
+    "reject": "Keeldu"
+  },
+  "privacy": {
+    "title": "Privaatsus- ja Küpsistepoliitika"
+  },
+  "pageSeo": {
+    "contact": {
+      "title": "Kontakt — hinnapakkumine ja ööpäevaringne avariiabi | TorudeAbi24",
+      "description": "Küsi tasuta hinnapakkumist või teata avariist. Vastame tööajal kiiresti, avariikõnedele ööpäevaringselt. Tel +372 56 89 79 29 · info@torudeabi24.ee"
+    },
+    "partners": {
+      "title": "Partnerid — koostöö ettevõtted Eestis | TorudeAbi24",
+      "description": "Tarnijad ja organisatsioonid, kellega teeme koostööd toru-, ehitus- ja hooldustöödel Tallinnas ja Harjumaal."
+    },
+    "priceList": {
+      "title": "Hinnakiri — tunnihinnad ja teenused | TorudeAbi24",
+      "description": "Kehtivad hinnad toru-, ehitus-, elektritöödele ja avariile. Soodustuse aken, öine lisatasu, transport ja tingimused."
+    },
+    "terms": {
+      "title": "Müügitingimused — töö, garantii ja arveldamine | TorudeAbi24",
+      "description": "Üldtingimused lepingulise töö, garantii, kliendi kohustuste ja arvelduse kohta TorudeAbi24 (TorudeAbi24) teenuste puhul Eestis."
+    },
+    "privacy": {
+      "title": "Privaatsus ja küpsised — kuidas andmeid kasutame | TorudeAbi24",
+      "description": "Kuidas TorudeAbi24 kogub, kasutab ja kaitseb isikuandmeid ning küpsiseid, kui kasutad torudeabi24.ee-d, võtad ühendust või tellid teenuseid Eestis."
+    },
+    "servicesIndex": {
+      "title": "Teenused — torutööd, elekter, remont ja avariiabi | TorudeAbi24",
+      "description": "Kõik teenused: toruremont, drenaaž, katlad, vannitoad, elekter, ehitus ja ööpäevaringne abi Tallinnas ja Harjumaal."
+    },
+    "blogIndex": {
+      "title": "Blogi — nõuanded kodu hoolduseks ja remondiks | TorudeAbi24",
+      "description": "Praktilised artiklid torutööde, elektri, kütte ja remondi kohta Eestis — meie meeskonnalt Tallinnas ja Harjumaal."
+    }
+  },
+  "common": {
+    "callUs": "Helista Meile",
+    "writeUs": "Kirjuta Meile",
+    "phone": "+372 56 89 79 29",
+    "phoneDial": "+37256897929",
+    "phone2": "+372 633 22 11",
+    "email": "info@torudeabi24.ee",
+    "address": "Tallinn, Eesti",
+    "back": "Tagasi",
+    "loading": "Laadimine..."
+  }
+}

@@ -1,0 +1,65 @@
+/** Lucide icon component names — must match exports from `lucide-react`. */
+export const DEFAULT_SERVICE_ICON = "Wrench";
+
+/** Map Sanity slug (or fallback key) → Lucide icon name for consistent UI. */
+export const slugToLucideIcon: Record<string, string> = {
+  "bathroom-repair": "Bath",
+  "boiler-installation": "Flame",
+  "cleaning-services": "Sparkles",
+  "concrete-works": "BrickWall",
+  "construction-works": "Hammer",
+  "external-water-supply": "Droplets",
+  "containers-for-rent": "Warehouse",
+  "defrosting-pipes": "ThermometerSnowflake",
+  design: "PenTool",
+  "balcony-repair": "Home",
+  "electrician-services": "Zap",
+  "blockage-clearing": "Unplug",
+  "entrance-repair": "DoorOpen",
+  "apartment-associations": "Building2",
+  "floor-heating": "Thermometer",
+  "handyman-services": "HandHelping",
+  "paver-installation": "Grid3x3",
+  "insured-accident-repair": "ShieldCheck",
+  "pipe-freezing": "Snowflake",
+  "plumber-24h-tallinn": "PhoneCall",
+  "plumbing-works-tallinn": "Cable",
+  "polyethylene-welding": "Link2",
+  "pressure-flushing-sewer": "Waves",
+  "pipe-repair-replacement": "Wrench",
+  "apartment-office-repair": "Paintbrush",
+  "appliance-repair": "Microwave",
+  "replacement-risers": "ArrowUpFromLine",
+  "water-meter-replacement": "Gauge",
+  "roofing-repair": "House",
+  "sewerage-video-inspection": "Video",
+  "toilet-installation": "Toilet",
+  "wells-sale-installation": "CircleDot",
+  // Legacy / message keys used as slugs in fallbacks
+  plumbing: "Wrench",
+  pressureFlushing: "Waves",
+  apartmentRepair: "Paintbrush",
+  replacementRisers: "ArrowUpFromLine",
+  wells: "CircleDot",
+  apartmentAssociations: "Building2",
+  containers: "Warehouse",
+  cleaning: "Sparkles",
+  bathroomRepair: "Bath",
+  waterMeter: "Gauge",
+  roofing: "House",
+  pipeRepair: "Wrench",
+  externalWaterSupply: "Droplets",
+  electrical: "Zap",
+  boilerInstallation: "Flame",
+  pavers: "Grid3x3",
+  floorHeating: "Thermometer",
+  radiators: "ThermometerSun",
+  toiletInstallation: "Toilet",
+  blockageClearing: "Unplug",
+  gasWorks: "Flame",
+};
+
+export function resolveServiceIcon(slug: string, sanityIcon?: string | null): string {
+  if (sanityIcon && /^[A-Z][a-zA-Z0-9]*$/.test(sanityIcon)) return sanityIcon;
+  return slugToLucideIcon[slug] ?? DEFAULT_SERVICE_ICON;
+}

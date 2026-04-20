@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --font-space: 'Outfit', 'Nunito', sans-serif;
+  --font-inter: 'Nunito', sans-serif;
+
+  /* TorudeAbi brand palette */
+  --color-brand-red: #CC1414;
+  --color-brand-red-dark: #A80F0F;
+  --color-brand-navy: #0D1B3E;
+  --color-brand-navy-light: #162251;
+  --color-brand-blue: #1565C0;
+  --color-brand-blue-light: #1976D2;
+
+  /* Light theme surfaces */
+  --color-surface: #FFFFFF;
+  --color-surface-2: #F5F6FA;
+  --color-surface-3: #EBEDF5;
+  --color-border: #E2E5EF;
+  --color-border-light: #F0F2F8;
+
+  /* Text */
+  --color-text: #111827;
+  --color-text-muted: #6B7280;
+  --color-text-dim: #9CA3AF;
+
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-pulse-dot: pulse-dot 2s ease-in-out infinite;
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes partner-marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.75); }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  body {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    background-color: #FFFFFF;
+    color: #111827;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Nunito', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #0D1B3E;
+  }
+}
+
+@utility font-space {
+  font-family: 'Outfit', 'Nunito', sans-serif !important;
+}
+
+@utility font-inter {
+  font-family: 'Nunito', sans-serif !important;
+}
+
+@layer utilities {
+  .animate-partner-marquee {
+    animation: partner-marquee 55s linear infinite;
+  }
+  .bg-brand-dots {
+    background-image: radial-gradient(circle at 1px 1px, rgba(13,27,62,0.06) 1px, transparent 0);
+    background-size: 28px 28px;
+  }
+  .shadow-red {
+    box-shadow: 0 4px 24px rgba(204, 20, 20, 0.25);
+  }
+  .shadow-navy {
+    box-shadow: 0 4px 24px rgba(13, 27, 62, 0.18);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #F5F6FA; }
+::-webkit-scrollbar-thumb { background: #CC1414; border-radius: 4px; }
+::selection { background: rgba(204, 20, 20, 0.15); color: #0D1B3E; }
