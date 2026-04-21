@@ -39,15 +39,6 @@ function buildPreviewList(cms: Item[] | null | undefined): Item[] {
   }));
 }
 
-const CARD_ACCENT_COLORS = [
-  "#CC1414",
-  "#0D1B3E",
-  "#1565C0",
-  "#CC1414",
-  "#0D1B3E",
-  "#1565C0",
-] as const;
-
 export default function ServicesPreview({
   services,
   totalCount,
@@ -76,39 +67,43 @@ export default function ServicesPreview({
   };
 
   return (
-    <section className="py-16 sm:py-20 bg-[#F5F6FA] relative overflow-hidden">
-      {/* Subtle top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-[#E2E5EF]" />
+    <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-brand-dots opacity-30 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
           <div className="max-w-2xl">
-            <p className="text-[#CC1414] text-xs font-bold uppercase tracking-[0.25em] mb-3">
-              {tp("kicker")}
-            </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0D1B3E] leading-[1.05] font-space">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="w-8 h-0.5 bg-[#E87722]" />
+              <p className="text-[#E87722] text-xs font-bold uppercase tracking-[0.25em]">
+                {tp("kicker")}
+              </p>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B3D91] leading-[1.05] font-space">
               {tp("title")}
             </h2>
-            <p className="text-[#6B7280] text-base sm:text-lg mt-4 leading-relaxed">
+            <p className="text-[#5A5955] text-base sm:text-lg mt-4 leading-relaxed">
               {tp("subtitle")}
             </p>
           </div>
           <Link
             href="/services"
             className="inline-flex items-center gap-2 self-start lg:self-end text-white font-bold text-sm px-6 py-3 rounded-xl transition-all hover:-translate-y-0.5 shrink-0"
-            style={{ background: "#CC1414", boxShadow: "0 4px 16px rgba(204,20,20,0.25)" }}
+            style={{
+              background: "linear-gradient(135deg, #1254B8, #0B3D91)",
+              boxShadow: "0 4px 16px rgba(18,84,184,0.25)",
+            }}
           >
             {tp("viewAll")}
             <ArrowRight size={16} />
           </Link>
         </div>
 
-        {/* Service cards – alternate numbered list style */}
+        {/* Service cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {list.map((item, i) => {
-            const accent = CARD_ACCENT_COLORS[i % CARD_ACCENT_COLORS.length];
-            const num = String(i + 1).padStart(2, "0");
+            const isFirst = i === 0;
             return (
               <motion.div
                 key={item._id}
@@ -117,55 +112,69 @@ export default function ServicesPreview({
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ delay: Math.min(i * 0.05, 0.25) }}
               >
-                <Link
-                  href={internalPathToLinkHref(`/services/${item.slug}`)}
-                  className="group flex flex-row gap-5 items-start bg-white border border-[#E2E5EF] rounded-2xl px-5 py-5 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.boxShadow = `0 12px 36px -8px ${accent}22`;
-                    (e.currentTarget as HTMLElement).style.borderColor = `${accent}35`;
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.boxShadow = "";
-                    (e.currentTarget as HTMLElement).style.borderColor = "#E2E5EF";
-                  }}
-                >
-                  {/* Large index number */}
-                  <span
-                    className="text-5xl font-black leading-none select-none shrink-0 transition-transform group-hover:scale-110 duration-300"
-                    style={{ color: `${accent}18`, fontFamily: "'Outfit', sans-serif" }}
+                {isFirst ? (
+                  /* Featured first card — blue */
+                  <Link
+                    href={internalPathToLinkHref(`/services/${item.slug}`)}
+                    className="group flex flex-col gap-4 bg-[#0B3D91] rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden h-full"
+                    style={{ boxShadow: "0 8px 32px -8px rgba(11,61,145,0.35)" }}
                   >
-                    {num}
-                  </span>
-                  <div className="flex flex-col gap-1.5 min-w-0 pt-0.5">
-                    {/* Icon + Title row */}
-                    <div className="flex items-center gap-2">
-                      <div
-                        className="w-8 h-8 shrink-0 rounded-xl flex items-center justify-center text-white transition-transform group-hover:scale-110 duration-200"
-                        style={{ background: accent }}
-                      >
-                        <ServiceIcon slug={canon(item)} sanityIcon={item.icon} size={16} strokeWidth={2} />
-                      </div>
-                      <span className="text-[#0D1B3E] text-[15px] font-extrabold leading-snug group-hover:text-[#CC1414] transition-colors hyphens-auto font-space">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#1254B8]/40 rounded-bl-3xl pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-tr-3xl pointer-events-none" />
+
+                    <div className="w-12 h-12 rounded-xl bg-[#E87722] flex items-center justify-center text-white shrink-0 relative z-10">
+                      <ServiceIcon slug={canon(item)} sanityIcon={item.icon} size={22} strokeWidth={1.9} />
+                    </div>
+
+                    <div className="flex flex-col gap-2 relative z-10 flex-1">
+                      <span className="text-white text-base font-extrabold leading-snug font-space hyphens-auto">
                         {titleFor(item)}
                       </span>
+                      {descFor(item) ? (
+                        <span className="text-white/65 text-xs leading-relaxed line-clamp-3">
+                          {descFor(item)}
+                        </span>
+                      ) : null}
                     </div>
-                    {descFor(item) ? (
-                      <span className="text-[#6B7280] text-xs leading-relaxed line-clamp-2 pl-10">
-                        {descFor(item)}
-                      </span>
-                    ) : null}
-                    <span className="pl-10 mt-0.5 flex items-center gap-0.5 text-[#CC1414] text-[10px] font-bold uppercase tracking-wide opacity-0 group-hover:opacity-100 transition-opacity">
-                      {t("learnMore")}
-                      <ArrowUpRight size={11} />
+
+                    <span className="relative z-10 flex items-center gap-1 text-[#E87722] text-[11px] font-bold uppercase tracking-wide">
+                      {t("learnMore")} <ArrowUpRight size={11} />
                     </span>
-                  </div>
-                </Link>
+                  </Link>
+                ) : (
+                  /* Regular card */
+                  <Link
+                    href={internalPathToLinkHref(`/services/${item.slug}`)}
+                    className="group flex flex-col gap-4 bg-white border border-[#E8EFFE] rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#1254B8]/30 hover:shadow-[0_12px_36px_-8px_rgba(18,84,184,0.15)] relative overflow-hidden h-full"
+                  >
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#E8EFFE] to-transparent rounded-bl-3xl pointer-events-none transition-opacity group-hover:opacity-60" />
+
+                    <div className="w-12 h-12 rounded-xl bg-[#E8EFFE] flex items-center justify-center text-[#1254B8] shrink-0 group-hover:bg-[#1254B8] group-hover:text-white transition-all duration-300">
+                      <ServiceIcon slug={canon(item)} sanityIcon={item.icon} size={22} strokeWidth={1.9} />
+                    </div>
+
+                    <div className="flex flex-col gap-2 flex-1">
+                      <span className="text-[#0B3D91] text-base font-extrabold leading-snug group-hover:text-[#1254B8] transition-colors font-space hyphens-auto">
+                        {titleFor(item)}
+                      </span>
+                      {descFor(item) ? (
+                        <span className="text-[#9C9B96] text-xs leading-relaxed line-clamp-2">
+                          {descFor(item)}
+                        </span>
+                      ) : null}
+                    </div>
+
+                    <span className="flex items-center gap-1 text-[#1254B8] text-[11px] font-bold uppercase tracking-wide opacity-0 group-hover:opacity-100 transition-opacity">
+                      {t("learnMore")} <ArrowUpRight size={11} />
+                    </span>
+                  </Link>
+                )}
               </motion.div>
             );
           })}
         </div>
 
-        <p className="text-center text-[#9CA3AF] text-sm mt-8">
+        <p className="text-center text-[#9C9B96] text-sm mt-8">
           {tp("countHint", { shown: PREVIEW_HOME_LIMIT, total: totalCount })}
         </p>
       </div>

@@ -101,7 +101,7 @@ export default async function ServicePage({ params }: Props) {
 
   return (
     <>
-      <main className="pt-24 sm:pt-28 pb-16">
+      <main className="pt-16 pb-16">
         <ServiceDetail service={service} topImages={topImages} relatedServices={relatedLinks} />
       </main>
       <Footer />

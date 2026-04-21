@@ -6,9 +6,10 @@ import ServicesPreview from "@/components/sections/ServicesPreview";
 import Process from "@/components/sections/Process";
 // import Pricing from "@/components/sections/Pricing";
 import SeoSection from "@/components/sections/SeoSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import JsonLd from "@/components/seo/JsonLd";
 import { sanityFetch } from "@/lib/sanity/client";
-import { servicesListQuery } from "@/lib/sanity/queries";
+import { servicesListQuery, testimonialsQuery } from "@/lib/sanity/queries";
 import type { Locale } from "@/i18n/config";
 import { ALL_SERVICE_SLUGS } from "@/lib/serviceSlugs";
 
@@ -30,9 +31,10 @@ export default async function Home({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const services = await sanityFetch<
-    { _id: string; slug: string; title?: string; description?: string; icon?: string | null; order?: number }[]
-  >(servicesListQuery(locale as Locale));
+  const [services, testimonials] = await Promise.all([
+    sanityFetch<{ _id: string; slug: string; title?: string; description?: string; icon?: string | null; order?: number }[]>(servicesListQuery(locale as Locale)),
+    sanityFetch<{ _id: string; name: string; text?: string | null; rating?: number | null; avatar?: unknown }[]>(testimonialsQuery(locale as Locale))
+  ]);
 
   const serviceTotal = services?.length ? services.length : ALL_SERVICE_SLUGS.length;
 
@@ -42,6 +44,7 @@ export default async function Home({ params }: Props) {
       <Hero />
       <ServicesPreview services={services} totalCount={serviceTotal} />
       <Process />
+      <TestimonialsSection items={testimonials ?? []} showList={true} showForm={false} />
       {/* <Pricing /> */}
       <SeoSection />
       <Footer />

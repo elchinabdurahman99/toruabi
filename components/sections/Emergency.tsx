@@ -15,19 +15,19 @@ export default function Emergency() {
   ];
 
   const featureColors = [
-    { bg: "linear-gradient(135deg,#EF4444,#DC2626)", shadow: "rgba(239,68,68,0.3)", border: "rgba(239,68,68,0.2)" },
-    { bg: "linear-gradient(135deg,#3B82F6,#1D4ED8)", shadow: "rgba(59,130,246,0.3)", border: "rgba(59,130,246,0.2)" },
-    { bg: "linear-gradient(135deg,#EF4444,#3B82F6)", shadow: "rgba(239,68,68,0.25)", border: "rgba(239,68,68,0.15)" },
-    { bg: "linear-gradient(135deg,#3B82F6,#EF4444)", shadow: "rgba(59,130,246,0.25)", border: "rgba(59,130,246,0.15)" },
+    { bg: "linear-gradient(135deg,#E87722,#C5651A)", shadow: "rgba(232,119,34,0.3)", border: "rgba(232,119,34,0.2)" },
+    { bg: "linear-gradient(135deg,#1254B8,#0B3D91)", shadow: "rgba(18,84,184,0.3)", border: "rgba(18,84,184,0.2)" },
+    { bg: "linear-gradient(135deg,#E87722,#1254B8)", shadow: "rgba(232,119,34,0.25)", border: "rgba(232,119,34,0.15)" },
+    { bg: "linear-gradient(135deg,#1254B8,#E87722)", shadow: "rgba(18,84,184,0.25)", border: "rgba(18,84,184,0.15)" },
   ];
 
   return (
     <section id="emergency" className="py-28 relative overflow-hidden border-y border-white/6" style={{ background: "#0D0D18" }}>
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute -right-48 top-1/2 -translate-y-1/2 w-150 h-150 rounded-full opacity-10"
-          style={{ background: "radial-gradient(circle, #EF4444, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, #1254B8, transparent 70%)" }} />
         <div className="absolute -left-24 bottom-0 w-96 h-96 rounded-full opacity-8"
-          style={{ background: "radial-gradient(circle, #3B82F6, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, #E87722, transparent 70%)" }} />
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -45,8 +45,8 @@ export default function Emergency() {
             viewport={{ once: true }}
           >
             <div
-              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] px-4 py-2 rounded-full mb-8 border border-[#EF4444]/20"
-              style={{ background: "rgba(239,68,68,0.1)", color: "#EF4444" }}
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] px-4 py-2 rounded-full mb-8 border border-[#E87722]/20"
+              style={{ background: "rgba(232,119,34,0.1)", color: "#E87722" }}
             >
               <Zap size={12} /> {t("badge")}
             </div>
@@ -62,8 +62,8 @@ export default function Emergency() {
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center gap-3 text-white font-extrabold text-lg px-8 py-4 rounded-2xl transition-colors"
               style={{
-                background: "linear-gradient(135deg, #EF4444, #DC2626)",
-                boxShadow: "0 12px 40px rgba(239,68,68,0.4)",
+                background: "linear-gradient(135deg, #E87722, #C5651A)",
+                boxShadow: "0 12px 40px rgba(232,119,34,0.4)",
               }}
             >
               <Phone size={20} />

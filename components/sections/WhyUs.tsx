@@ -5,12 +5,12 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
 const ICON_GRADIENTS = [
-  "linear-gradient(135deg, #EF4444, #DC2626)",
-  "linear-gradient(135deg, #3B82F6, #1D4ED8)",
-  "linear-gradient(135deg, #EF4444, #3B82F6)",
-  "linear-gradient(135deg, #3B82F6, #EF4444)",
-  "linear-gradient(135deg, #DC2626, #EF4444)",
-  "linear-gradient(135deg, #1D4ED8, #3B82F6)",
+  "linear-gradient(135deg, #E87722, #C5651A)",
+  "linear-gradient(135deg, #1254B8, #0B3D91)",
+  "linear-gradient(135deg, #E87722, #1254B8)",
+  "linear-gradient(135deg, #1254B8, #E87722)",
+  "linear-gradient(135deg, #C5651A, #E87722)",
+  "linear-gradient(135deg, #0B3D91, #1254B8)",
 ];
 
 export default function WhyUs() {
@@ -30,7 +30,7 @@ export default function WhyUs() {
     <section id="why" className="py-28 relative overflow-hidden" style={{ background: "#06060A" }}>
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 rounded-full opacity-5"
-          style={{ background: "radial-gradient(circle, #EF4444 0%, transparent 60%)" }} />
+          style={{ background: "radial-gradient(circle, #1254B8 0%, transparent 60%)" }} />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -41,8 +41,8 @@ export default function WhyUs() {
           className="mb-16"
         >
           <div
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] px-4 py-2 rounded-full mb-5 border border-[#EF4444]/20"
-            style={{ background: "rgba(239,68,68,0.1)", color: "#EF4444" }}
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] px-4 py-2 rounded-full mb-5 border border-[#E87722]/20"
+            style={{ background: "rgba(232,119,34,0.1)", color: "#E87722" }}
           >
             {t("title")}
           </div>
@@ -69,13 +69,13 @@ export default function WhyUs() {
               style={{ background: "rgba(255,255,255,0.03)" }}
             >
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"
-                style={{ background: `linear-gradient(135deg, rgba(239,68,68,0.05) 0%, rgba(59,130,246,0.05) 100%)` }} />
+                style={{ background: `linear-gradient(135deg, rgba(232,119,34,0.05) 0%, rgba(18,84,184,0.05) 100%)` }} />
               <span className="absolute top-4 right-5 text-7xl font-extrabold text-white/3 group-hover:text-white/6 transition-colors select-none font-space">
                 {r.num}
               </span>
               <div
                 className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300"
-                style={{ background: ICON_GRADIENTS[i], boxShadow: `0 8px 24px ${i % 2 === 0 ? "rgba(239,68,68,0.3)" : "rgba(59,130,246,0.3)"}` }}
+                style={{ background: ICON_GRADIENTS[i], boxShadow: `0 8px 24px ${i % 2 === 0 ? "rgba(232,119,34,0.3)" : "rgba(18,84,184,0.3)"}` }}
               >
                 <r.icon size={22} className="text-white" />
               </div>
@@ -91,7 +91,7 @@ export default function WhyUs() {
           viewport={{ once: true }}
           className="mt-12 rounded-3xl p-8 lg:p-10 flex flex-col lg:flex-row items-center justify-between gap-6 border border-white/8"
           style={{
-            background: "linear-gradient(135deg, rgba(239,68,68,0.08) 0%, rgba(59,130,246,0.08) 100%)",
+            background: "linear-gradient(135deg, rgba(232,119,34,0.08) 0%, rgba(18,84,184,0.08) 100%)",
           }}
         >
           <div>
@@ -102,14 +102,14 @@ export default function WhyUs() {
             <a
               href={`tel:${tc("phoneDial")}`}
               className="flex items-center gap-2 text-white font-bold px-6 py-3.5 rounded-2xl transition-all hover:-translate-y-0.5"
-              style={{ background: "linear-gradient(135deg, #EF4444, #DC2626)", boxShadow: "0 8px 24px rgba(239,68,68,0.3)" }}
+              style={{ background: "linear-gradient(135deg, #E87722, #C5651A)", boxShadow: "0 8px 24px rgba(232,119,34,0.3)" }}
             >
               📞 {tc("callUs")}
             </a>
             <Link
               href="/contact"
-              className="flex items-center gap-2 text-white font-bold px-6 py-3.5 rounded-2xl border border-white/12 hover:border-[#3B82F6]/40 transition-all"
-              style={{ background: "rgba(59,130,246,0.1)" }}
+              className="flex items-center gap-2 text-white font-bold px-6 py-3.5 rounded-2xl border border-white/12 hover:border-[#1254B8]/40 transition-all"
+              style={{ background: "rgba(18,84,184,0.15)" }}
             >
               {t("title")} →
             </Link>

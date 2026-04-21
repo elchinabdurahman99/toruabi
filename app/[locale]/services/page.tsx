@@ -37,7 +37,7 @@ export default async function ServicesPage({ params }: Props) {
 
   return (
     <>
-      <main className="pt-24 sm:pt-28 pb-16">
+      <main className="pt-16 pb-16">
         <ServicesGrid services={services} />
       </main>
       <Footer />

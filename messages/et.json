@@ -32,10 +32,10 @@
     "cta": "Küsi Tasuta Pakkumist",
     "ctaSecondary": "Helista Kohe",
     "sliderAlts": [
-      "Avariiline torumees ja torutööd Tallinnas ja Harjumaal — professionaalsed torutööd, TorudeAbi24 torudeabi24.ee",
-      "Elektrik ja elektritööd: juhtmestik, pistikud, remont Tallinnas — TorudeAbi24 koduteenused",
-      "Renoveerimine ja ehitus: sise- ja remonditööd Harjumaal — TorudeAbi24 Eesti",
-      "Kodu- ja kontorite puhastus Tallinnas — professionaalne puhastusteenus | TorudeAbi24 torudeabi24.ee"
+      "Premium avariitorumees ja toruremondi spetsialist Tallinnas ja Harjumaal — TorudeAbi24",
+      "Sertifitseeritud elektrik: kilbid, juhtmestik ja pistikute uuendus Tallinnas — TorudeAbi24",
+      "Professionaalne torutehnik vee- ja kanalisatsioonisüsteemide paigalduseks ning remondiks — TorudeAbi24",
+      "Premium elektriteenuse meeskond ohutuks diagnostikaks ja remondiks Tallinnas ning Harjumaal — TorudeAbi24"
     ],
     "sliderPrev": "Eelmine foto",
     "sliderNext": "Järgmine foto",
@@ -228,11 +228,30 @@
     "title": "Võtke Ühendust",
     "subtitle": "Kirjutage meile — vastame 30 minuti jooksul tööajal.",
     "form": {
+      "title": "Saada päring",
+      "hint": "Vastame tavaliselt 30 minuti jooksul tööajal.",
       "name": "Teie Nimi",
       "phone": "Telefoninumber",
       "email": "E-posti Aadress",
       "service": "Valige Teenus",
       "message": "Kirjeldage Oma Probleemi",
+      "selectServicePlaceholder": "Vali teenus...",
+      "placeholders": {
+        "name": "Teie täisnimi",
+        "phone": "+372 ...",
+        "email": "email@...",
+        "address": "Töö aadress",
+        "message": "Kirjeldage probleemi lühidalt..."
+      },
+      "services": {
+        "electrical": "Elektritööd",
+        "plumbing": "Santehnilised tööd",
+        "bathroomRepair": "Vannitoa remont",
+        "blockageClearing": "Ummistuse likvideerimine",
+        "construction": "Ehitustööd",
+        "apartmentAssociation": "Korteriühistu hooldus",
+        "other": "Muu"
+      },
       "submit": "Saada Päring",
       "success": "Täname! Võtame teiega peagi ühendust.",
       "attachments": "Fotod või video (valikuline)",

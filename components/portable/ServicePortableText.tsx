@@ -16,12 +16,12 @@ function servicePortableComponents(serviceTitle: string): PortableTextComponents
         const src = urlFor(value as any).width(1400).height(1050).quality(90).url();
         const alt =
           (typeof value.alt === "string" && value.alt.trim()) ||
-          `${serviceTitle} — professional home services Tallinn & Harjumaa | Ajsan.ee`;
+          `${serviceTitle} — professional home services Tallinn & Harjumaa`;
         const caption = typeof value.caption === "string" ? value.caption.trim() : "";
 
         return (
           <figure className="my-8 w-full md:float-right md:ml-8 md:mb-4 md:max-w-[min(100%,420px)]">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/8 bg-[#EEECE8] shadow-lg">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-[#E8EFFE] bg-[#F0F4FF] shadow-sm">
               <Image
                 src={src}
                 alt={alt}
@@ -31,7 +31,9 @@ function servicePortableComponents(serviceTitle: string): PortableTextComponents
               />
             </div>
             {caption ? (
-              <figcaption className="mt-2 text-center text-sm text-[#94A3B8] font-medium">{caption}</figcaption>
+              <figcaption className="mt-2 text-center text-sm text-[#9C9B96] font-medium">
+                {caption}
+              </figcaption>
             ) : null}
           </figure>
         );
@@ -39,20 +41,24 @@ function servicePortableComponents(serviceTitle: string): PortableTextComponents
     },
     block: {
       h2: ({ children }) => (
-        <h2 className="clear-both text-xl md:text-2xl font-extrabold text-white mt-10 mb-4 first:mt-0 scroll-mt-28">
+        <h2 className="clear-both text-xl md:text-2xl font-extrabold text-[#0B3D91] mt-10 mb-4 first:mt-0 scroll-mt-28">
           {children}
         </h2>
       ),
       h3: ({ children }) => (
-        <h3 className="clear-both text-lg md:text-xl font-extrabold text-white mt-8 mb-3">{children}</h3>
+        <h3 className="clear-both text-lg md:text-xl font-extrabold text-[#0B3D91] mt-8 mb-3">
+          {children}
+        </h3>
       ),
       blockquote: ({ children }) => (
-        <blockquote className="clear-both border-l-4 border-[#EF4444] pl-5 my-6 text-base md:text-lg text-[#3d3d38] font-medium italic">
+        <blockquote className="clear-both border-l-4 border-[#1254B8] pl-5 my-6 text-base md:text-lg text-[#374151] font-medium italic bg-[#F0F4FF] py-3 pr-4 rounded-r-xl">
           {children}
         </blockquote>
       ),
       normal: ({ children }) => (
-        <p className="mb-5 text-base md:text-[1.0625rem] text-[#3d3d38] font-medium leading-relaxed">{children}</p>
+        <p className="mb-5 text-base md:text-[1.0625rem] text-[#374151] font-medium leading-relaxed">
+          {children}
+        </p>
       ),
     },
     marks: {
@@ -66,14 +72,20 @@ function servicePortableComponents(serviceTitle: string): PortableTextComponents
 
         if (isTel) {
           return (
-            <a href={href} className={`${pill} bg-[#EF4444] text-white hover:bg-red-400 border border-black/5`}>
+            <a
+              href={href}
+              className={`${pill} bg-[#E87722] text-white hover:bg-[#C5651A] border border-black/5`}
+            >
               {children}
             </a>
           );
         }
         if (isMail) {
           return (
-            <a href={href} className={`${pill} bg-[#EF4444] text-white hover:bg-black border border-black/10`}>
+            <a
+              href={href}
+              className={`${pill} bg-[#1254B8] text-white hover:bg-[#0B3D91] border border-black/10`}
+            >
               {children}
             </a>
           );
@@ -84,7 +96,7 @@ function servicePortableComponents(serviceTitle: string): PortableTextComponents
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${pill} bg-white text-white border-2 border-white/8 hover:border-[#EF4444]`}
+              className={`${pill} bg-white text-[#1254B8] border-2 border-[#E8EFFE] hover:border-[#1254B8]`}
             >
               {children}
             </a>
@@ -93,29 +105,40 @@ function servicePortableComponents(serviceTitle: string): PortableTextComponents
         return (
           <Link
             href={internalPathToLinkHref(href)}
-            className={`${pill} bg-white text-white border-2 border-white/8 hover:border-[#EF4444]`}
+            className={`${pill} bg-white text-[#1254B8] border-2 border-[#E8EFFE] hover:border-[#1254B8]`}
           >
             {children}
           </Link>
         );
       },
-      strong: ({ children }) => <strong className="font-extrabold text-white">{children}</strong>,
+      strong: ({ children }) => (
+        <strong className="font-extrabold text-[#0B3D91]">{children}</strong>
+      ),
     },
     list: {
       bullet: ({ children }) => (
-        <ul className="my-6 clear-both list-disc pl-6 md:pl-7 space-y-2 text-base md:text-[1.0625rem] text-[#3d3d38] marker:text-white">
+        <ul className="my-6 clear-both space-y-2.5 text-base md:text-[1.0625rem] text-[#374151]">
           {children}
         </ul>
       ),
       number: ({ children }) => (
-        <ol className="my-6 clear-both list-decimal pl-6 md:pl-7 space-y-2 text-base md:text-[1.0625rem] text-[#3d3d38]">
+        <ol className="my-6 clear-both space-y-2.5 text-base md:text-[1.0625rem] text-[#374151] list-none [counter-reset:list-counter]">
           {children}
         </ol>
       ),
     },
     listItem: {
-      bullet: ({ children }) => <li className="leading-relaxed pl-1">{children}</li>,
-      number: ({ children }) => <li className="leading-relaxed pl-1">{children}</li>,
+      bullet: ({ children }) => (
+        <li className="flex items-start gap-3 leading-relaxed">
+          <span className="mt-2 w-2 h-2 rounded-full bg-[#1254B8] shrink-0" />
+          <span>{children}</span>
+        </li>
+      ),
+      number: ({ children }) => (
+        <li className="flex items-start gap-3 leading-relaxed [counter-increment:list-counter] before:content-[counter(list-counter)] before:shrink-0 before:w-6 before:h-6 before:rounded-full before:bg-[#E8EFFE] before:text-[#1254B8] before:text-xs before:font-bold before:flex before:items-center before:justify-center before:mt-0.5">
+          <span>{children}</span>
+        </li>
+      ),
     },
   };
 }

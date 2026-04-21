@@ -31,7 +31,7 @@ export default async function BlogPage({ params }: Props) {
 
   return (
     <>
-      <main className="pt-36 pb-16">
+      <main className="pt-16 pb-16">
         <BlogGrid posts={posts || []} />
       </main>
       <Footer />

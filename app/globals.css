@@ -4,25 +4,35 @@
   --font-space: 'Outfit', 'Nunito', sans-serif;
   --font-inter: 'Nunito', sans-serif;
 
-  /* TorudeAbi brand palette */
-  --color-brand-red: #CC1414;
-  --color-brand-red-dark: #A80F0F;
-  --color-brand-navy: #0D1B3E;
-  --color-brand-navy-light: #162251;
-  --color-brand-blue: #1565C0;
-  --color-brand-blue-light: #1976D2;
+  --color-blue: #0B3D91;
+  --color-blue-mid: #1254B8;
+  --color-blue-light: #E8EFFE;
+  --color-blue-pale: #F0F4FF;
+  --color-amber: #E87722;
+  --color-amber-light: #FFF3E6;
+  --color-amber-pale: #FFECD6;
+  --color-off-white: #FAFAF8;
+  --color-gray-100: #F5F4F0;
+  --color-gray-200: #E8E7E2;
+  --color-gray-400: #9C9B96;
+  --color-gray-600: #5A5955;
+  --color-gray-900: #1A1917;
 
-  /* Light theme surfaces */
+  /* Legacy aliases for backward compat */
+  --color-brand-red: #E87722;
+  --color-brand-red-dark: #C5651A;
+  --color-brand-navy: #0B3D91;
+  --color-brand-navy-light: #1254B8;
+  --color-brand-blue: #1254B8;
+  --color-brand-blue-light: #E8EFFE;
   --color-surface: #FFFFFF;
-  --color-surface-2: #F5F6FA;
-  --color-surface-3: #EBEDF5;
-  --color-border: #E2E5EF;
-  --color-border-light: #F0F2F8;
-
-  /* Text */
-  --color-text: #111827;
-  --color-text-muted: #6B7280;
-  --color-text-dim: #9CA3AF;
+  --color-surface-2: #F0F4FF;
+  --color-surface-3: #E8EFFE;
+  --color-border: #E8EFFE;
+  --color-border-light: #F0F4FF;
+  --color-text: #1A1917;
+  --color-text-muted: #5A5955;
+  --color-text-dim: #9C9B96;
 
   --animate-marquee: marquee 30s linear infinite;
   --animate-float: float 4s ease-in-out infinite;
@@ -58,14 +68,14 @@
     font-size: 1rem;
     line-height: 1.65;
     background-color: #FFFFFF;
-    color: #111827;
+    color: #1A1917;
     overflow-x: hidden;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Outfit', 'Nunito', sans-serif;
     font-weight: 700;
     letter-spacing: -0.025em;
-    color: #0D1B3E;
+    color: #0B3D91;
   }
 }
 
@@ -82,19 +92,24 @@
     animation: partner-marquee 55s linear infinite;
   }
   .bg-brand-dots {
-    background-image: radial-gradient(circle at 1px 1px, rgba(13,27,62,0.06) 1px, transparent 0);
+    background-image: radial-gradient(circle at 1px 1px, rgba(18,84,184,0.07) 1px, transparent 0);
     background-size: 28px 28px;
   }
+  .shadow-brand {
+    box-shadow: 0 4px 24px rgba(18, 84, 184, 0.2);
+  }
+  .shadow-amber {
+    box-shadow: 0 4px 24px rgba(232, 119, 34, 0.25);
+  }
   .shadow-red {
-    box-shadow: 0 4px 24px rgba(204, 20, 20, 0.25);
+    box-shadow: 0 4px 24px rgba(232, 119, 34, 0.25);
   }
   .shadow-navy {
-    box-shadow: 0 4px 24px rgba(13, 27, 62, 0.18);
+    box-shadow: 0 4px 24px rgba(11, 61, 145, 0.18);
   }
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #F5F6FA; }
-::-webkit-scrollbar-thumb { background: #CC1414; border-radius: 4px; }
-::selection { background: rgba(204, 20, 20, 0.15); color: #0D1B3E; }
+::-webkit-scrollbar-track { background: #F0F4FF; }
+::-webkit-scrollbar-thumb { background: #1254B8; border-radius: 4px; }
+::selection { background: rgba(18, 84, 184, 0.15); color: #0B3D91; }

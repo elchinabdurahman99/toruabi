@@ -32,10 +32,10 @@
     "cta": "Get Free Quote",
     "ctaSecondary": "Call Now",
     "sliderAlts": [
-      "Emergency plumber and pipe repair in Tallinn and Harjumaa — professional plumbing services Estonia | TorudeAbi24 torudeabi24.ee",
-      "Licensed electrician for wiring, sockets and electrical repairs in Tallinn — home electrical services | torudeabi24.ee",
-      "Renovation and construction: interior works, repairs and building services in Harjumaa | TorudeAbi24 Estonia",
-      "Professional house and office cleaning in Tallinn — domestic cleaning services Harjumaa | TorudeAbi24 torudeabi24.ee"
+      "Premium emergency plumber and pipe repair specialist in Tallinn and Harjumaa — TorudeAbi24",
+      "Certified electrician handling panels, sockets, and wiring upgrades in Tallinn — TorudeAbi24",
+      "Professional plumbing technician installing and repairing water systems — TorudeAbi24 Estonia",
+      "Premium electrical service team for safe diagnostics and repairs in Tallinn & Harjumaa — TorudeAbi24"
     ],
     "sliderPrev": "Previous photo",
     "sliderNext": "Next photo",
@@ -228,11 +228,30 @@
     "title": "Contact Us",
     "subtitle": "Get in touch — we respond within 30 minutes during business hours.",
     "form": {
+      "title": "Send a request",
+      "hint": "We usually respond within 30 minutes during business hours.",
       "name": "Your Name",
       "phone": "Phone Number",
       "email": "Email Address",
       "service": "Select Service",
       "message": "Describe Your Problem",
+      "selectServicePlaceholder": "Choose a service...",
+      "placeholders": {
+        "name": "Your full name",
+        "phone": "+372 ...",
+        "email": "email@...",
+        "address": "Work address",
+        "message": "Briefly describe the issue..."
+      },
+      "services": {
+        "electrical": "Electrical Works",
+        "plumbing": "Plumbing Works",
+        "bathroomRepair": "Bathroom Repair",
+        "blockageClearing": "Blockage Clearing",
+        "construction": "Construction Works",
+        "apartmentAssociation": "Apartment Association Maintenance",
+        "other": "Other"
+      },
       "submit": "Send Request",
       "success": "Thank you! We'll contact you shortly.",
       "attachments": "Photos or video (optional)",

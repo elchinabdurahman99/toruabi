@@ -27,7 +27,7 @@ export default async function TermsPage({ params }: Props) {
 
   return (
     <>
-      <main className="pt-36 pb-16">
+      <main className="pt-16 pb-16">
         <TermsContent />
       </main>
       <Footer />

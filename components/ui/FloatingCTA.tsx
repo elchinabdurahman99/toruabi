@@ -33,20 +33,20 @@ export default function FloatingCTA() {
                 exit={{ opacity: 0, y: 10, scale: 0.9 }}
                 className="rounded-2xl p-4 w-64 border border-white/10"
                 style={{
-                  background: "rgba(13,13,24,0.95)",
+                  background: "rgba(11,61,145,0.97)",
                   backdropFilter: "blur(20px)",
-                  boxShadow: "0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06)",
+                  boxShadow: "0 20px 60px rgba(11,61,145,0.4), 0 0 0 1px rgba(255,255,255,0.08)",
                 }}
               >
                 <p className="font-bold text-white text-sm mb-1 font-space">{t("title")}?</p>
-                <p className="text-[#94A3B8] text-xs mb-4">{t("orderHere")}</p>
+                <p className="text-[#A8C4F0] text-xs mb-4">{t("orderHere")}</p>
                 <div className="flex flex-col gap-2">
                   <a
                     href={`tel:${tc("phoneDial")}`}
                     className="flex items-center gap-2 text-white font-bold text-sm py-2.5 px-4 rounded-xl transition-all hover:-translate-y-0.5"
                     style={{
-                      background: "linear-gradient(135deg, #EF4444, #DC2626)",
-                      boxShadow: "0 4px 16px rgba(239,68,68,0.3)",
+                      background: "linear-gradient(135deg, #E87722, #C5651A)",
+                      boxShadow: "0 4px 16px rgba(232,119,34,0.35)",
                     }}
                   >
                     <Phone size={14} /> {tc("callUs")}
@@ -54,8 +54,8 @@ export default function FloatingCTA() {
                   <Link
                     href="/contact"
                     onClick={() => setExpanded(false)}
-                    className="flex items-center gap-2 text-white text-sm font-bold py-2.5 px-4 rounded-xl border border-white/10 hover:border-[#3B82F6]/40 transition-all"
-                    style={{ background: "rgba(59,130,246,0.1)" }}
+                    className="flex items-center gap-2 text-white text-sm font-bold py-2.5 px-4 rounded-xl border border-white/15 hover:border-white/30 transition-all"
+                    style={{ background: "rgba(255,255,255,0.08)" }}
                   >
                     <MessageCircle size={14} /> {tc("writeUs")}
                   </Link>
@@ -70,11 +70,11 @@ export default function FloatingCTA() {
             onClick={() => setExpanded(!expanded)}
             className="w-14 h-14 rounded-full flex items-center justify-center relative text-white"
             style={{
-              background: "linear-gradient(135deg, #EF4444, #3B82F6)",
-              boxShadow: "0 8px 32px rgba(239,68,68,0.4), 0 0 0 1px rgba(255,255,255,0.1)",
+              background: "linear-gradient(135deg, #E87722, #1254B8)",
+              boxShadow: "0 8px 32px rgba(232,119,34,0.4), 0 0 0 1px rgba(255,255,255,0.1)",
             }}
           >
-            <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-green-400 border-2 border-[#06060A] animate-pulse" />
+            <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-green-400 border-2 border-white animate-pulse" />
             {expanded ? <X size={20} /> : <Phone size={20} />}
           </motion.button>
         </motion.div>

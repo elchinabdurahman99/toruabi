@@ -27,7 +27,7 @@ export default async function PrivacyPage({ params }: Props) {
 
   return (
     <>
-      <main className="pt-36 pb-16">
+      <main className="pt-16 pb-16">
         <PrivacyContent />
       </main>
       <Footer />

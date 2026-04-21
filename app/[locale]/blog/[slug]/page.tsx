@@ -46,7 +46,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
-      <main className="pt-36 pb-16">
+      <main className="pt-16 pb-16">
         <BlogPostDetail post={post} />
       </main>
       <Footer />

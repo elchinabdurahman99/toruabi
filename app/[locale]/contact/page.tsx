@@ -35,13 +35,9 @@ export default async function ContactPage({ params }: Props) {
 
   return (
     <>
-      <main className="pt-28 pb-12 sm:pb-14 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-12 xl:items-start">
-            <Contact compact />
-            <TestimonialsSection compact items={testimonials ?? []} />
-          </div>
-        </div>
+      <main className="bg-[#F0F4FF]">
+        <Contact />
+        <TestimonialsSection items={testimonials ?? []} showList={false} showForm={true} />
       </main>
       <Footer />
       <FloatingCTA />

@@ -15,9 +15,16 @@ export default function BrandLogo({ className, variant = "nav" }: Props) {
       : variant === "drawer"
         ? { width: 160, height: 54 }
         : { width: 140, height: 48 };
+  const hasBackdrop = variant === "nav" || variant === "drawer";
 
   return (
-    <span className={clsx("inline-flex items-center select-none", className)}>
+    <span
+      className={clsx(
+        "inline-flex items-center select-none",
+        hasBackdrop && "rounded-xl bg-white/80 backdrop-blur-sm px-2 py-1",
+        className,
+      )}
+    >
       <Image
         src="/toru.png"
         alt="TorudeAbi24"

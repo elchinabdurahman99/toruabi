@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Mail, Clock, Menu, X, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronRight, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -33,106 +33,87 @@ export default function Navbar() {
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
+  const isHome = pathname === "/";
+
+  const headerExpanded = isHome && !scrolled;
 
   return (
     <>
-      {/* Top utility bar — navy, desktop only */}
-      <div className="bg-[#0D1B3E] text-white/75 text-xs hidden lg:block">
-        <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            <a
-              href={`tel:${tc("phoneDial")}`}
-              className="flex items-center gap-1.5 hover:text-white transition-colors font-semibold"
-            >
-              <Phone size={11} className="text-[#CC1414]" />
-              {tc("phone")}
-            </a>
-            <a
-              href={`mailto:${tc("email")}`}
-              className="flex items-center gap-1.5 hover:text-white transition-colors"
-            >
-              <Mail size={11} className="text-[#CC1414]" />
-              {tc("email")}
-            </a>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <Clock size={11} className="text-[#CC1414]" />
-            <span>24/7 — {tc("address")}</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Main navbar */}
       <header
-        className={`sticky top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 ${
-          scrolled ? "shadow-md" : "border-b border-gray-100"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          headerExpanded ? "px-3 sm:px-5 pt-3" : "px-0 pt-0"
         }`}
       >
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 lg:h-[72px]">
-          {/* Logo */}
+        <nav
+          className={`mx-auto h-16 lg:h-[74px] transition-all duration-500 ${
+            headerExpanded
+              ? "max-w-7xl rounded-2xl bg-white/85 backdrop-blur-xl border border-[#1254B8]/12 shadow-[0_10px_24px_rgba(18,84,184,0.14)]"
+              : "max-w-full rounded-none bg-white/95 backdrop-blur-xl border-b border-[#1254B8]/15 shadow-[0_10px_30px_rgba(18,84,184,0.08)]"
+          }`}
+        >
+          <div
+            className={`h-full flex items-center justify-between ${
+              headerExpanded ? "px-4 sm:px-8" : "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+            }`}
+          >
           <Link
             href="/"
-            className="group block shrink-0 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#CC1414]"
+            className="group block shrink-0 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1254B8]"
             aria-label="TorudeAbi — Avaleht"
           >
             <BrandLogo variant="nav" className="transition-opacity group-hover:opacity-80" />
           </Link>
 
-          {/* Desktop links */}
-          <ul className="hidden lg:flex items-center gap-0.5">
+          <ul className="hidden lg:flex items-center gap-1.5 p-2 rounded-2xl bg-white/85 border-2 border-[#1254B8]/12 backdrop-blur-md shadow-[0_8px_24px_rgba(18,84,184,0.10)]">
             {mainLinks.map((l) => (
-              <li key={l.href}>
+              <li key={l.href} className="py-1">
                 <Link
                   href={l.href}
-                  className={`relative px-3.5 py-2 rounded-lg text-sm font-semibold transition-colors duration-150 ${
+                  className={`relative px-4 py-2.5 rounded-lg text-[14px] font-bold transition-all duration-250 group ${
                     isActive(l.href)
-                      ? "text-[#CC1414]"
-                      : "text-[#374151] hover:text-[#0D1B3E] hover:bg-gray-50"
+                      ? "text-[#0B3D91] bg-white shadow-[0_6px_14px_rgba(0,0,0,0.08)]"
+                      : "text-[#1A1917] hover:text-[#0B3D91] hover:bg-white/85"
                   }`}
                 >
                   {l.label}
-                  {isActive(l.href) && (
-                    <span className="absolute bottom-0.5 left-3.5 right-3.5 h-0.5 bg-[#CC1414] rounded-full" />
-                  )}
+                  <span
+                    className={`absolute bottom-0.5 left-3 right-3 h-0.5 rounded-full transition-transform duration-250 origin-left ${
+                      isActive(l.href)
+                        ? "bg-[#E87722] scale-x-100"
+                        : "bg-[#E87722] scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  />
                 </Link>
               </li>
             ))}
           </ul>
 
-          {/* Desktop right side */}
           <div className="hidden lg:flex items-center gap-3">
             <LanguageSwitcher />
-            <a
-              href={`tel:${tc("phoneDial")}`}
-              className="flex items-center gap-2 text-sm font-bold text-[#0D1B3E] hover:text-[#CC1414] transition-colors"
-            >
-              <div className="w-8 h-8 rounded-full bg-[#CC1414] flex items-center justify-center">
-                <Phone size={14} className="text-white" />
-              </div>
-              {tc("phone")}
-            </a>
             <Link
               href="/contact"
-              className="flex items-center gap-1.5 text-sm font-bold text-white px-5 py-2.5 rounded-xl transition-all hover:-translate-y-0.5"
-              style={{ background: "#0D1B3E", boxShadow: "0 2px 10px rgba(13,27,62,0.25)" }}
+              className="flex items-center gap-1.5 text-sm font-bold text-white px-5 py-2.5 rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_26px_rgba(18,84,184,0.35)]"
+              style={{
+                background: "linear-gradient(135deg, #1254B8, #1254B8)",
+                boxShadow: "0 4px 14px rgba(18,84,184,0.28)",
+              }}
             >
               {t("freeQuote")}
               <ChevronRight size={14} />
             </Link>
           </div>
 
-          {/* Mobile burger */}
           <button
             onClick={() => setOpen(true)}
-            className="lg:hidden p-2 rounded-lg text-[#0D1B3E] hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2 rounded-lg text-[#1254B8] hover:bg-[#1254B8]/10 transition-colors"
             aria-label="Ava menüü"
           >
             <Menu size={24} />
           </button>
+          </div>
         </nav>
       </header>
 
-      {/* Mobile drawer */}
       <AnimatePresence>
         {open && (
           <>
@@ -140,7 +121,7 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[99] bg-black/25"
+              className="fixed inset-0 z-[99] bg-[#1254B8]/25 backdrop-blur-[2px]"
               onClick={() => setOpen(false)}
             />
             <motion.div
@@ -150,21 +131,19 @@ export default function Navbar() {
               transition={{ type: "spring", damping: 28, stiffness: 280 }}
               className="fixed top-0 right-0 bottom-0 z-[100] w-[min(320px,88vw)] bg-white flex flex-col shadow-2xl"
             >
-              {/* Drawer header */}
-              <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+              <div className="flex items-center justify-between px-5 py-4 border-b border-[#1254B8]/20">
                 <Link href="/" onClick={() => setOpen(false)}>
                   <BrandLogo variant="drawer" />
                 </Link>
                 <button
                   onClick={() => setOpen(false)}
-                  className="p-2 rounded-lg text-gray-400 hover:bg-gray-100 transition-colors"
+                  className="p-2 rounded-lg text-[#1254B8] hover:bg-[#1254B8]/10 transition-colors"
                   aria-label="Sulge"
                 >
                   <X size={20} />
                 </button>
               </div>
 
-              {/* Nav links */}
               <div className="flex-1 overflow-y-auto px-3 py-4 space-y-0.5">
                 {mainLinks.map((l, i) => (
                   <motion.div
@@ -178,8 +157,8 @@ export default function Navbar() {
                       onClick={() => setOpen(false)}
                       className={`flex items-center justify-between w-full px-4 py-3.5 rounded-xl font-semibold text-[15px] transition-colors ${
                         isActive(l.href)
-                          ? "bg-red-50 text-[#CC1414]"
-                          : "text-[#111827] hover:bg-gray-50 hover:text-[#0D1B3E]"
+                          ? "bg-[#1254B8]/10 text-[#1254B8]"
+                          : "text-[#1254B8] hover:bg-[#1254B8]/10 hover:text-[#1254B8]"
                       }`}
                     >
                       {l.label}
@@ -189,15 +168,14 @@ export default function Navbar() {
                 ))}
               </div>
 
-              {/* Drawer CTA footer */}
-              <div className="px-4 pb-8 pt-3 space-y-2.5 border-t border-gray-100">
+              <div className="px-4 pb-8 pt-3 space-y-2.5 border-t border-[#1254B8]/20">
                 <div className="flex justify-end mb-1">
                   <LanguageSwitcher />
                 </div>
                 <a
                   href={`tel:${tc("phoneDial")}`}
                   className="flex items-center justify-center gap-2.5 w-full py-3.5 rounded-xl text-white font-bold text-base"
-                  style={{ background: "#CC1414" }}
+                  style={{ background: "linear-gradient(135deg, rgb(18, 84, 184), rgb(11, 61, 145))" }}
                 >
                   <Phone size={17} />
                   {t("callNow")}
@@ -205,7 +183,7 @@ export default function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-bold text-base border-2 border-[#0D1B3E] text-[#0D1B3E] hover:bg-[#0D1B3E] hover:text-white transition-colors"
+                  className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-bold text-base border-2 border-[#1254B8] text-[#1254B8] hover:bg-[#1254B8] hover:text-white transition-colors"
                 >
                   {t("freeQuote")}
                 </Link>

@@ -23,7 +23,8 @@ function ScrollToTop() {
     <button
       type="button"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className="fixed bottom-24 right-6 z-48 w-11 h-11 rounded-xl bg-[#CC1414] text-white shadow-lg flex items-center justify-center transition-all hover:-translate-y-0.5"
+      className="fixed bottom-24 right-6 z-48 w-11 h-11 rounded-xl text-white shadow-lg flex items-center justify-center transition-all hover:-translate-y-0.5"
+      style={{ background: "linear-gradient(135deg, #1254B8, #0B3D91)" }}
       aria-label={t("scrollTop")}
     >
       <ChevronUp size={20} strokeWidth={2.5} />
@@ -57,33 +58,34 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#F5F6FA] text-[#0D1B3E] border-t border-[#E2E5EF]">
-      {/* Top red accent line */}
-      <div className="h-1 w-full bg-[#CC1414]" />
+    <footer className="relative overflow-hidden bg-[radial-gradient(120%_120%_at_0%_0%,#ffffff_0%,#f5f8ff_48%,#edf3ff_100%)] text-[#0B3D91]">
+      <div className="pointer-events-none absolute -top-24 -left-16 h-72 w-72 rounded-full bg-[#1254B8]/14 blur-3xl" />
+      <div className="pointer-events-none absolute top-10 right-[-90px] h-80 w-80 rounded-full bg-[#E87722]/14 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[#8CB3FF]/16 blur-3xl" />
 
-      <div className="max-w-7xl mx-auto px-6 py-14">
+      <div className="max-w-7xl mx-auto px-6 py-14 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
 
           {/* Brand col */}
           <div>
             <Link
               href="/"
-              className="inline-block mb-5 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#CC1414]"
+              className="inline-block mb-5 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1254B8]"
               aria-label="TorudeAbi — Avaleht"
             >
               <BrandLogo variant="footer" />
             </Link>
-            <p className="text-[#6B7280] text-sm leading-relaxed mb-4">
+            <p className="text-[#34415D] text-sm leading-relaxed mb-4">
               {t("description")}
             </p>
-            <p className="text-[#9CA3AF] text-xs font-semibold mb-0.5">{t("companyName")}</p>
-            <p className="text-[#9CA3AF] text-xs mb-0.5">{t("companyAddress")}</p>
-            <p className="text-[#9CA3AF] text-xs mb-5">{t("regNr")}</p>
+            <p className="text-[#5C6A86] text-xs font-semibold mb-0.5">{t("companyName")}</p>
+            <p className="text-[#5C6A86] text-xs mb-0.5">{t("companyAddress")}</p>
+            <p className="text-[#5C6A86] text-xs mb-5">{t("regNr")}</p>
             <div className="flex gap-2">
               {["FB", "IG", "TW"].map((s) => (
                 <div
                   key={s}
-                  className="w-9 h-9 rounded-lg flex items-center justify-center text-[#6B7280] text-xs font-bold border border-[#E2E5EF] bg-white hover:bg-[#CC1414] hover:border-[#CC1414] hover:text-white transition-all cursor-pointer"
+                  className="w-9 h-9 rounded-lg flex items-center justify-center text-[#34415D] text-xs font-bold border border-[#DDE7FF] bg-white/90 shadow-sm hover:text-white transition-all cursor-pointer hover:bg-[#1254B8] hover:border-[#1254B8]"
                 >
                   {s}
                 </div>
@@ -93,7 +95,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-bold text-[#0D1B3E] text-sm mb-5 uppercase tracking-widest font-space">
+            <h4 className="font-bold text-[#0B3D91] text-sm mb-5 uppercase tracking-widest font-space">
               {t("servicesTitle")}
             </h4>
             <ul className="space-y-2.5">
@@ -101,7 +103,7 @@ export default function Footer() {
                 <li key={s.slug}>
                   <Link
                     href={internalPathToLinkHref(`/services/${s.slug}`)}
-                    className="text-[#6B7280] hover:text-[#CC1414] text-sm transition-colors"
+                    className="text-[#34415D] hover:text-[#1254B8] text-sm transition-colors"
                   >
                     {s.label}
                   </Link>
@@ -110,7 +112,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services"
-                  className="text-[#CC1414] hover:text-red-300 text-sm font-bold transition-colors"
+                  className="text-[#1254B8] hover:text-[#0B3D91] text-sm font-bold transition-colors"
                 >
                   {ts("viewAll")} →
                 </Link>
@@ -120,7 +122,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-bold text-[#0D1B3E] text-sm mb-5 uppercase tracking-widest font-space">
+            <h4 className="font-bold text-[#0B3D91] text-sm mb-5 uppercase tracking-widest font-space">
               {t("companyTitle")}
             </h4>
             <ul className="space-y-2.5">
@@ -128,7 +130,7 @@ export default function Footer() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-[#6B7280] hover:text-[#CC1414] text-sm transition-colors"
+                    className="text-[#34415D] hover:text-[#1254B8] text-sm transition-colors"
                   >
                     {l.label}
                   </Link>
@@ -139,7 +141,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-bold text-[#0D1B3E] text-sm mb-5 uppercase tracking-widest font-space">
+            <h4 className="font-bold text-[#0B3D91] text-sm mb-5 uppercase tracking-widest font-space">
               {t("contactTitle")}
             </h4>
             <div className="space-y-4">
@@ -150,18 +152,18 @@ export default function Footer() {
                 { icon: Clock, label: t("available247"), sub: t("includingHolidays"), href: undefined },
               ].map(({ icon: Icon, label, sub, href }) => (
                 <div key={label} className="flex gap-3 items-start">
-                  <div className="w-8 h-8 rounded-lg bg-[#CC1414]/15 border border-[#CC1414]/20 flex items-center justify-center shrink-0 mt-0.5">
-                    <Icon size={13} className="text-[#CC1414]" />
+                  <div className="w-8 h-8 rounded-lg bg-white border border-[#DDE7FF] flex items-center justify-center shrink-0 mt-0.5">
+                    <Icon size={13} className="text-[#1254B8]" />
                   </div>
                   <div>
                     {href ? (
-                      <a href={href} className="text-[#0D1B3E] hover:text-[#CC1414] text-sm font-bold transition-colors block">
+                      <a href={href} className="text-[#0B3D91] hover:text-[#1254B8] text-sm font-bold transition-colors block">
                         {label}
                       </a>
                     ) : (
-                      <span className="text-[#0D1B3E] text-sm font-bold block">{label}</span>
+                      <span className="text-[#0B3D91] text-sm font-bold block">{label}</span>
                     )}
-                    <span className="text-[#9CA3AF] text-xs">{sub}</span>
+                    <span className="text-[#5C6A86] text-xs">{sub}</span>
                   </div>
                 </div>
               ))}
@@ -169,23 +171,22 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-[#E2E5EF] pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-[#9CA3AF] text-xs">
+        <div className="border-t border-[#DDE7FF]/90 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-[#5C6A86] text-xs">
             <a
               href="https://navalab.ee/et/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#CC1414] transition-colors"
+              className="hover:text-[#1254B8] transition-colors"
             >
               Made with ❤️ by Navalab © 2026. All rights reserved.
             </a>
           </p>
           <div className="flex gap-6">
-            <Link href="/privacy-policy" className="text-[#9CA3AF] hover:text-[#CC1414] text-xs transition-colors">
+            <Link href="/privacy-policy" className="text-[#5C6A86] hover:text-[#1254B8] text-xs transition-colors">
               {t("privacyPolicy")}
             </Link>
-            <Link href="/terms" className="text-[#9CA3AF] hover:text-[#CC1414] text-xs transition-colors">
+            <Link href="/terms" className="text-[#5C6A86] hover:text-[#1254B8] text-xs transition-colors">
               {t("termsOfService")}
             </Link>
           </div>

@@ -24,16 +24,20 @@ export default function SeoSection() {
   ];
 
   return (
-    <section className="py-20 bg-[#F5F6FA] border-y border-[#E2E5EF]">
+    <section className="py-20 bg-[#F0F4FF] border-y border-[#E8EFFE]">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-[#CC1414] text-white text-xs font-extrabold uppercase tracking-[0.2em] px-4 py-2 rounded-full mb-5 shadow-sm">
-            {t("title")}
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="w-8 h-0.5 bg-[#E87722]" />
+            <div className="inline-flex items-center gap-2 bg-[#1254B8] text-white text-xs font-extrabold uppercase tracking-[0.2em] px-4 py-2 rounded-full shadow-sm">
+              {t("title")}
+            </div>
+            <span className="w-8 h-0.5 bg-[#E87722]" />
           </div>
-          <h2 className="text-4xl lg:text-5xl font-extrabold text-[#0D1B3E] mb-3 font-space tracking-tight">
+          <h2 className="text-4xl lg:text-5xl font-extrabold text-[#0B3D91] mb-3 font-space tracking-tight">
             {t("title")}
           </h2>
-          <p className="text-[#6B7280] font-medium max-w-lg mx-auto leading-relaxed">{t("content")}</p>
+          <p className="text-[#5A5955] font-medium max-w-lg mx-auto leading-relaxed">{t("content")}</p>
         </motion.div>
         <div className="flex flex-wrap gap-3 justify-center">
           {keywords.map((kw, i) => (
@@ -48,13 +52,13 @@ export default function SeoSection() {
               <Link
                 href="/contact"
                 className={`group inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl border text-sm font-bold transition-all duration-200 ${
-                  kw.hot ? "bg-[#CC1414] border-[#CC1414] text-white shadow-md hover:-translate-y-0.5 hover:shadow-lg" : "bg-white border-[#E2E5EF] text-[#374151] hover:border-[#CC1414]/40 hover:text-[#CC1414] shadow-sm"
+                  kw.hot ? "bg-[#E87722] border-[#E87722] text-white shadow-md hover:-translate-y-0.5 hover:shadow-lg" : "bg-white border-[#E8EFFE] text-[#374151] hover:border-[#1254B8]/40 hover:text-[#1254B8] shadow-sm"
                 }`}
               >
                 {kw.hot && <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />}
                 {ts(`items.${kw.labelKey}`)}
                 <span className={`text-xs font-medium ${kw.hot ? "text-white/80" : "text-[#9CA3B8]"}`}>· {kw.tag}</span>
-                <ArrowUpRight size={12} className={`opacity-0 group-hover:opacity-60 transition-opacity ${kw.hot ? "" : "text-[#CC1414]"}`} />
+                <ArrowUpRight size={12} className={`opacity-0 group-hover:opacity-60 transition-opacity ${kw.hot ? "" : "text-[#1254B8]"}`} />
               </Link>
             </motion.div>
           ))}

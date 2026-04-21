@@ -19,13 +19,14 @@ function LogoBox({ partner }: { partner: Partner }) {
       alt={partner.name}
       width={200}
       height={100}
-      className="object-contain max-h-12 w-auto max-w-[180px]"
+      className="object-contain max-h-12 w-auto max-w-[180px] opacity-70 group-hover:opacity-100 transition-opacity duration-300"
     />
   ) : (
-    <p className="font-bold text-[#0D1B3E] text-sm px-2 text-center">{partner.name}</p>
+    <p className="font-bold text-[#1254B8] text-sm px-2 text-center">{partner.name}</p>
   );
 
-  const base = "flex items-center justify-center min-h-[96px] px-6 py-4 rounded-2xl bg-white border border-[#E2E5EF] shrink-0 w-[220px] transition-all duration-200";
+  const base =
+    "group flex items-center justify-center min-h-[96px] px-6 py-4 rounded-2xl bg-white border border-[#E8EFFE] shrink-0 w-[220px] transition-all duration-300";
 
   if (partner.url) {
     return (
@@ -33,13 +34,17 @@ function LogoBox({ partner }: { partner: Partner }) {
         href={partner.url}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${base} hover:border-[#CC1414]/40 hover:shadow-md`}
+        className={`${base} hover:border-[#1254B8]/30 hover:shadow-[0_8px_24px_-6px_rgba(18,84,184,0.15)] hover:-translate-y-0.5`}
       >
         {inner}
       </a>
     );
   }
-  return <div className={base}>{inner}</div>;
+  return (
+    <div className={`${base} hover:border-[#1254B8]/20 hover:shadow-[0_4px_16px_-4px_rgba(18,84,184,0.1)]`}>
+      {inner}
+    </div>
+  );
 }
 
 export default function PartnersGrid({ partners }: { partners: Partner[] }) {
@@ -48,33 +53,38 @@ export default function PartnersGrid({ partners }: { partners: Partner[] }) {
   return (
     <div className="bg-white">
       {/* Header */}
-      <div className="bg-[#F5F6FA] border-b border-[#E2E5EF]">
-        <div className="max-w-7xl mx-auto px-6 pt-8 pb-10">
+      <div className="bg-[#F0F4FF] border-b border-[#E8EFFE]">
+        <div className="max-w-7xl mx-auto px-6 pt-10 pb-12">
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}>
-            <span className="inline-block text-[#CC1414] text-xs font-bold uppercase tracking-[0.25em] mb-3">
-              torudeabi.ee
-            </span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0D1B3E] font-space">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="w-8 h-0.5 bg-[#E87722]" />
+              <span className="text-[#E87722] text-xs font-bold uppercase tracking-[0.25em]">
+                torudeabi.ee
+              </span>
+            </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B3D91] font-space mb-3">
               {t("title")}
             </h1>
-            <p className="text-[#6B7280] font-medium mt-3 max-w-2xl leading-relaxed">{t("subtitle")}</p>
+            <p className="text-[#5A5955] font-medium mt-3 max-w-2xl leading-relaxed">
+              {t("subtitle")}
+            </p>
           </motion.div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 pb-12">
+      <div className="max-w-7xl mx-auto px-6 py-14">
         {partners.length === 0 ? (
-          <div className="text-center py-24 rounded-2xl bg-[#F5F6FA] border border-dashed border-[#E2E5EF]">
-            <p className="text-[#9CA3AF] text-base font-medium">{t("empty")}</p>
+          <div className="text-center py-24 rounded-2xl bg-[#F0F4FF] border border-dashed border-[#E8EFFE]">
+            <p className="text-[#9C9B96] text-base font-medium">{t("empty")}</p>
           </div>
         ) : (
           <>
-            <div className="relative rounded-2xl border border-[#E2E5EF] bg-[#F5F6FA] overflow-hidden shadow-sm">
+            <div className="relative rounded-3xl border border-[#E8EFFE] bg-[#F0F4FF] overflow-hidden">
               {/* Fade edges */}
-              <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-24 z-10 bg-gradient-to-r from-[#F5F6FA] to-transparent" />
-              <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-24 z-10 bg-gradient-to-l from-[#F5F6FA] to-transparent" />
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-28 z-10 bg-gradient-to-r from-[#F0F4FF] to-transparent" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-28 z-10 bg-gradient-to-l from-[#F0F4FF] to-transparent" />
 
-              <div className="py-10 md:py-12">
+              <div className="py-10 md:py-14">
                 <div className="flex w-max animate-partner-marquee hover:[animation-play-state:paused] gap-6 px-8">
                   {[...partners, ...partners].map((partner, i) => (
                     <LogoBox key={`${partner._id}-${i}`} partner={partner} />
@@ -82,7 +92,7 @@ export default function PartnersGrid({ partners }: { partners: Partner[] }) {
                 </div>
               </div>
             </div>
-            <p className="text-center text-[#9CA3AF] text-sm mt-6">{t("sliderHint")}</p>
+            <p className="text-center text-[#9C9B96] text-sm mt-6">{t("sliderHint")}</p>
           </>
         )}
       </div>
