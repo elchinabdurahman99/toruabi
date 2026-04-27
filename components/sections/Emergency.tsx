@@ -15,10 +15,10 @@ export default function Emergency() {
   ];
 
   const featureColors = [
-    { bg: "linear-gradient(135deg,#E87722,#C5651A)", shadow: "rgba(232,119,34,0.3)", border: "rgba(232,119,34,0.2)" },
+    { bg: "linear-gradient(135deg,#E11D48,#BE123C)", shadow: "rgba(225,29,72,0.3)", border: "rgba(225,29,72,0.2)" },
     { bg: "linear-gradient(135deg,#1254B8,#0B3D91)", shadow: "rgba(18,84,184,0.3)", border: "rgba(18,84,184,0.2)" },
-    { bg: "linear-gradient(135deg,#E87722,#1254B8)", shadow: "rgba(232,119,34,0.25)", border: "rgba(232,119,34,0.15)" },
-    { bg: "linear-gradient(135deg,#1254B8,#E87722)", shadow: "rgba(18,84,184,0.25)", border: "rgba(18,84,184,0.15)" },
+    { bg: "linear-gradient(135deg,#E11D48,#1254B8)", shadow: "rgba(225,29,72,0.25)", border: "rgba(225,29,72,0.15)" },
+    { bg: "linear-gradient(135deg,#1254B8,#E11D48)", shadow: "rgba(18,84,184,0.25)", border: "rgba(18,84,184,0.15)" },
   ];
 
   return (
@@ -27,7 +27,7 @@ export default function Emergency() {
         <div className="absolute -right-48 top-1/2 -translate-y-1/2 w-150 h-150 rounded-full opacity-10"
           style={{ background: "radial-gradient(circle, #1254B8, transparent 70%)" }} />
         <div className="absolute -left-24 bottom-0 w-96 h-96 rounded-full opacity-8"
-          style={{ background: "radial-gradient(circle, #E87722, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, #E11D48, transparent 70%)" }} />
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -45,8 +45,8 @@ export default function Emergency() {
             viewport={{ once: true }}
           >
             <div
-              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] px-4 py-2 rounded-full mb-8 border border-[#E87722]/20"
-              style={{ background: "rgba(232,119,34,0.1)", color: "#E87722" }}
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] px-4 py-2 rounded-full mb-8 border border-[#E11D48]/20"
+              style={{ background: "rgba(225,29,72,0.1)", color: "#E11D48" }}
             >
               <Zap size={12} /> {t("badge")}
             </div>
@@ -62,8 +62,8 @@ export default function Emergency() {
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center gap-3 text-white font-extrabold text-lg px-8 py-4 rounded-2xl transition-colors"
               style={{
-                background: "linear-gradient(135deg, #E87722, #C5651A)",
-                boxShadow: "0 12px 40px rgba(232,119,34,0.4)",
+                background: "linear-gradient(135deg, #E11D48, #BE123C)",
+                boxShadow: "0 12px 40px rgba(225,29,72,0.4)",
               }}
             >
               <Phone size={20} />

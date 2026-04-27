@@ -75,8 +75,8 @@ export default function ServicesPreview({
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
           <div className="max-w-2xl">
             <div className="flex items-center gap-2 mb-3">
-              <span className="w-8 h-0.5 bg-[#E87722]" />
-              <p className="text-[#E87722] text-xs font-bold uppercase tracking-[0.25em]">
+              <span className="w-8 h-0.5 bg-[#E11D48]" />
+              <p className="text-[#E11D48] text-xs font-bold uppercase tracking-[0.25em]">
                 {tp("kicker")}
               </p>
             </div>
@@ -122,7 +122,7 @@ export default function ServicesPreview({
                     <div className="absolute top-0 right-0 w-32 h-32 bg-[#1254B8]/40 rounded-bl-3xl pointer-events-none" />
                     <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-tr-3xl pointer-events-none" />
 
-                    <div className="w-12 h-12 rounded-xl bg-[#E87722] flex items-center justify-center text-white shrink-0 relative z-10">
+                    <div className="w-12 h-12 rounded-xl bg-[#E11D48] flex items-center justify-center text-white shrink-0 relative z-10">
                       <ServiceIcon slug={canon(item)} sanityIcon={item.icon} size={22} strokeWidth={1.9} />
                     </div>
 
@@ -137,7 +137,7 @@ export default function ServicesPreview({
                       ) : null}
                     </div>
 
-                    <span className="relative z-10 flex items-center gap-1 text-[#E87722] text-[11px] font-bold uppercase tracking-wide">
+                    <span className="relative z-10 flex items-center gap-1 text-[#E11D48] text-[11px] font-bold uppercase tracking-wide">
                       {t("learnMore")} <ArrowUpRight size={11} />
                     </span>
                   </Link>

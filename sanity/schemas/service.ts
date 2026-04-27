@@ -65,6 +65,13 @@ export const service = defineType({
       ],
     }),
     defineField({
+      name: "category",
+      title: "Category",
+      type: "reference",
+      to: [{ type: "serviceCategory" }],
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "icon",
       title: "Icon Name (Lucide)",
       type: "string",
@@ -143,9 +150,10 @@ export const service = defineType({
       slugEn: "slug.current",
       segEt: "pathSegment.et",
       segRu: "pathSegment.ru",
+      categoryTitle: "category.title.en",
       media: "image",
     },
-    prepare({ title, titleEt, slugEn, segEt, segRu, media }) {
+    prepare({ title, titleEt, slugEn, segEt, segRu, categoryTitle, media }) {
       const bits = [
         slugEn && `en: ${slugEn}`,
         segEt && `et: ${segEt}`,
@@ -153,7 +161,7 @@ export const service = defineType({
       ].filter(Boolean);
       return {
         title: title || titleEt || "Service",
-        subtitle: bits.length ? bits.join(" · ") : "Add localized slugs",
+        subtitle: [categoryTitle, bits.join(" · ")].filter(Boolean).join(" — "),
         media,
       };
     },

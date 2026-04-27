@@ -71,7 +71,7 @@ export default function ServiceDetail({
                   />
                 </div>
                 <div>
-                  <p className="text-[#E87722] text-sm font-bold uppercase tracking-[0.25em] mb-2">
+                  <p className="text-[#E11D48] text-sm font-bold uppercase tracking-[0.25em] mb-2">
                     Premium Service
                   </p>
                   <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0B3D91] leading-[1.05] font-space tracking-tight">
@@ -103,8 +103,8 @@ export default function ServiceDetail({
                 href={`tel:${tc("phoneDial")}`}
                 className="flex items-center justify-center gap-2.5 w-full text-white text-base font-bold py-4 rounded-xl hover:-translate-y-1 transition-all mb-3"
                 style={{
-                  background: "linear-gradient(135deg, #E87722, #C5651A)",
-                  boxShadow: "0 12px 24px -6px rgba(232,119,34,0.35)",
+                  background: "linear-gradient(135deg, #E11D48, #BE123C)",
+                  boxShadow: "0 12px 24px -6px rgba(225,29,72,0.35)",
                 }}
               >
                 <Phone size={18} /> {tc("callUs")}
@@ -210,8 +210,8 @@ export default function ServiceDetail({
                         href={`tel:${tc("phoneDial")}`}
                         className="flex items-center justify-center gap-2.5 flex-1 rounded-xl text-white font-bold py-4 text-sm transition-all hover:-translate-y-1"
                         style={{
-                          background: "linear-gradient(135deg, #E87722, #C5651A)",
-                          boxShadow: "0 10px 25px -5px rgba(232,119,34,0.35)",
+                          background: "linear-gradient(135deg, #E11D48, #BE123C)",
+                          boxShadow: "0 10px 25px -5px rgba(225,29,72,0.35)",
                         }}
                       >
                         <Phone size={18} /> {tc("phone")}

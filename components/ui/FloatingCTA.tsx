@@ -45,8 +45,8 @@ export default function FloatingCTA() {
                     href={`tel:${tc("phoneDial")}`}
                     className="flex items-center gap-2 text-white font-bold text-sm py-2.5 px-4 rounded-xl transition-all hover:-translate-y-0.5"
                     style={{
-                      background: "linear-gradient(135deg, #E87722, #C5651A)",
-                      boxShadow: "0 4px 16px rgba(232,119,34,0.35)",
+                      background: "linear-gradient(135deg, #E11D48, #BE123C)",
+                      boxShadow: "0 4px 16px rgba(225,29,72,0.35)",
                     }}
                   >
                     <Phone size={14} /> {tc("callUs")}
@@ -70,8 +70,8 @@ export default function FloatingCTA() {
             onClick={() => setExpanded(!expanded)}
             className="w-14 h-14 rounded-full flex items-center justify-center relative text-white"
             style={{
-              background: "linear-gradient(135deg, #E87722, #1254B8)",
-              boxShadow: "0 8px 32px rgba(232,119,34,0.4), 0 0 0 1px rgba(255,255,255,0.1)",
+              background: "linear-gradient(135deg, #E11D48, #1254B8)",
+              boxShadow: "0 8px 32px rgba(225,29,72,0.4), 0 0 0 1px rgba(255,255,255,0.1)",
             }}
           >
             <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-green-400 border-2 border-white animate-pulse" />

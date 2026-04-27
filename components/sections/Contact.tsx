@@ -215,8 +215,8 @@ export default function Contact({ compact = false }: ContactProps) {
 
               <div className="relative z-10">
                 <div className="flex items-center gap-2 mb-5">
-                  <span className="w-8 h-0.5 bg-[#E87722]" />
-                  <span className="text-[#E87722] text-xs font-bold uppercase tracking-[0.25em]">
+                  <span className="w-8 h-0.5 bg-[#E11D48]" />
+                  <span className="text-[#E11D48] text-xs font-bold uppercase tracking-[0.25em]">
                     {t("kicker") || "KONTAKT"}
                   </span>
                 </div>
@@ -242,7 +242,7 @@ export default function Contact({ compact = false }: ContactProps) {
                       {item.href ? (
                         <a
                           href={item.href}
-                          className="text-white font-bold text-sm hover:text-[#E87722] transition-colors"
+                          className="text-white font-bold text-sm hover:text-[#E11D48] transition-colors"
                         >
                           {item.value}
                         </a>
@@ -282,7 +282,7 @@ export default function Contact({ compact = false }: ContactProps) {
                   <a
                     href={`tel:${tc("phoneDial")}`}
                     className="flex items-center gap-2 text-white font-bold px-6 py-3 rounded-xl"
-                    style={{ background: "linear-gradient(135deg, #E87722, #C5651A)" }}
+                    style={{ background: "linear-gradient(135deg, #E11D48, #BE123C)" }}
                   >
                     <Phone size={16} /> {tc("callUs")}
                   </a>
@@ -292,7 +292,7 @@ export default function Contact({ compact = false }: ContactProps) {
                   {/* Name */}
                   <div className="flex flex-col">
                     <label className={labelClass}>
-                      {t("form.name")} <span className="text-[#E87722]">*</span>
+                      {t("form.name")} <span className="text-[#E11D48]">*</span>
                     </label>
                     <input
                       name="name"
@@ -307,7 +307,7 @@ export default function Contact({ compact = false }: ContactProps) {
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="flex flex-col">
                       <label className={labelClass}>
-                        {t("form.phone")} <span className="text-[#E87722]">*</span>
+                        {t("form.phone")} <span className="text-[#E11D48]">*</span>
                       </label>
                       <input
                         name="phone"
@@ -519,7 +519,7 @@ function CompactForm({
         <a
           href={`tel:${tc("phoneDial")}`}
           className="flex items-center gap-2 text-white font-bold px-5 py-2.5 rounded-xl text-sm"
-          style={{ background: "linear-gradient(135deg, #E87722, #C5651A)" }}
+          style={{ background: "linear-gradient(135deg, #E11D48, #BE123C)" }}
         >
           <Phone size={15} /> {tc("callUs")}
         </a>

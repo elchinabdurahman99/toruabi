@@ -24,6 +24,11 @@
     "emergencyTitle": "Аварийная служба 24/7 — звоните в любое время"
   },
   "hero": {
+    "availableNow": "Доступны сейчас",
+    "statResponse": "время реагирования",
+    "certifiedLabel": "Сертифицированы",
+    "yearsExp": "15+ лет опыта",
+    "discountLabel": "скидка",
     "badge": "Аварийная служба",
     "title": "Профессиональные",
     "titleHighlight": "Услуги на Дому",

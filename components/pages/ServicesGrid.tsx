@@ -1,15 +1,16 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { ArrowRight, Search, ShieldCheck } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Search, ShieldCheck, LayoutGrid } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { internalPathToLinkHref } from "@/lib/i18n/appHref";
 import ServiceIcon from "@/components/ui/ServiceIcon";
 import { ALL_SERVICE_SLUGS, slugToMessageKey } from "@/lib/serviceSlugs";
 
+// ── Types ─────────────────────────────────────────────────────────────────────
 interface Service {
   _id: string;
   title: string;
@@ -22,43 +23,128 @@ interface Service {
   thumbAlt?: string;
 }
 
-function fallbackList(tItem: (itemKey: string) => string): Service[] {
+interface CategoryGroup {
+  _id: string;
+  slug: string;
+  title: string;
+  icon?: string | null;
+  services: Service[];
+}
+
+interface Props {
+  categories: CategoryGroup[];
+  allServices: Service[];
+}
+
+// ── Constants ─────────────────────────────────────────────────────────────────
+const ACCENT_COLORS = ["#0B3D91", "#1254B8", "#E11D48", "#1B8E4A", "#7C3AED", "#0B7EA8", "#B45309", "#0B3D91", "#1254B8"];
+
+function fallbackList(tItem: (k: string) => string): Service[] {
   return ALL_SERVICE_SLUGS.map((slug, i) => {
     const key = slugToMessageKey[slug];
     return { _id: slug, slug, title: key ? tItem(key) : slug, description: "", order: i };
   });
 }
 
-const ICON_BG_COLORS = [
-  "#0B3D91",
-  "#1254B8",
-  "#E87722",
-  "#1B8E4A",
-  "#7C3AED",
-  "#0B3D91",
-] as const;
+// ── Service card ──────────────────────────────────────────────────────────────
+function ServiceCard({ service, accentColor, learnMore }: { service: Service; accentColor: string; learnMore: string }) {
+  return (
+    <Link
+      href={internalPathToLinkHref(`/services/${service.slug}`)}
+      className="group flex flex-col h-full rounded-2xl border border-[#E8EFFE] bg-white hover:border-[#1254B8]/30 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_-12px_rgba(18,84,184,0.18)] transition-all duration-300 overflow-hidden relative"
+    >
+      <div
+        className="absolute top-0 right-0 w-28 h-28 rounded-bl-full opacity-[0.07] pointer-events-none group-hover:opacity-[0.12] transition-opacity duration-300"
+        style={{ background: accentColor }}
+      />
+      {service.thumbUrl && (
+        <div className="relative w-full aspect-16/10 shrink-0 overflow-hidden">
+          <Image
+            src={service.thumbUrl}
+            alt={service.thumbAlt || service.title}
+            fill
+            className="object-cover group-hover:scale-[1.04] transition-transform duration-500"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          />
+          <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        </div>
+      )}
+      <div className="flex flex-col flex-1 p-5">
+        <div className="flex items-start gap-3 mb-3">
+          <div
+            className="w-11 h-11 rounded-xl flex items-center justify-center text-white shrink-0 group-hover:scale-110 transition-transform duration-300"
+            style={{ background: accentColor }}
+          >
+            <ServiceIcon
+              slug={service.canonicalSlug ?? service.slug}
+              sanityIcon={service.icon}
+              size={22}
+              strokeWidth={1.9}
+            />
+          </div>
+          <h2 className="font-bold text-[#0B3D91] text-[15px] leading-snug hyphens-auto font-space pt-0.5 group-hover:text-[#1254B8] transition-colors">
+            {service.title}
+          </h2>
+        </div>
+        {service.description ? (
+          <p className="text-[#9C9B96] text-sm leading-relaxed line-clamp-2 mb-4 flex-1">
+            {service.description}
+          </p>
+        ) : (
+          <div className="flex-1 mb-4" />
+        )}
+        <span className="inline-flex items-center gap-1.5 text-[#1254B8] font-bold text-xs mt-auto opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+          {learnMore}
+          <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
+        </span>
+      </div>
+    </Link>
+  );
+}
 
-export default function ServicesGrid({ services }: { services: Service[] | null }) {
+// ── Main component ────────────────────────────────────────────────────────────
+export default function ServicesGrid({ categories, allServices }: Props) {
   const t = useTranslations("services");
+  const [activeCategory, setActiveCategory] = useState<string | null>(null); // null = All
   const [q, setQ] = useState("");
+  const tabsRef = useRef<HTMLDivElement>(null);
 
-  const list = useMemo(() => {
-    const base =
-      services && services.length > 0
-        ? services
-        : fallbackList((k) => t(`items.${k}` as never));
+  const hasCats = categories.length > 0;
+
+  // When searching: search across ALL services regardless of active category
+  const displayedServices = useMemo(() => {
     const needle = q.trim().toLowerCase();
-    if (!needle) return base;
-    return base.filter((s) => {
-      const c = s.canonicalSlug ?? s.slug;
-      return (
-        s.title.toLowerCase().includes(needle) ||
-        s.slug.toLowerCase().includes(needle) ||
-        c.toLowerCase().includes(needle) ||
-        (s.description && s.description.toLowerCase().includes(needle))
-      );
-    });
-  }, [services, q, t]);
+
+    if (needle) {
+      // Search mode: across all flat services
+      const base = allServices.length > 0 ? allServices : fallbackList((k) => t(`items.${k}` as never));
+      return base.filter((s) => {
+        const c = s.canonicalSlug ?? s.slug;
+        return (
+          s.title.toLowerCase().includes(needle) ||
+          s.slug.toLowerCase().includes(needle) ||
+          c.toLowerCase().includes(needle) ||
+          (s.description && s.description.toLowerCase().includes(needle))
+        );
+      });
+    }
+
+    if (!hasCats) {
+      return allServices.length > 0 ? allServices : fallbackList((k) => t(`items.${k}` as never));
+    }
+
+    // Category filter mode
+    if (activeCategory === null) {
+      // All: flatten services from all categories
+      return categories.flatMap((cat) => cat.services);
+    }
+    const cat = categories.find((c) => c._id === activeCategory);
+    return cat?.services ?? [];
+  }, [q, activeCategory, categories, allServices, hasCats, t]);
+
+  // When search is active we show flat grid; otherwise we may show sectioned view
+  const isSearching = q.trim().length > 0;
+  const isAllCats = activeCategory === null && !isSearching;
 
   return (
     <div className="min-h-screen bg-white">
@@ -67,8 +153,8 @@ export default function ServicesGrid({ services }: { services: Service[] | null 
         <div className="max-w-7xl mx-auto px-6 pt-10 pb-12">
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}>
             <div className="flex items-center gap-2 mb-3">
-              <span className="w-8 h-0.5 bg-[#E87722]" />
-              <span className="text-[#E87722] text-xs font-bold uppercase tracking-[0.25em]">
+              <span className="w-8 h-0.5 bg-[#E11D48]" />
+              <span className="text-[#E11D48] text-xs font-bold uppercase tracking-[0.25em]">
                 torudeabi.ee · Tallinn & Harjumaa
               </span>
             </div>
@@ -80,24 +166,20 @@ export default function ServicesGrid({ services }: { services: Service[] | null 
             </p>
           </motion.div>
 
+          {/* Search */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.12 }}
             className="mt-8 max-w-lg"
           >
-            <label className="sr-only" htmlFor="svc-search">
-              {t("searchLabel")}
-            </label>
+            <label className="sr-only" htmlFor="svc-search">{t("searchLabel")}</label>
             <div className="relative">
-              <Search
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-[#9C9B96]"
-                size={17}
-              />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#9C9B96]" size={17} />
               <input
                 id="svc-search"
                 value={q}
-                onChange={(e) => setQ(e.target.value)}
+                onChange={(e) => { setQ(e.target.value); setActiveCategory(null); }}
                 placeholder={t("searchPlaceholder")}
                 className="w-full rounded-xl text-[#0B3D91] placeholder:text-[#9C9B96] pl-11 pr-4 py-3 text-sm font-medium bg-white border border-[#E8EFFE] focus:border-[#1254B8]/50 focus:outline-none transition-all shadow-sm"
               />
@@ -106,83 +188,166 @@ export default function ServicesGrid({ services }: { services: Service[] | null 
         </div>
       </div>
 
-      {/* Grid */}
+      {/* Category tabs — only show when data exists and not searching */}
+      {hasCats && !isSearching && (
+        <div className="sticky top-17.5 lg:top-19.5 z-30 bg-white border-b border-[#E8EFFE] shadow-sm">
+          <div
+            ref={tabsRef}
+            className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-wrap gap-2 py-3"
+          >
+            {/* All tab */}
+            <button
+              onClick={() => setActiveCategory(null)}
+              className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-200 ${
+                activeCategory === null
+                  ? "bg-[#0B3D91] text-white shadow-md"
+                  : "bg-[#F0F4FF] text-[#0B3D91] hover:bg-[#E8EFFE]"
+              }`}
+            >
+              <LayoutGrid size={14} />
+              {t("title")}
+            </button>
+
+            {categories.map((cat, i) => (
+              <button
+                key={cat._id}
+                onClick={() => setActiveCategory(cat._id)}
+                className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-200 ${
+                  activeCategory === cat._id
+                    ? "text-white shadow-md"
+                    : "bg-[#F0F4FF] text-[#0B3D91] hover:bg-[#E8EFFE]"
+                }`}
+                style={activeCategory === cat._id ? { background: ACCENT_COLORS[i % ACCENT_COLORS.length] } : {}}
+              >
+                <ServiceIcon
+                  slug={cat.slug}
+                  sanityIcon={cat.icon}
+                  size={13}
+                  strokeWidth={2}
+                  className={activeCategory === cat._id ? "text-white" : "text-[#1254B8]"}
+                />
+                <span>{cat.title}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Content area */}
       <div className="max-w-7xl mx-auto px-6 py-10">
-        {list.length === 0 ? (
-          <p className="text-center text-[#9C9B96] py-16">{t("noResults")}</p>
-        ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {list.map((service, i) => {
-              const iconBg = ICON_BG_COLORS[i % ICON_BG_COLORS.length];
+        {/* ── Sectioned view: "All" categories (no search, no filter) ── */}
+        {isAllCats && hasCats ? (
+          <div className="space-y-14">
+            {categories.map((cat, catIdx) => {
+              const accentColor = ACCENT_COLORS[catIdx % ACCENT_COLORS.length];
               return (
-                <motion.div
-                  key={service._id}
+                <motion.section
+                  key={cat._id}
                   initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: Math.min(i * 0.025, 0.4) }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.4 }}
                 >
-                  <Link
-                    href={internalPathToLinkHref(`/services/${service.slug}`)}
-                    className="group flex flex-col h-full rounded-2xl border border-[#E8EFFE] bg-white hover:border-[#1254B8]/30 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_-12px_rgba(18,84,184,0.18)] transition-all duration-300 overflow-hidden relative"
-                  >
-                    {/* Top-right decorative circle */}
-                    <div
-                      className="absolute top-0 right-0 w-28 h-28 rounded-bl-full opacity-[0.07] pointer-events-none transition-opacity duration-300 group-hover:opacity-[0.12]"
-                      style={{ background: iconBg }}
-                    />
-
-                    {/* Thumbnail */}
-                    {service.thumbUrl && (
-                      <div className="relative w-full aspect-[16/10] shrink-0 overflow-hidden">
-                        <Image
-                          src={service.thumbUrl}
-                          alt={service.thumbAlt || service.title}
-                          fill
-                          className="object-cover group-hover:scale-[1.04] transition-transform duration-500"
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                        />
-                        {/* Gradient overlay on image */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  {/* Section header */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="w-10 h-10 rounded-xl flex items-center justify-center text-white shrink-0"
+                        style={{ background: accentColor, boxShadow: `0 6px 16px -4px ${accentColor}60` }}
+                      >
+                        <ServiceIcon slug={cat.slug} sanityIcon={cat.icon} size={20} strokeWidth={1.9} />
                       </div>
-                    )}
-
-                    <div className="flex flex-col flex-1 p-5">
-                      {/* Icon + Title */}
-                      <div className="flex items-start gap-3 mb-3">
-                        <div
-                          className="w-11 h-11 rounded-xl flex items-center justify-center text-white shrink-0 group-hover:scale-110 transition-transform duration-300"
-                          style={{ background: iconBg }}
-                        >
-                          <ServiceIcon
-                            slug={service.canonicalSlug ?? service.slug}
-                            sanityIcon={service.icon}
-                            size={22}
-                            strokeWidth={1.9}
-                          />
-                        </div>
-                        <h2 className="font-bold text-[#0B3D91] text-[15px] leading-snug hyphens-auto font-space pt-0.5 group-hover:text-[#1254B8] transition-colors">
-                          {service.title}
+                      <div>
+                        <h2 className="text-xl sm:text-2xl font-extrabold text-[#0B3D91] font-space">
+                          {cat.title}
                         </h2>
-                      </div>
-
-                      {service.description ? (
-                        <p className="text-[#9C9B96] text-sm leading-relaxed line-clamp-2 mb-4 flex-1">
-                          {service.description}
+                        <p className="text-[#9C9B96] text-xs mt-0.5">
+                          {cat.services.length} {cat.services.length === 1 ? "service" : "services"}
                         </p>
-                      ) : (
-                        <div className="flex-1 mb-4" />
-                      )}
-
-                      <span className="inline-flex items-center gap-1.5 text-[#1254B8] font-bold text-xs mt-auto opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
-                        {t("learnMore")}
-                        <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
-                      </span>
+                      </div>
                     </div>
-                  </Link>
-                </motion.div>
+                    <button
+                      onClick={() => setActiveCategory(cat._id)}
+                      className="hidden sm:flex items-center gap-1.5 text-[#1254B8] text-sm font-bold hover:underline"
+                    >
+                      View all <ArrowRight size={13} />
+                    </button>
+                  </div>
+
+                  {/* Divider line with color */}
+                  <div className="h-0.5 w-full rounded-full mb-6 opacity-20" style={{ background: accentColor }} />
+
+                  {/* Services grid */}
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                    {cat.services.map((svc) => (
+                      <ServiceCard
+                        key={svc._id}
+                        service={svc}
+                        accentColor={accentColor}
+                        learnMore={t("learnMore")}
+                      />
+                    ))}
+                  </div>
+                </motion.section>
               );
             })}
           </div>
+        ) : (
+          /* ── Filtered/search view: flat grid ── */
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeCategory ?? "search"}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+            >
+              {displayedServices.length === 0 ? (
+                <p className="text-center text-[#9C9B96] py-16">{t("noResults")}</p>
+              ) : (
+                <>
+                  {/* Category heading when filtered */}
+                  {activeCategory && !isSearching && (() => {
+                    const catIdx = categories.findIndex((c) => c._id === activeCategory);
+                    const cat = categories[catIdx];
+                    return cat ? (
+                      <div className="flex items-center gap-3 mb-8">
+                        <div
+                          className="w-10 h-10 rounded-xl flex items-center justify-center text-white shrink-0"
+                          style={{ background: ACCENT_COLORS[catIdx % ACCENT_COLORS.length] }}
+                        >
+                          <ServiceIcon slug={cat.slug} sanityIcon={cat.icon} size={20} strokeWidth={1.9} />
+                        </div>
+                        <h2 className="text-2xl font-extrabold text-[#0B3D91] font-space">{cat.title}</h2>
+                      </div>
+                    ) : null;
+                  })()}
+
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                    {displayedServices.map((svc, i) => {
+                      const catIdx = activeCategory
+                        ? categories.findIndex((c) => c._id === activeCategory)
+                        : i;
+                      return (
+                        <motion.div
+                          key={svc._id}
+                          initial={{ opacity: 0, y: 16 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: Math.min(i * 0.025, 0.35) }}
+                        >
+                          <ServiceCard
+                            service={svc}
+                            accentColor={ACCENT_COLORS[catIdx % ACCENT_COLORS.length]}
+                            learnMore={t("learnMore")}
+                          />
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+                </>
+              )}
+            </motion.div>
+          </AnimatePresence>
         )}
 
         {/* Guarantee bar */}
@@ -195,10 +360,7 @@ export default function ServicesGrid({ services }: { services: Service[] | null 
         >
           <div
             className="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0"
-            style={{
-              background: "linear-gradient(135deg, #1254B8, #0B3D91)",
-              boxShadow: "0 8px 24px -4px rgba(18,84,184,0.3)",
-            }}
+            style={{ background: "linear-gradient(135deg, #1254B8, #0B3D91)", boxShadow: "0 8px 24px -4px rgba(18,84,184,0.3)" }}
           >
             <ShieldCheck size={30} className="text-white" />
           </div>

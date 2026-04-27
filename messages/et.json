@@ -24,6 +24,11 @@
     "emergencyTitle": "Ööpäevaringne avariiabi — helista igal ajal"
   },
   "hero": {
+    "availableNow": "Saadaval kohe",
+    "statResponse": "reageerimisaeg",
+    "certifiedLabel": "Sertifitseeritud",
+    "yearsExp": "15+ aastat kogemust",
+    "discountLabel": "soodust",
     "badge": "Avariiteenus",
     "title": "Professionaalsed Koduteenused",
     "titleHighlight": "Siis Kui Vajate",

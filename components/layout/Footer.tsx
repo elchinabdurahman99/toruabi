@@ -60,7 +60,7 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-[radial-gradient(120%_120%_at_0%_0%,#ffffff_0%,#f5f8ff_48%,#edf3ff_100%)] text-[#0B3D91]">
       <div className="pointer-events-none absolute -top-24 -left-16 h-72 w-72 rounded-full bg-[#1254B8]/14 blur-3xl" />
-      <div className="pointer-events-none absolute top-10 right-[-90px] h-80 w-80 rounded-full bg-[#E87722]/14 blur-3xl" />
+      <div className="pointer-events-none absolute top-10 right-[-90px] h-80 w-80 rounded-full bg-[#E11D48]/14 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[#8CB3FF]/16 blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-6 py-14 relative z-10">

@@ -85,6 +85,53 @@ export const allBlogSlugsQuery = `
   }
 `;
 
+/**
+ * Nav mega-menu: categories + up to 8 services each (title + slug only).
+ * Used by layout → Navbar so mega-menu links are locale-correct.
+ */
+export const serviceCategoriesNavQuery = (locale: Locale) => `
+  *[_type == "serviceCategory"] | order(order asc) {
+    _id,
+    "slug": slug.current,
+    "title": ${localizedField("title", locale)},
+    icon,
+    "services": *[_type == "service" && category._ref == ^._id && slug.current != "plumber"] | order(coalesce(order, 999) asc) [0...8] {
+      _id,
+      "canonicalSlug": slug.current,
+      "slug": ${servicePathSegmentSlug(locale)},
+      "title": ${localizedField("title", locale)},
+      icon
+    }
+  }
+`;
+
+/**
+ * Services page: categories with their full service list (including images).
+ */
+export const serviceCategoriesWithServicesQuery = (locale: Locale) => `
+  *[_type == "serviceCategory"] | order(order asc) {
+    _id,
+    "slug": slug.current,
+    "title": ${localizedField("title", locale)},
+    icon,
+    "services": *[_type == "service" && category._ref == ^._id && slug.current != "plumber"] | order(coalesce(order, 999) asc, slug.current asc) {
+      _id,
+      "title": ${localizedField("title", locale)},
+      "canonicalSlug": slug.current,
+      "slug": ${servicePathSegmentSlug(locale)},
+      "description": ${localizedField("shortDescription", locale)},
+      icon,
+      order,
+      image {
+        asset,
+        hotspot,
+        crop,
+        "alt": coalesce(alt.${locale}, alt.et)
+      }
+    }
+  }
+`;
+
 export const servicesListQuery = (locale: Locale) => `
   *[_type == "service" && slug.current != "plumber"] | order(coalesce(order, 999) asc, slug.current asc) {
     _id,

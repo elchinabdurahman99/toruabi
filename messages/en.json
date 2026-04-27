@@ -24,6 +24,11 @@
     "emergencyTitle": "24/7 emergency — call any time"
   },
   "hero": {
+    "availableNow": "Available now",
+    "statResponse": "response time",
+    "certifiedLabel": "Certified",
+    "yearsExp": "15+ years experience",
+    "discountLabel": "discount",
     "badge": "Emergency service",
     "title": "Professional Home",
     "titleHighlight": "Services On Demand",

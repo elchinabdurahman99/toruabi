@@ -8,9 +8,9 @@
   --color-blue-mid: #1254B8;
   --color-blue-light: #E8EFFE;
   --color-blue-pale: #F0F4FF;
-  --color-amber: #E87722;
-  --color-amber-light: #FFF3E6;
-  --color-amber-pale: #FFECD6;
+  --color-amber: #E11D48;
+  --color-amber-light: #FFE4EA;
+  --color-amber-pale: #FFD6E0;
   --color-off-white: #FAFAF8;
   --color-gray-100: #F5F4F0;
   --color-gray-200: #E8E7E2;
@@ -19,8 +19,8 @@
   --color-gray-900: #1A1917;
 
   /* Legacy aliases for backward compat */
-  --color-brand-red: #E87722;
-  --color-brand-red-dark: #C5651A;
+  --color-brand-red: #E11D48;
+  --color-brand-red-dark: #BE123C;
   --color-brand-navy: #0B3D91;
   --color-brand-navy-light: #1254B8;
   --color-brand-blue: #1254B8;

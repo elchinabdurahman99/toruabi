@@ -33,8 +33,8 @@ export default function PriceListContent({ pricing }: { pricing: PricingCategory
         <div className="max-w-7xl mx-auto px-6 pt-10 pb-12">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <div className="flex items-center gap-3 mb-4">
-              <span className="w-8 h-0.5 bg-[#E87722]" />
-              <span className="text-[#E87722] text-xs font-bold uppercase tracking-[0.25em]">{t("kicker")}</span>
+              <span className="w-8 h-0.5 bg-[#E11D48]" />
+              <span className="text-[#E11D48] text-xs font-bold uppercase tracking-[0.25em]">{t("kicker")}</span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-[#0B3D91] mb-3" style={{ letterSpacing: "-0.02em" }}>
               {t("title")}
@@ -128,7 +128,7 @@ export default function PriceListContent({ pricing }: { pricing: PricingCategory
         <a
           href={`tel:${tc("phoneDial")}`}
           className="flex items-center gap-2 text-white font-extrabold px-6 py-3.5 rounded-2xl transition-all hover:-translate-y-0.5"
-          style={{ background: "linear-gradient(135deg, #E87722, #C5651A)", boxShadow: "0 8px 24px rgba(232,119,34,0.3)" }}
+          style={{ background: "linear-gradient(135deg, #E11D48, #BE123C)", boxShadow: "0 8px 24px rgba(225,29,72,0.3)" }}
         >
           <Phone size={16} /> {tc("callUs")}
         </a>

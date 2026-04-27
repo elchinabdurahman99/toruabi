@@ -1,4 +1,5 @@
 import { localeString, localeText, localeBlock } from "./localeString";
+import { serviceCategory } from "./serviceCategory";
 import { service } from "./service";
 import { blogPost } from "./blogPost";
 import { author } from "./author";
@@ -13,6 +14,7 @@ export const schemaTypes = [
   localeString,
   localeText,
   localeBlock,
+  serviceCategory,
   service,
   blogPost,
   author,

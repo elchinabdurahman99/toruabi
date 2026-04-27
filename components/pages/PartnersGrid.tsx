@@ -57,8 +57,8 @@ export default function PartnersGrid({ partners }: { partners: Partner[] }) {
         <div className="max-w-7xl mx-auto px-6 pt-10 pb-12">
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}>
             <div className="flex items-center gap-2 mb-4">
-              <span className="w-8 h-0.5 bg-[#E87722]" />
-              <span className="text-[#E87722] text-xs font-bold uppercase tracking-[0.25em]">
+              <span className="w-8 h-0.5 bg-[#E11D48]" />
+              <span className="text-[#E11D48] text-xs font-bold uppercase tracking-[0.25em]">
                 torudeabi.ee
               </span>
             </div>

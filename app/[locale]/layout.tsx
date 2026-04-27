@@ -8,6 +8,9 @@ import { SITE_NAME, SITE_URL } from "@/lib/siteConfig";
 import type { Metadata, Viewport } from "next";
 import { openGraphPageUrl } from "@/lib/seo/pageMeta";
 import type { Locale } from "@/i18n/config";
+import { sanityFetch } from "@/lib/sanity/client";
+import { serviceCategoriesNavQuery } from "@/lib/sanity/queries";
+import type { NavCategory } from "@/components/layout/Navbar";
 import "../globals.css";
 
 type Props = {
@@ -82,7 +85,10 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   setRequestLocale(locale);
 
-  const messages = await getMessages();
+  const [messages, navCategories] = await Promise.all([
+    getMessages(),
+    sanityFetch<NavCategory[]>(serviceCategoriesNavQuery(locale as Locale)).catch(() => []),
+  ]);
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -96,7 +102,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       </head>
       <body className="font-inter antialiased" style={{ fontFamily: "'Nunito', sans-serif" }}>
         <NextIntlClientProvider messages={messages}>
-          <Navbar />
+          <Navbar navCategories={navCategories ?? []} />
           {children}
           <CookieBanner />
         </NextIntlClientProvider>

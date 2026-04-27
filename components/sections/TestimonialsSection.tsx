@@ -23,7 +23,7 @@ type Props = {
 
 const AVATAR_COLORS = [
   "#0B3D91",
-  "#E87722",
+  "#E11D48",
   "#1B8E4A",
   "#7C3AED",
   "#1254B8",
@@ -39,7 +39,7 @@ function Stars({ rating, size = 14 }: { rating: number; size?: number }) {
           size={size}
           className={
             i < rating
-              ? "text-[#E87722] fill-[#E87722]"
+              ? "text-[#E11D48] fill-[#E11D48]"
               : "text-[#E8E7E2] fill-[#E8E7E2]"
           }
         />
@@ -176,7 +176,7 @@ export default function TestimonialsSection({
         {showList && (
           <>
             <div className="mb-5 text-left">
-              <span className="inline-block text-[#E87722] text-xs font-bold uppercase tracking-[0.2em] mb-2">
+              <span className="inline-block text-[#E11D48] text-xs font-bold uppercase tracking-[0.2em] mb-2">
                 {t("kicker")}
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B3D91] font-space mb-1">
@@ -281,11 +281,11 @@ export default function TestimonialsSection({
             {/* Header */}
             <div className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
-                <span className="w-10 h-0.5 bg-[#E87722]" />
-                <span className="text-[#E87722] text-xs font-bold uppercase tracking-[0.25em]">
+                <span className="w-10 h-0.5 bg-[#E11D48]" />
+                <span className="text-[#E11D48] text-xs font-bold uppercase tracking-[0.25em]">
                   {t("kicker")}
                 </span>
-                <span className="w-10 h-0.5 bg-[#E87722]" />
+                <span className="w-10 h-0.5 bg-[#E11D48]" />
               </div>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B3D91] font-space mb-3">
                 {t("title")}

@@ -44,13 +44,13 @@ export default function HeroSlider() {
 
   return (
     <div className="relative w-full">
-      <div className="absolute -top-5 -right-5 w-24 h-24 rounded-full bg-[#E87722]/34 blur-xl z-0" />
-      <div className="absolute -bottom-5 -left-4 w-20 h-20 rounded-full bg-[#E87722]/28 blur-lg z-0" />
+      <div className="absolute -top-5 -right-5 w-24 h-24 rounded-full bg-[#E11D48]/14 blur-xl z-0" />
+      <div className="absolute -bottom-5 -left-4 w-20 h-20 rounded-full bg-[#E11D48]/12 blur-lg z-0" />
 
       <div
         className="relative w-full overflow-hidden rounded-[26px] z-10 border border-white/55 bg-white/22 backdrop-blur-sm
           h-[290px] sm:h-[360px] md:h-[420px] lg:h-[450px] xl:h-[490px]"
-        style={{ boxShadow: "0 22px 52px rgba(232,119,34,0.24), inset 0 1px 0 rgba(255,255,255,0.5)" }}
+        style={{ boxShadow: "0 22px 52px rgba(15,23,42,0.22), inset 0 1px 0 rgba(255,255,255,0.5)" }}
       >
         <AnimatePresence mode="sync" initial={false}>
           <motion.div
@@ -70,7 +70,7 @@ export default function HeroSlider() {
               priority={index === 0}
               quality={90}
             />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.02)_0%,rgba(232,119,34,0.34)_100%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.04)_0%,rgba(15,23,42,0.18)_100%)]" />
           </motion.div>
         </AnimatePresence>
 
@@ -81,7 +81,7 @@ export default function HeroSlider() {
               className="h-full rounded-full transition-all duration-300"
               style={{
                 width: `${((index + 1) / n) * 100}%`,
-                background: "linear-gradient(135deg, #E87722, #C5651A)",
+                background: "linear-gradient(135deg, #E11D48, #BE123C)",
               }}
             />
           </div>
@@ -98,7 +98,7 @@ export default function HeroSlider() {
               className="h-1.5 rounded-full transition-all duration-300"
               style={
                 i === index
-                  ? { width: 28, background: "#E87722" }
+                  ? { width: 28, background: "#E11D48" }
                   : { width: 6, background: "rgba(255,255,255,0.45)" }
               }
               aria-label={`${i + 1} / ${n}`}
@@ -110,7 +110,7 @@ export default function HeroSlider() {
         <button
           type="button"
           onClick={() => go(-1)}
-          className="absolute left-3 top-1/2 z-20 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center text-white border border-white/40 hover:border-[#E87722]/90 transition-all bg-white/18 backdrop-blur-sm"
+          className="absolute left-3 top-1/2 z-20 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center text-white border border-white/40 hover:border-[#E11D48]/90 transition-all bg-white/18 backdrop-blur-sm"
           aria-label={t("sliderPrev")}
         >
           <ChevronLeft size={20} />
@@ -118,14 +118,14 @@ export default function HeroSlider() {
         <button
           type="button"
           onClick={() => go(1)}
-          className="absolute right-3 top-1/2 z-20 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center text-white border border-white/40 hover:border-[#E87722]/90 transition-all bg-white/18 backdrop-blur-sm"
+          className="absolute right-3 top-1/2 z-20 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center text-white border border-white/40 hover:border-[#E11D48]/90 transition-all bg-white/18 backdrop-blur-sm"
           aria-label={t("sliderNext")}
         >
           <ChevronRight size={20} />
         </button>
       </div>
 
-      <div className="absolute -bottom-3 -left-3 w-12 h-12 bg-[#E87722] rounded-xl z-0 hidden sm:block" />
+      <div className="absolute -bottom-3 -left-3 w-12 h-12 bg-[#E11D48]/75 rounded-xl z-0 hidden sm:block" />
     </div>
   );
 }

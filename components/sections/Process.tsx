@@ -5,10 +5,10 @@ import { Phone, Search, Wrench, CheckCircle } from "lucide-react";
 
 const STEP_ICONS = [Phone, Search, Wrench, CheckCircle];
 const STEP_COLORS = [
-  { bg: "linear-gradient(135deg,#E87722,#C5651A)", shadow: "rgba(232,119,34,0.25)", num: "rgba(232,119,34,0.15)" },
+  { bg: "linear-gradient(135deg,#E11D48,#BE123C)", shadow: "rgba(225,29,72,0.25)", num: "rgba(225,29,72,0.15)" },
   { bg: "linear-gradient(135deg,#0B3D91,#1254B8)", shadow: "rgba(11,61,145,0.25)", num: "rgba(11,61,145,0.15)" },
   { bg: "linear-gradient(135deg,#1254B8,#0B3D91)", shadow: "rgba(18,84,184,0.2)", num: "rgba(18,84,184,0.1)" },
-  { bg: "linear-gradient(135deg,#0B3D91,#E87722)", shadow: "rgba(11,61,145,0.2)", num: "rgba(11,61,145,0.1)" },
+  { bg: "linear-gradient(135deg,#0B3D91,#E11D48)", shadow: "rgba(11,61,145,0.2)", num: "rgba(11,61,145,0.1)" },
 ];
 
 export default function Process() {
@@ -30,7 +30,7 @@ export default function Process() {
         />
         <div
           className="absolute bottom-0 left-0 w-full h-px"
-          style={{ background: "linear-gradient(to right, transparent, rgba(11,61,145,0.15), rgba(232,119,34,0.12), transparent)" }}
+          style={{ background: "linear-gradient(to right, transparent, rgba(11,61,145,0.15), rgba(225,29,72,0.12), transparent)" }}
         />
       </div>
 
@@ -42,14 +42,14 @@ export default function Process() {
           className="text-center mb-8 sm:mb-12"
         >
           <div className="flex items-center justify-center gap-3 mb-3">
-            <span className="w-8 h-0.5 bg-[#E87722]" />
+            <span className="w-8 h-0.5 bg-[#E11D48]" />
             <span
               className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] px-4 py-2 rounded-full border border-[#E8EFFE]"
               style={{ background: "#F0F4FF", color: "#1254B8" }}
             >
               {t("title")}
             </span>
-            <span className="w-8 h-0.5 bg-[#E87722]" />
+            <span className="w-8 h-0.5 bg-[#E11D48]" />
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B3D91] mb-2 sm:mb-3 font-space">
             {t("title")}
@@ -60,7 +60,7 @@ export default function Process() {
         <div className="relative">
           <div
             className="hidden lg:block absolute top-10 left-[10%] right-[10%] h-px"
-            style={{ background: "linear-gradient(to right, rgba(232,119,34,0.2), rgba(18,84,184,0.2))" }}
+            style={{ background: "linear-gradient(to right, rgba(225,29,72,0.2), rgba(18,84,184,0.2))" }}
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-3">

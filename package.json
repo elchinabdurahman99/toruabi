@@ -16,7 +16,10 @@
     "seed:service-images": "node --env-file=.env.local scripts/seed-service-images.mjs",
     "import:service-content": "node --env-file=.env.local scripts/import-service-content.mjs",
     "generate:service-patches": "node scripts/generate-service-patches.mjs",
-    "migrate:service-path-segments": "node --env-file=.env.local scripts/migrate-service-path-segments.mjs"
+    "migrate:service-path-segments": "node --env-file=.env.local scripts/migrate-service-path-segments.mjs",
+    "seed:service-categories": "node --env-file=.env.local scripts/seed-service-categories.mjs",
+    "seed:grouped-services": "node --env-file=.env.local scripts/seed-grouped-services.mjs",
+    "seed:full": "npm run seed:service-categories && npm run seed:grouped-services"
   },
   "dependencies": {
     "@portabletext/react": "^6.0.3",

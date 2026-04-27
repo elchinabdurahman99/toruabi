@@ -26,8 +26,8 @@ export default function CtaBlock({ variant = "dark", translationKey }: CtaBlockP
           style={
             isPrimary
               ? {
-                  background: "linear-gradient(135deg, rgba(232,119,34,0.12) 0%, rgba(18,84,184,0.12) 100%)",
-                  boxShadow: "0 0 60px rgba(232,119,34,0.08)",
+                  background: "linear-gradient(135deg, rgba(225,29,72,0.12) 0%, rgba(18,84,184,0.12) 100%)",
+                  boxShadow: "0 0 60px rgba(225,29,72,0.08)",
                 }
               : { background: "rgba(255,255,255,0.03)" }
           }
@@ -52,8 +52,8 @@ export default function CtaBlock({ variant = "dark", translationKey }: CtaBlockP
               href={`tel:${tc("phoneDial")}`}
               className="flex items-center gap-2 font-bold px-6 py-3.5 rounded-2xl transition-all text-sm hover:-translate-y-0.5 text-white"
               style={{
-                background: "linear-gradient(135deg, #E87722, #C5651A)",
-                boxShadow: "0 8px 24px rgba(232,119,34,0.3)",
+                background: "linear-gradient(135deg, #E11D48, #BE123C)",
+                boxShadow: "0 8px 24px rgba(225,29,72,0.3)",
               }}
             >
               <Phone size={16} /> {tc("callUs")}

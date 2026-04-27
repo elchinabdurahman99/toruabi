@@ -74,7 +74,7 @@ function servicePortableComponents(serviceTitle: string): PortableTextComponents
           return (
             <a
               href={href}
-              className={`${pill} bg-[#E87722] text-white hover:bg-[#C5651A] border border-black/5`}
+              className={`${pill} bg-[#E11D48] text-white hover:bg-[#BE123C] border border-black/5`}
             >
               {children}
             </a>

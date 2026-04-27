@@ -17,12 +17,12 @@ export default function PromoBar() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="rounded-2xl p-6 flex items-center gap-4 border border-white/8 hover:border-[#E87722]/30 transition-all duration-300 group"
-            style={{ background: "rgba(232,119,34,0.06)" }}
+            className="rounded-2xl p-6 flex items-center gap-4 border border-white/8 hover:border-[#E11D48]/30 transition-all duration-300 group"
+            style={{ background: "rgba(225,29,72,0.06)" }}
           >
             <div
               className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform"
-              style={{ background: "linear-gradient(135deg, #E87722, #C5651A)", boxShadow: "0 8px 24px rgba(232,119,34,0.3)" }}
+              style={{ background: "linear-gradient(135deg, #E11D48, #BE123C)", boxShadow: "0 8px 24px rgba(225,29,72,0.3)" }}
             >
               <Tag className="text-white" size={26} strokeWidth={2.25} />
             </div>
@@ -30,7 +30,7 @@ export default function PromoBar() {
               <p
                 className="text-3xl font-extrabold tracking-tight font-space"
                 style={{
-                  background: "linear-gradient(135deg, #E87722, #1254B8)",
+                  background: "linear-gradient(135deg, #E11D48, #1254B8)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -62,7 +62,7 @@ export default function PromoBar() {
               <p className="text-[#94A3B8] text-sm mt-1">{tc("phone")} · {tc("phone2")}</p>
               <a
                 href={`tel:${tc("phoneDial")}`}
-                className="inline-flex items-center gap-1.5 mt-3 text-sm font-bold text-[#1254B8] hover:text-[#E87722] transition-colors"
+                className="inline-flex items-center gap-1.5 mt-3 text-sm font-bold text-[#1254B8] hover:text-[#E11D48] transition-colors"
               >
                 <Phone size={15} className="shrink-0" />
                 {th("ctaSecondary")}
