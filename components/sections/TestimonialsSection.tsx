@@ -22,11 +22,11 @@ type Props = {
 };
 
 const AVATAR_COLORS = [
-  "#0B3D91",
-  "#E11D48",
+  "#2B5CE6",
+  "#E8354A",
   "#1B8E4A",
   "#7C3AED",
-  "#1254B8",
+  "#3B6CF4",
   "#D97706",
 ];
 
@@ -39,7 +39,7 @@ function Stars({ rating, size = 14 }: { rating: number; size?: number }) {
           size={size}
           className={
             i < rating
-              ? "text-[#E11D48] fill-[#E11D48]"
+              ? "text-[#E8354A] fill-[#E8354A]"
               : "text-[#E8E7E2] fill-[#E8E7E2]"
           }
         />
@@ -72,7 +72,7 @@ function TestimonialCard({
     .toUpperCase();
 
   return (
-    <div className="flex flex-col gap-4 bg-white border border-[#E8EFFE] rounded-2xl p-6 hover:shadow-[0_8px_32px_-8px_rgba(18,84,184,0.12)] hover:-translate-y-0.5 transition-all duration-300">
+    <div className="flex flex-col gap-4 bg-white/55 backdrop-blur-sm border border-[#3B6CF4]/12 rounded-2xl p-6 hover:shadow-[0_8px_32px_-8px_rgba(59,108,244,0.12)] hover:-translate-y-0.5 transition-all duration-300">
       <Stars rating={r} size={15} />
       <p className="text-[#5A5955] text-sm leading-relaxed flex-1 italic">
         &ldquo;{item.text}&rdquo;
@@ -91,7 +91,7 @@ function TestimonialCard({
           </div>
         )}
         <div>
-          <p className="font-bold text-[#0B3D91] text-sm font-space leading-tight">
+          <p className="font-bold text-[#2B5CE6] text-sm font-space leading-tight">
             {item.name}
           </p>
         </div>
@@ -122,7 +122,7 @@ export default function TestimonialsSection({
       : "5.0";
 
   const inputClass =
-    "w-full rounded-xl px-3 py-2.5 text-sm text-[#0B3D91] border border-[#E8EFFE] bg-[#FAFAF8] focus:outline-none focus:border-[#1254B8]/50 focus:bg-white transition-colors placeholder:text-[#9C9B96]";
+    "w-full rounded-xl px-3 py-2.5 text-sm text-[#2B5CE6] border border-[#E8EFFE] bg-white/50 focus:outline-none focus:border-[#3B6CF4]/50 focus:bg-white transition-colors placeholder:text-[#9C9B96]";
   const slides = useMemo(() => {
     const source = items.slice(0, 9);
     const grouped: TestimonialItem[][] = [];
@@ -176,10 +176,10 @@ export default function TestimonialsSection({
         {showList && (
           <>
             <div className="mb-5 text-left">
-              <span className="inline-block text-[#E11D48] text-xs font-bold uppercase tracking-[0.2em] mb-2">
+              <span className="inline-block text-[#E8354A] text-xs font-bold uppercase tracking-[0.2em] mb-2">
                 {t("kicker")}
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B3D91] font-space mb-1">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2B5CE6] font-space mb-1">
                 {t("title")}
               </h2>
               <p className="text-[#5A5955] text-sm">{t("subtitle")}</p>
@@ -197,13 +197,13 @@ export default function TestimonialsSection({
 
         {/* Compact review form */}
         {showForm && (
-          <div className="rounded-2xl border border-[#E8EFFE] bg-white p-5">
-            <h3 className="font-bold text-[#0B3D91] font-space text-base mb-1">
+          <div className="rounded-2xl border border-[#3B6CF4]/12 bg-white/55 backdrop-blur-sm p-5">
+            <h3 className="font-bold text-[#2B5CE6] font-space text-base mb-1">
               {t("formTitle")}
             </h3>
             <p className="text-[#9C9B96] text-xs mb-4">{t("formHint")}</p>
             {done ? (
-              <p className="text-[#0B3D91] font-bold text-center py-4">{t("success")}</p>
+              <p className="text-[#2B5CE6] font-bold text-center py-4">{t("success")}</p>
             ) : (
               <form onSubmit={submitReview} className="space-y-3">
                 <div>
@@ -231,9 +231,9 @@ export default function TestimonialsSection({
                         style={
                           rating === num
                             ? {
-                                borderColor: "#1254B8",
-                                background: "rgba(18,84,184,0.08)",
-                                color: "#1254B8",
+                                borderColor: "#3B6CF4",
+                                background: "rgba(59,108,244,0.08)",
+                                color: "#3B6CF4",
                               }
                             : { borderColor: "#E8EFFE", background: "white", color: "#9C9B96" }
                         }
@@ -260,7 +260,7 @@ export default function TestimonialsSection({
                   type="submit"
                   disabled={sending}
                   className="w-full text-white font-bold rounded-xl disabled:opacity-60 py-3 text-sm"
-                  style={{ background: "linear-gradient(135deg, #1254B8, #0B3D91)" }}
+                  style={{ background: "linear-gradient(135deg, #3B6CF4, #2B5CE6)" }}
                 >
                   {sending ? "…" : t("submit")}
                 </button>
@@ -274,20 +274,20 @@ export default function TestimonialsSection({
 
   /* ── full (non-compact) ── */
   return (
-    <section id="reviews" className={`py-16 sm:py-20 ${showList ? 'bg-white' : 'bg-transparent py-0'}`}>
+    <section id="reviews" className={`py-16 sm:py-20 ${showList ? 'bg-white/60 backdrop-blur-sm' : 'bg-transparent py-0'}`}>
       <div className="max-w-7xl mx-auto px-6">
         {showList && (
           <>
             {/* Header */}
             <div className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
-                <span className="w-10 h-0.5 bg-[#E11D48]" />
-                <span className="text-[#E11D48] text-xs font-bold uppercase tracking-[0.25em]">
+                <span className="w-10 h-0.5 bg-[#E8354A]" />
+                <span className="text-[#E8354A] text-xs font-bold uppercase tracking-[0.25em]">
                   {t("kicker")}
                 </span>
-                <span className="w-10 h-0.5 bg-[#E11D48]" />
+                <span className="w-10 h-0.5 bg-[#E8354A]" />
               </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B3D91] font-space mb-3">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#2B5CE6] font-space mb-3">
                 {t("title")}
               </h2>
               <p className="text-[#5A5955] text-base max-w-lg mx-auto">{t("subtitle")}</p>
@@ -311,7 +311,7 @@ export default function TestimonialsSection({
                         type="button"
                         onClick={() => setSlideIndex(idx)}
                         className={`h-2.5 rounded-full transition-all ${
-                          idx === slideIndex ? "w-7 bg-[#1254B8]" : "w-2.5 bg-[#1254B8]/25 hover:bg-[#1254B8]/45"
+                          idx === slideIndex ? "w-7 bg-[#3B6CF4]" : "w-2.5 bg-[#3B6CF4]/25 hover:bg-[#3B6CF4]/45"
                         }`}
                         aria-label={`Go to review slide ${idx + 1}`}
                       />
@@ -323,8 +323,8 @@ export default function TestimonialsSection({
 
             {/* Rating summary */}
             {n > 0 && (
-              <div className="bg-[#F0F4FF] rounded-3xl border border-[#E8EFFE] p-8 sm:p-10 flex flex-col items-center gap-3 mb-12">
-                <span className="text-6xl font-black text-[#0B3D91] font-space leading-none">
+              <div className="bg-white/40 backdrop-blur-sm rounded-3xl border border-[#8B3FC8]/15 p-8 sm:p-10 flex flex-col items-center gap-3 mb-12">
+                <span className="text-6xl font-black text-[#2B5CE6] font-space leading-none">
                   {avg}
                 </span>
                 <Stars rating={Math.round(Number(avg))} size={22} />
@@ -339,12 +339,12 @@ export default function TestimonialsSection({
         {/* Review submission form */}
         {showForm && (
           <div className={`max-w-xl mx-auto bg-white border border-[#E8EFFE] rounded-2xl p-6 sm:p-8 ${!showList ? 'shadow-lg' : ''}`}>
-            <h3 className="font-bold text-[#0B3D91] font-space text-lg mb-1.5">
+            <h3 className="font-bold text-[#2B5CE6] font-space text-lg mb-1.5">
               {t("formTitle")}
             </h3>
             <p className="text-[#9C9B96] text-sm mb-5">{t("formHint")}</p>
             {done ? (
-              <p className="text-[#0B3D91] font-bold text-center py-6 text-lg">
+              <p className="text-[#2B5CE6] font-bold text-center py-6 text-lg">
                 {t("success")}
               </p>
             ) : (
@@ -374,9 +374,9 @@ export default function TestimonialsSection({
                         style={
                           rating === num
                             ? {
-                                borderColor: "#1254B8",
-                                background: "rgba(18,84,184,0.08)",
-                                color: "#1254B8",
+                                borderColor: "#3B6CF4",
+                                background: "rgba(59,108,244,0.08)",
+                                color: "#3B6CF4",
                               }
                             : { borderColor: "#E8EFFE", background: "white", color: "#9C9B96" }
                         }
@@ -404,8 +404,8 @@ export default function TestimonialsSection({
                   disabled={sending}
                   className="w-full text-white font-bold rounded-xl disabled:opacity-60 py-3.5 text-sm"
                   style={{
-                    background: "linear-gradient(135deg, #1254B8, #0B3D91)",
-                    boxShadow: "0 4px 16px rgba(18,84,184,0.2)",
+                    background: "linear-gradient(135deg, #3B6CF4, #2B5CE6)",
+                    boxShadow: "0 4px 16px rgba(59,108,244,0.2)",
                   }}
                 >
                   {sending ? "…" : t("submit")}

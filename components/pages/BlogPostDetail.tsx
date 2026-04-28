@@ -27,7 +27,7 @@ function BlogServiceLinks() {
           <li key={slug}>
             <Link
               href={internalPathToLinkHref(`/services/${slug}`)}
-              className="inline-flex rounded-xl border border-[#E8EFFE] bg-[#F0F4FF] px-4 py-2.5 text-sm font-semibold text-[#374151] hover:border-[#1254B8]/40 hover:text-[#1254B8] transition-colors"
+              className="inline-flex rounded-xl border border-[#E8EFFE] bg-[#F0F4FF] px-4 py-2.5 text-sm font-semibold text-[#374151] hover:border-[#3B6CF4]/40 hover:text-[#3B6CF4] transition-colors"
             >
               {tItems(itemKey)}
             </Link>
@@ -37,13 +37,13 @@ function BlogServiceLinks() {
       <div className="mt-5 flex flex-wrap items-center gap-4">
         <Link
           href="/services"
-          className="text-sm font-bold text-[#1254B8] hover:underline"
+          className="text-sm font-bold text-[#3B6CF4] hover:underline"
         >
           {tS("viewAll")} →
         </Link>
         <Link
           href="/contact"
-          className="text-sm font-semibold text-[#5A5955] hover:text-[#0B3D91] transition-colors"
+          className="text-sm font-semibold text-[#5A5955] hover:text-[#2B5CE6] transition-colors"
         >
           {tNav("contact")}
         </Link>
@@ -73,7 +73,7 @@ export default function BlogPostDetail({ post }: BlogPostDetailProps) {
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-[#5A5955] hover:text-[#0B3D91] text-sm font-semibold mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-[#5A5955] hover:text-[#2B5CE6] text-sm font-semibold mb-8 transition-colors"
           >
             <ArrowLeft size={15} /> {t("backToBlog")}
           </Link>
@@ -86,7 +86,7 @@ export default function BlogPostDetail({ post }: BlogPostDetailProps) {
             </div>
           )}
 
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#0B3D91] mb-6 font-space leading-tight">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#2B5CE6] mb-6 font-space leading-tight">
             {post.title}
           </h1>
 
@@ -102,7 +102,7 @@ export default function BlogPostDetail({ post }: BlogPostDetailProps) {
           )}
 
           {post.body && post.body.length > 0 && (
-            <div className="prose prose-lg max-w-none [&_h2]:text-2xl [&_h2]:font-extrabold [&_h2]:text-[#0B3D91] [&_h2]:mt-8 [&_h2]:mb-3 [&_p]:text-[#374151] [&_p]:leading-relaxed [&_ul]:space-y-1.5 [&_li]:text-[#374151] [&_strong]:text-[#0B3D91]">
+            <div className="prose prose-lg max-w-none [&_h2]:text-2xl [&_h2]:font-extrabold [&_h2]:text-[#2B5CE6] [&_h2]:mt-8 [&_h2]:mb-3 [&_p]:text-[#374151] [&_p]:leading-relaxed [&_ul]:space-y-1.5 [&_li]:text-[#374151] [&_strong]:text-[#2B5CE6]">
               <PortableText value={post.body} />
             </div>
           )}
@@ -112,7 +112,7 @@ export default function BlogPostDetail({ post }: BlogPostDetailProps) {
             className="mt-12 rounded-2xl border border-[#E8EFFE] bg-[#F0F4FF] p-6"
             aria-labelledby="blog-service-links"
           >
-            <h2 id="blog-service-links" className="text-base font-bold text-[#0B3D91] mb-1">
+            <h2 id="blog-service-links" className="text-base font-bold text-[#2B5CE6] mb-1">
               {t("serviceLinksTitle")}
             </h2>
             <p className="text-sm text-[#5A5955] mb-4">{t("serviceLinksIntro")}</p>

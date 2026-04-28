@@ -4,13 +4,19 @@
   --font-space: 'Outfit', 'Nunito', sans-serif;
   --font-inter: 'Nunito', sans-serif;
 
-  --color-blue: #0B3D91;
-  --color-blue-mid: #1254B8;
-  --color-blue-light: #E8EFFE;
+  /* ── New 3-color palette (from brand image) ── */
+  --color-blue: #3B6CF4;
+  --color-blue-mid: #2B5CE6;
+  --color-blue-light: #EEF2FF;
   --color-blue-pale: #F0F4FF;
-  --color-amber: #E11D48;
-  --color-amber-light: #FFE4EA;
-  --color-amber-pale: #FFD6E0;
+  --color-red: #E8354A;
+  --color-red-dark: #C8283C;
+  --color-red-light: #FFE4E8;
+  --color-red-pale: #FFF0F2;
+  --color-purple: #8B3FC8;
+  --color-purple-dark: #6F2FA8;
+  --color-purple-light: #F3EAFF;
+  --color-purple-pale: #FAF5FF;
   --color-off-white: #FAFAF8;
   --color-gray-100: #F5F4F0;
   --color-gray-200: #E8E7E2;
@@ -18,17 +24,20 @@
   --color-gray-600: #5A5955;
   --color-gray-900: #1A1917;
 
-  /* Legacy aliases for backward compat */
-  --color-brand-red: #E11D48;
-  --color-brand-red-dark: #BE123C;
-  --color-brand-navy: #0B3D91;
-  --color-brand-navy-light: #1254B8;
-  --color-brand-blue: #1254B8;
-  --color-brand-blue-light: #E8EFFE;
+  /* Legacy aliases — mapped to new palette */
+  --color-amber: #E8354A;
+  --color-amber-light: #FFE4E8;
+  --color-amber-pale: #FFF0F2;
+  --color-brand-red: #E8354A;
+  --color-brand-red-dark: #C8283C;
+  --color-brand-navy: #2B5CE6;
+  --color-brand-navy-light: #3B6CF4;
+  --color-brand-blue: #3B6CF4;
+  --color-brand-blue-light: #EEF2FF;
   --color-surface: #FFFFFF;
   --color-surface-2: #F0F4FF;
-  --color-surface-3: #E8EFFE;
-  --color-border: #E8EFFE;
+  --color-surface-3: #EEF2FF;
+  --color-border: #EEF2FF;
   --color-border-light: #F0F4FF;
   --color-text: #1A1917;
   --color-text-muted: #5A5955;
@@ -67,7 +76,8 @@
     font-family: 'Nunito', sans-serif;
     font-size: 1rem;
     line-height: 1.65;
-    background-color: #FFFFFF;
+    background: linear-gradient(135deg, #d4f0e8 0%, #e8eeff 28%, #fdfeff 55%, #fef9e6 78%, #f5eeff 100%);
+    background-attachment: fixed;
     color: #1A1917;
     overflow-x: hidden;
   }
@@ -75,7 +85,7 @@
     font-family: 'Outfit', 'Nunito', sans-serif;
     font-weight: 700;
     letter-spacing: -0.025em;
-    color: #0B3D91;
+    color: #1a2a6c;
   }
 }
 
@@ -92,24 +102,35 @@
     animation: partner-marquee 55s linear infinite;
   }
   .bg-brand-dots {
-    background-image: radial-gradient(circle at 1px 1px, rgba(18,84,184,0.07) 1px, transparent 0);
+    background-image: radial-gradient(circle at 1px 1px, rgba(59,108,244,0.07) 1px, transparent 0);
     background-size: 28px 28px;
   }
   .shadow-brand {
-    box-shadow: 0 4px 24px rgba(18, 84, 184, 0.2);
-  }
-  .shadow-amber {
-    box-shadow: 0 4px 24px rgba(232, 119, 34, 0.25);
+    box-shadow: 0 4px 24px rgba(59,108,244,0.22);
   }
   .shadow-red {
-    box-shadow: 0 4px 24px rgba(232, 119, 34, 0.25);
+    box-shadow: 0 4px 24px rgba(232,53,74,0.28);
+  }
+  .shadow-purple {
+    box-shadow: 0 4px 24px rgba(139,63,200,0.28);
   }
   .shadow-navy {
-    box-shadow: 0 4px 24px rgba(11, 61, 145, 0.18);
+    box-shadow: 0 4px 24px rgba(43,92,230,0.18);
+  }
+  /* Holographic iridescent background utility */
+  .bg-holographic {
+    background: linear-gradient(
+      135deg,
+      #d4f0e8 0%,
+      #e8eeff 28%,
+      #fdfeff 55%,
+      #fef9e6 78%,
+      #f5eeff 100%
+    );
   }
 }
 
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #F0F4FF; }
-::-webkit-scrollbar-thumb { background: #1254B8; border-radius: 4px; }
-::selection { background: rgba(18, 84, 184, 0.15); color: #0B3D91; }
+::-webkit-scrollbar-track { background: #EEF2FF; }
+::-webkit-scrollbar-thumb { background: #3B6CF4; border-radius: 4px; }
+::selection { background: rgba(59,108,244,0.15); color: #2B5CE6; }

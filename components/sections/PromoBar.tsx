@@ -17,12 +17,12 @@ export default function PromoBar() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="rounded-2xl p-6 flex items-center gap-4 border border-white/8 hover:border-[#E11D48]/30 transition-all duration-300 group"
-            style={{ background: "rgba(225,29,72,0.06)" }}
+            className="rounded-2xl p-6 flex items-center gap-4 border border-white/8 hover:border-[#E8354A]/30 transition-all duration-300 group"
+            style={{ background: "rgba(232,53,74,0.06)" }}
           >
             <div
               className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform"
-              style={{ background: "linear-gradient(135deg, #E11D48, #BE123C)", boxShadow: "0 8px 24px rgba(225,29,72,0.3)" }}
+              style={{ background: "linear-gradient(135deg, #E8354A, #C8283C)", boxShadow: "0 8px 24px rgba(232,53,74,0.3)" }}
             >
               <Tag className="text-white" size={26} strokeWidth={2.25} />
             </div>
@@ -30,7 +30,7 @@ export default function PromoBar() {
               <p
                 className="text-3xl font-extrabold tracking-tight font-space"
                 style={{
-                  background: "linear-gradient(135deg, #E11D48, #1254B8)",
+                  background: "linear-gradient(135deg, #E8354A, #3B6CF4)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -47,12 +47,12 @@ export default function PromoBar() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.08 }}
-            className="rounded-2xl p-6 flex items-center gap-4 border border-[#1254B8]/20 hover:border-[#1254B8]/40 transition-all duration-300 group"
-            style={{ background: "rgba(18,84,184,0.06)", boxShadow: "0 0 30px rgba(18,84,184,0.08)" }}
+            className="rounded-2xl p-6 flex items-center gap-4 border border-[#3B6CF4]/20 hover:border-[#3B6CF4]/40 transition-all duration-300 group"
+            style={{ background: "rgba(59,108,244,0.06)", boxShadow: "0 0 30px rgba(59,108,244,0.08)" }}
           >
             <div
               className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 text-2xl group-hover:scale-105 transition-transform"
-              style={{ background: "linear-gradient(135deg, #1254B8, #0B3D91)", boxShadow: "0 8px 24px rgba(18,84,184,0.3)" }}
+              style={{ background: "linear-gradient(135deg, #3B6CF4, #2B5CE6)", boxShadow: "0 8px 24px rgba(59,108,244,0.3)" }}
               aria-hidden
             >
               <Zap size={24} className="text-white" />
@@ -62,7 +62,7 @@ export default function PromoBar() {
               <p className="text-[#94A3B8] text-sm mt-1">{tc("phone")} · {tc("phone2")}</p>
               <a
                 href={`tel:${tc("phoneDial")}`}
-                className="inline-flex items-center gap-1.5 mt-3 text-sm font-bold text-[#1254B8] hover:text-[#E11D48] transition-colors"
+                className="inline-flex items-center gap-1.5 mt-3 text-sm font-bold text-[#3B6CF4] hover:text-[#E8354A] transition-colors"
               >
                 <Phone size={15} className="shrink-0" />
                 {th("ctaSecondary")}

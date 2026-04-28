@@ -9,6 +9,8 @@ import { pricingCategory } from "./pricingCategory";
 import { page } from "./page";
 import { siteSettings } from "./siteSettings";
 import { contactSubmission } from "./contactSubmission";
+import { jobPosting } from "./jobPosting";
+import { workProject } from "./workProject";
 
 export const schemaTypes = [
   localeString,
@@ -24,4 +26,6 @@ export const schemaTypes = [
   page,
   siteSettings,
   contactSubmission,
+  jobPosting,
+  workProject,
 ];

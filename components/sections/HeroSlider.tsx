@@ -44,8 +44,8 @@ export default function HeroSlider() {
 
   return (
     <div className="relative w-full">
-      <div className="absolute -top-5 -right-5 w-24 h-24 rounded-full bg-[#E11D48]/14 blur-xl z-0" />
-      <div className="absolute -bottom-5 -left-4 w-20 h-20 rounded-full bg-[#E11D48]/12 blur-lg z-0" />
+      <div className="absolute -top-5 -right-5 w-24 h-24 rounded-full bg-[#E8354A]/14 blur-xl z-0" />
+      <div className="absolute -bottom-5 -left-4 w-20 h-20 rounded-full bg-[#E8354A]/12 blur-lg z-0" />
 
       <div
         className="relative w-full overflow-hidden rounded-[26px] z-10 border border-white/55 bg-white/22 backdrop-blur-sm
@@ -81,7 +81,7 @@ export default function HeroSlider() {
               className="h-full rounded-full transition-all duration-300"
               style={{
                 width: `${((index + 1) / n) * 100}%`,
-                background: "linear-gradient(135deg, #E11D48, #BE123C)",
+                background: "linear-gradient(135deg, #E8354A, #C8283C)",
               }}
             />
           </div>
@@ -98,7 +98,7 @@ export default function HeroSlider() {
               className="h-1.5 rounded-full transition-all duration-300"
               style={
                 i === index
-                  ? { width: 28, background: "#E11D48" }
+                  ? { width: 28, background: "#E8354A" }
                   : { width: 6, background: "rgba(255,255,255,0.45)" }
               }
               aria-label={`${i + 1} / ${n}`}
@@ -110,7 +110,7 @@ export default function HeroSlider() {
         <button
           type="button"
           onClick={() => go(-1)}
-          className="absolute left-3 top-1/2 z-20 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center text-white border border-white/40 hover:border-[#E11D48]/90 transition-all bg-white/18 backdrop-blur-sm"
+          className="absolute left-3 top-1/2 z-20 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center text-white border border-white/40 hover:border-[#E8354A]/90 transition-all bg-white/18 backdrop-blur-sm"
           aria-label={t("sliderPrev")}
         >
           <ChevronLeft size={20} />
@@ -118,14 +118,14 @@ export default function HeroSlider() {
         <button
           type="button"
           onClick={() => go(1)}
-          className="absolute right-3 top-1/2 z-20 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center text-white border border-white/40 hover:border-[#E11D48]/90 transition-all bg-white/18 backdrop-blur-sm"
+          className="absolute right-3 top-1/2 z-20 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center text-white border border-white/40 hover:border-[#E8354A]/90 transition-all bg-white/18 backdrop-blur-sm"
           aria-label={t("sliderNext")}
         >
           <ChevronRight size={20} />
         </button>
       </div>
 
-      <div className="absolute -bottom-3 -left-3 w-12 h-12 bg-[#E11D48]/75 rounded-xl z-0 hidden sm:block" />
+      <div className="absolute -bottom-3 -left-3 w-12 h-12 bg-[#E8354A]/75 rounded-xl z-0 hidden sm:block" />
     </div>
   );
 }

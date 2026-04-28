@@ -17,7 +17,8 @@
     "priceList": "Price List",
     "freeQuote": "Free Quote",
     "callNow": "Call Now — Free",
-    "selectService": "Select a service"
+    "selectService": "Select a service",
+    "works": "Our Works"
   },
   "promoBar": {
     "discountHint": "Where our discount applies (see price list for exclusions and night rates).",
@@ -33,7 +34,12 @@
     "title": "Professional Home",
     "titleHighlight": "Services On Demand",
     "subtitle": "Plumbing, electrical, renovation & cleaning in Tallinn. Certified pros.",
-    "tags": ["Plumbing", "Electrical", "Renovation", "Cleaning"],
+    "tags": [
+      "Plumbing",
+      "Electrical",
+      "Renovation",
+      "Cleaning"
+    ],
     "cta": "Get Free Quote",
     "ctaSecondary": "Call Now",
     "sliderAlts": [
@@ -97,6 +103,7 @@
     "pageCtaButton": "Request a quote",
     "relatedServices": "Related services",
     "allServicesCta": "All services",
+    "premiumBadge": "Premium Service",
     "guarantee": "We guarantee high quality! We achieve excellence through clear planning, latest technologies, modern equipment, and professional employees.",
     "searchLabel": "Search services",
     "searchPlaceholder": "Search by name…",
@@ -135,7 +142,22 @@
       "polyethyleneWelding": "Polyethylene Pipe Welding",
       "applianceRepair": "Repair of Household Appliances",
       "handymanServices": "Handyman & Small Repairs",
-      "sewerageVideo": "Sewerage Video Inspection"
+      "sewerageVideo": "Sewerage Video Inspection",
+      "radiatorInstallation": "Radiator Installation",
+      "cesspoolEmptying": "Cesspool Emptying & Septic Service",
+      "electricalPanel": "Electrical Panel Installation",
+      "lightingInstallation": "Lighting Installation",
+      "socketInstallation": "Socket & Switch Installation",
+      "washingMachineInstallation": "Washing Machine Installation",
+      "dishwasherInstallation": "Dishwasher Installation",
+      "cookerInstallation": "Cooker & Oven Installation",
+      "furnitureAssembly": "Furniture Assembly",
+      "gasBoilerInstallation": "Gas Boiler Installation & Service",
+      "gasLineInstallation": "Gas Line Installation",
+      "interiorDesign": "Interior Architecture & Design",
+      "visualization3d": "3D Visualization & Rendering",
+      "buildingPermit": "Building Permit & Project Documentation",
+      "propertyManagement": "Property Management & Maintenance"
     },
     "itemShort": {
       "plumbing": "24/7 emergency plumbing — fast call-out in Tallinn.",
@@ -277,7 +299,8 @@
       "emergency": "For suggestions or complaints:",
       "emergencyEmail": "info@torudeabi24.ee"
     },
-    "orderHere": "Order here. Discount -30%!"
+    "orderHere": "Order here. Discount -30%!",
+    "kicker": "Get In Touch"
   },
   "cta": {
     "notSure": "Not sure which service you need?",
@@ -379,6 +402,24 @@
   "privacy": {
     "title": "Privacy and Cookie Policy"
   },
+  "jobs": {
+    "title": "Jobs / Careers",
+    "subtitle": "Join our team of certified technicians — growth opportunities, competitive pay and a great crew.",
+    "kicker": "Careers",
+    "empty": "No active job postings at the moment. Send your application to: info@torudeabi24.ee",
+    "emptyHint": "You can always send us your CV at info@torudeabi24.ee",
+    "applyNow": "Apply Now",
+    "fullTime": "Full-time",
+    "partTime": "Part-time",
+    "contract": "Contract",
+    "salary": "Salary",
+    "location": "Location",
+    "department": "Department",
+    "filterAll": "All",
+    "openPositions": "Open positions",
+    "joinTeam": "Join our team",
+    "joinTeamDesc": "Send your CV and cover letter to info@torudeabi24.ee"
+  },
   "pageSeo": {
     "contact": {
       "title": "Contact TorudeAbi24 — quotes & 24/7 emergency | Tallinn & Harjumaa",
@@ -407,7 +448,39 @@
     "blogIndex": {
       "title": "Blog — tips for home maintenance & renovations | TorudeAbi24",
       "description": "Practical articles on plumbing, electrics, heating and renovation in Estonia — from our team in Tallinn & Harjumaa."
+    },
+    "jobs": {
+      "title": "Jobs & Careers at TorudeAbi24 | Tallinn | torudeabi24.ee",
+      "description": "Looking for work in Tallinn? Join our certified team — competitive salary, flexible hours and a supportive environment in home services."
+    },
+    "works": {
+      "title": "Our Works — Completed Projects in Tallinn | TorudeAbi24",
+      "description": "Browse our portfolio of completed projects: plumbing, electrical, bathrooms, renovation in Tallinn & Harjumaa. Quality that speaks for itself."
     }
+  },
+  "works": {
+    "title": "Our Works",
+    "subtitle": "Selected examples of our completed projects across Tallinn and Harjumaa — every job speaks for itself.",
+    "kicker": "Portfolio",
+    "filterAll": "All works",
+    "serviceTypes": {
+      "plumbing": "Plumbing",
+      "electrical": "Electrical",
+      "bathroom": "Bathroom",
+      "renovation": "Renovation",
+      "gas": "Gas",
+      "cleaning": "Cleaning",
+      "construction": "Construction",
+      "design": "Design",
+      "other": "Other"
+    },
+    "location": "Location",
+    "completedAt": "Completed",
+    "highlights": "Project details",
+    "ctaTitle": "Want the same result?",
+    "ctaSubtitle": "Get a free quote — we respond fast across Tallinn & Harjumaa.",
+    "ctaButton": "Request a Quote",
+    "projectCount": "{count} projects"
   },
   "common": {
     "callUs": "Call Us",

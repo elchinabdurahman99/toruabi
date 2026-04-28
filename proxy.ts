@@ -38,22 +38,18 @@ export default function middleware(request: NextRequest) {
       return NextResponse.redirect(new URL(`/${locale}/${servicePrefix}/${localizedSlug}`, request.url), 301);
     }
   } else {
-    // Un-prefixed path processing
+    // Handle orphaned service slug without locale prefix, otherwise delegate to next-intl.
     const acceptLanguage = request.headers.get("accept-language") || "";
     const lang = acceptLanguage.split(",")[0].split("-")[0].toLowerCase();
-    const detected = (["et", "ru"].includes(lang) ? lang : "en") as "en" | "et" | "ru";
+    const detected = (["en", "et", "ru"].includes(lang) ? lang : "et") as "en" | "et" | "ru";
 
     const canonical = SLUG_TO_CANONICAL[decodeURIComponent(firstHeader)];
     if (canonical) {
       const servicePrefix = { en: "services", et: "teenused", ru: "услуги" }[detected];
       const localizedSlug = CANONICAL_TO_LOCALIZED[canonical][detected];
 
-      return NextResponse.redirect(new URL(`/${detected}/${servicePrefix}/${localizedSlug}`, request.url), 301);
+      return NextResponse.redirect(new URL(`/${detected}/${servicePrefix}/${localizedSlug}`, request.url), 307);
     }
-
-    // Default: Prepend detected locale (e.g. /blog -> /en/blog)
-    const newPath = pathname === "/" ? `/${detected}` : `/${detected}${pathname}`;
-    return NextResponse.redirect(new URL(newPath, request.url), 301);
   }
 
   return nextIntlMiddleware(request);

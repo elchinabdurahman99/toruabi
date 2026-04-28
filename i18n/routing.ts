@@ -60,5 +60,15 @@ export const routing = defineRouting({
       en: "/privacy-policy",
       ru: "/политика-конфиденциальности",
     },
+    "/works": {
+      et: "/meie-tood",
+      en: "/works",
+      ru: "/наши-работы",
+    },
+    "/jobs": {
+      et: "/tookoht",
+      en: "/jobs",
+      ru: "/вакансии",
+    },
   },
 });

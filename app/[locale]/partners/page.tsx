@@ -31,7 +31,7 @@ export default async function PartnersPage({ params }: Props) {
 
   return (
     <>
-      <main className="pt-16 pb-20 bg-white min-h-screen">
+      <main className="pt-16 pb-20 min-h-screen">
         <PartnersGrid partners={partners || []} />
       </main>
       <Footer />

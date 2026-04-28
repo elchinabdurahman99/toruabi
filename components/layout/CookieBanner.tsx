@@ -36,20 +36,20 @@ export default function CookieBanner() {
       className="fixed bottom-0 left-0 right-0 z-999 p-4 sm:p-6 flex justify-center"
     >
       <div
-        className="w-full max-w-2xl text-[#0B3D91] rounded-2xl shadow-xl border border-[#E8EFFE] flex flex-col sm:flex-row items-start sm:items-center gap-4 px-5 py-4 bg-white"
+        className="w-full max-w-2xl text-[#2B5CE6] rounded-2xl shadow-xl border border-[#E8EFFE] flex flex-col sm:flex-row items-start sm:items-center gap-4 px-5 py-4 bg-white"
       >
         <div
           className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
-          style={{ background: "linear-gradient(135deg, #1254B8, #0B3D91)" }}
+          style={{ background: "linear-gradient(135deg, #3B6CF4, #2B5CE6)" }}
         >
           <Cookie size={20} className="text-white" />
         </div>
 
         <div className="flex-1 min-w-0">
-          <p className="text-sm font-bold text-[#0B3D91] mb-0.5">{t("title")}</p>
+          <p className="text-sm font-bold text-[#2B5CE6] mb-0.5">{t("title")}</p>
           <p className="text-xs text-[#5A5955] leading-relaxed">
             {t("body")}{" "}
-            <Link href="/privacy-policy" className="underline text-[#1254B8] hover:text-[#0B3D91] transition-colors">
+            <Link href="/privacy-policy" className="underline text-[#3B6CF4] hover:text-[#2B5CE6] transition-colors">
               {t("learnMore")}
             </Link>
           </p>
@@ -59,7 +59,7 @@ export default function CookieBanner() {
           <button
             type="button"
             onClick={reject}
-            className="flex-1 sm:flex-initial px-4 py-2 rounded-xl border border-[#E8EFFE] bg-[#F0F4FF] text-xs font-bold text-[#5A5955] hover:text-[#0B3D91] hover:border-[#1254B8]/30 transition-colors"
+            className="flex-1 sm:flex-initial px-4 py-2 rounded-xl border border-[#E8EFFE] bg-[#F0F4FF] text-xs font-bold text-[#5A5955] hover:text-[#2B5CE6] hover:border-[#3B6CF4]/30 transition-colors"
           >
             {t("reject")}
           </button>
@@ -67,7 +67,7 @@ export default function CookieBanner() {
             type="button"
             onClick={accept}
             className="flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-bold text-white transition-all hover:-translate-y-0.5"
-            style={{ background: "linear-gradient(135deg, #1254B8, #0B3D91)", boxShadow: "0 4px 16px rgba(18,84,184,0.25)" }}
+            style={{ background: "linear-gradient(135deg, #3B6CF4, #2B5CE6)", boxShadow: "0 4px 16px rgba(59,108,244,0.25)" }}
           >
             {t("accept")}
           </button>

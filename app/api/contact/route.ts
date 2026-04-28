@@ -34,10 +34,6 @@ export async function POST(req: Request) {
   const message = String(formData.get("message") ?? "").trim();
   const files = formData.getAll("files").filter((v): v is File => v instanceof File && v.size > 0);
 
-  if (!name || !phone) {
-    return NextResponse.json({ ok: false, error: "Name and phone are required." }, { status: 400 });
-  }
-
   if (files.length > MAX_FILES) {
     return NextResponse.json({ ok: false, error: `Maximum ${MAX_FILES} files.` }, { status: 400 });
   }
@@ -129,7 +125,7 @@ export async function POST(req: Request) {
     const { error } = await resend.emails.send({
       from,
       to: recipients,
-      subject: `[TorudeAbi24 contact] ${name}`,
+      subject: `[TorudeAbi24 contact] ${name || phone || "New request"}`,
       html,
       attachments,
     });
@@ -140,9 +136,9 @@ export async function POST(req: Request) {
   if (write) {
     await write.create({
       _type: "contactSubmission",
-      name,
+      name: name || undefined,
       email: email || undefined,
-      phone,
+      phone: phone || undefined,
       message: message || "",
       attachments: attachmentBlocks.length ? attachmentBlocks : undefined,
       createdAt: new Date().toISOString(),

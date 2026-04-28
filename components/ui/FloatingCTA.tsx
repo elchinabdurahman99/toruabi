@@ -33,9 +33,9 @@ export default function FloatingCTA() {
                 exit={{ opacity: 0, y: 10, scale: 0.9 }}
                 className="rounded-2xl p-4 w-64 border border-white/10"
                 style={{
-                  background: "rgba(11,61,145,0.97)",
+                  background: "rgba(43,92,230,0.97)",
                   backdropFilter: "blur(20px)",
-                  boxShadow: "0 20px 60px rgba(11,61,145,0.4), 0 0 0 1px rgba(255,255,255,0.08)",
+                  boxShadow: "0 20px 60px rgba(43,92,230,0.4), 0 0 0 1px rgba(255,255,255,0.08)",
                 }}
               >
                 <p className="font-bold text-white text-sm mb-1 font-space">{t("title")}?</p>
@@ -45,8 +45,8 @@ export default function FloatingCTA() {
                     href={`tel:${tc("phoneDial")}`}
                     className="flex items-center gap-2 text-white font-bold text-sm py-2.5 px-4 rounded-xl transition-all hover:-translate-y-0.5"
                     style={{
-                      background: "linear-gradient(135deg, #E11D48, #BE123C)",
-                      boxShadow: "0 4px 16px rgba(225,29,72,0.35)",
+                      background: "linear-gradient(135deg, #E8354A, #C8283C)",
+                      boxShadow: "0 4px 16px rgba(232,53,74,0.35)",
                     }}
                   >
                     <Phone size={14} /> {tc("callUs")}
@@ -70,8 +70,8 @@ export default function FloatingCTA() {
             onClick={() => setExpanded(!expanded)}
             className="w-14 h-14 rounded-full flex items-center justify-center relative text-white"
             style={{
-              background: "linear-gradient(135deg, #E11D48, #1254B8)",
-              boxShadow: "0 8px 32px rgba(225,29,72,0.4), 0 0 0 1px rgba(255,255,255,0.1)",
+              background: "linear-gradient(135deg, #E8354A, #3B6CF4)",
+              boxShadow: "0 8px 32px rgba(232,53,74,0.4), 0 0 0 1px rgba(255,255,255,0.1)",
             }}
           >
             <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-green-400 border-2 border-white animate-pulse" />

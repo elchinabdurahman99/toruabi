@@ -2,8 +2,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
-  Phone, Mail, MapPin, Clock, Send, CheckCircle, Paperclip,
-  Info, AlertCircle, ChevronDown,
+  Phone, Mail, MapPin, Send, CheckCircle, Paperclip,
+  Info, AlertCircle,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -13,7 +13,7 @@ const MAX_BYTES_PER_FILE = 12 * 1024 * 1024;
 const LARGE_FALLBACK_BYTES = 2 * 1024 * 1024;
 
 const inputClass =
-  "w-full rounded-xl px-3.5 py-2.5 text-sm text-[#0B3D91] border border-[#E8EFFE] bg-[#FAFAF8] focus:outline-none focus:border-[#1254B8]/50 focus:bg-white transition-all placeholder:text-[#9C9B96]";
+  "w-full rounded-xl px-3.5 py-2.5 text-sm text-[#2B5CE6] border border-[#E8EFFE] bg-white/50 focus:outline-none focus:border-[#3B6CF4]/50 focus:bg-white transition-all placeholder:text-[#9C9B96]";
 
 const labelClass = "text-[#5A5955] text-[10px] font-bold uppercase tracking-[0.15em] block mb-1.5";
 
@@ -26,16 +26,6 @@ export default function Contact({ compact = false }: ContactProps) {
   const [fileMeta, setFileMeta] = useState<{ name: string; size: number }[]>([]);
   const [clientFileError, setClientFileError] = useState<string | null>(null);
   const [showLargeFileFallback, setShowLargeFileFallback] = useState(false);
-  const serviceOptions = [
-    t("form.services.electrical"),
-    t("form.services.plumbing"),
-    t("form.services.bathroomRepair"),
-    t("form.services.blockageClearing"),
-    t("form.services.construction"),
-    t("form.services.apartmentAssociation"),
-    t("form.services.other"),
-  ];
-
   const contactItems = [
     {
       icon: Phone,
@@ -130,7 +120,7 @@ export default function Contact({ compact = false }: ContactProps) {
           viewport={{ once: true }}
           className="mb-6"
         >
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B3D91] font-space mb-1">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2B5CE6] font-space mb-1">
             {t("title")}
           </h2>
           <p className="text-[#5A5955] text-sm max-w-xl">{t("subtitle")}</p>
@@ -147,9 +137,9 @@ export default function Contact({ compact = false }: ContactProps) {
             {contactItems.map((item) => (
               <div
                 key={item.label}
-                className="rounded-xl flex gap-3 items-start border border-[#E8EFFE] bg-white hover:border-[#1254B8]/30 hover:shadow-sm transition-all p-3.5"
+                className="rounded-xl flex gap-3 items-start border border-[#E8EFFE] bg-white hover:border-[#3B6CF4]/30 hover:shadow-sm transition-all p-3.5"
               >
-                <div className="w-9 h-9 rounded-xl bg-[#E8EFFE] flex items-center justify-center shrink-0 text-[#1254B8]">
+                <div className="w-9 h-9 rounded-xl bg-[#E8EFFE] flex items-center justify-center shrink-0 text-[#3B6CF4]">
                   <item.icon size={14} />
                 </div>
                 <div>
@@ -159,12 +149,12 @@ export default function Contact({ compact = false }: ContactProps) {
                   {item.href ? (
                     <a
                       href={item.href}
-                      className="text-[#0B3D91] font-bold text-sm hover:text-[#1254B8] transition-colors block"
+                      className="text-[#2B5CE6] font-bold text-sm hover:text-[#3B6CF4] transition-colors block"
                     >
                       {item.value}
                     </a>
                   ) : (
-                    <p className="text-[#0B3D91] font-bold text-sm">{item.value}</p>
+                    <p className="text-[#2B5CE6] font-bold text-sm">{item.value}</p>
                   )}
                   <p className="text-[#9C9B96] text-xs">{item.sub}</p>
                 </div>
@@ -200,23 +190,26 @@ export default function Contact({ compact = false }: ContactProps) {
 
   /* ─── Full (non-compact) ─────────────────────────────────── */
   return (
-    <section id="contact" className="py-16 sm:py-20 relative bg-[#F0F4FF]">
+    <section id="contact" className="py-16 sm:py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div
           className="rounded-3xl overflow-hidden"
-          style={{ boxShadow: "0 20px 60px -15px rgba(11,61,145,0.12)" }}
+          style={{ boxShadow: "0 20px 60px -15px rgba(43,92,230,0.12)" }}
         >
           <div className="grid lg:grid-cols-[5fr_7fr]">
-            {/* Left: Blue info panel */}
-            <div className="bg-[#0B3D91] p-8 sm:p-10 lg:p-12 relative overflow-hidden flex flex-col gap-8">
+            {/* Left: Purple gradient info panel */}
+            <div
+              className="p-8 sm:p-10 lg:p-12 relative overflow-hidden flex flex-col gap-8"
+              style={{ background: "linear-gradient(145deg, #1A4FD6 0%, #2B5CE6 50%, #3B6CF4 100%)" }}
+            >
               {/* Decorative glows */}
-              <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#1254B8]/40 rounded-full blur-[80px] pointer-events-none" />
-              <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-[#1254B8]/20 rounded-full blur-[60px] pointer-events-none" />
+              <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/10 rounded-full blur-[80px] pointer-events-none" />
+              <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-[#E8354A]/20 rounded-full blur-[60px] pointer-events-none" />
 
               <div className="relative z-10">
                 <div className="flex items-center gap-2 mb-5">
-                  <span className="w-8 h-0.5 bg-[#E11D48]" />
-                  <span className="text-[#E11D48] text-xs font-bold uppercase tracking-[0.25em]">
+                  <span className="w-8 h-0.5 bg-[#E8354A]" />
+                  <span className="text-[#E8354A] text-xs font-bold uppercase tracking-[0.25em]">
                     {t("kicker") || "KONTAKT"}
                   </span>
                 </div>
@@ -242,7 +235,7 @@ export default function Contact({ compact = false }: ContactProps) {
                       {item.href ? (
                         <a
                           href={item.href}
-                          className="text-white font-bold text-sm hover:text-[#E11D48] transition-colors"
+                          className="text-white font-bold text-sm hover:text-[#E8354A] transition-colors"
                         >
                           {item.value}
                         </a>
@@ -256,8 +249,8 @@ export default function Contact({ compact = false }: ContactProps) {
             </div>
 
             {/* Right: White form panel */}
-            <div className="bg-white p-8 sm:p-10 lg:p-12">
-              <h3 className="text-2xl font-extrabold text-[#0B3D91] font-space mb-2">
+            <div className="bg-white/60 backdrop-blur-md p-8 sm:p-10 lg:p-12">
+              <h3 className="text-2xl font-extrabold text-[#2B5CE6] font-space mb-2">
                 {t("form.title")}
               </h3>
               <p className="text-[#9C9B96] text-sm mb-7">
@@ -268,21 +261,21 @@ export default function Contact({ compact = false }: ContactProps) {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="rounded-2xl border border-[#E8EFFE] bg-[#F0F4FF] text-center p-12 flex flex-col items-center gap-5"
+                  className="rounded-2xl border border-[#E8EFFE] bg-white/50 backdrop-blur-sm text-center p-12 flex flex-col items-center gap-5"
                 >
                   <div
                     className="w-16 h-16 rounded-full flex items-center justify-center"
-                    style={{ background: "linear-gradient(135deg, #1254B8, #0B3D91)" }}
+                    style={{ background: "linear-gradient(135deg, #3B6CF4, #2B5CE6)" }}
                   >
                     <CheckCircle size={30} className="text-white" />
                   </div>
-                  <h4 className="font-bold text-[#0B3D91] font-space text-2xl">
+                  <h4 className="font-bold text-[#2B5CE6] font-space text-2xl">
                     {t("form.success")}
                   </h4>
                   <a
                     href={`tel:${tc("phoneDial")}`}
                     className="flex items-center gap-2 text-white font-bold px-6 py-3 rounded-xl"
-                    style={{ background: "linear-gradient(135deg, #E11D48, #BE123C)" }}
+                    style={{ background: "linear-gradient(135deg, #E8354A, #C8283C)" }}
                   >
                     <Phone size={16} /> {tc("callUs")}
                   </a>
@@ -291,13 +284,10 @@ export default function Contact({ compact = false }: ContactProps) {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   {/* Name */}
                   <div className="flex flex-col">
-                    <label className={labelClass}>
-                      {t("form.name")} <span className="text-[#E11D48]">*</span>
-                    </label>
+                    <label className={labelClass}>{t("form.name")}</label>
                     <input
                       name="name"
                       type="text"
-                      required
                       placeholder={t("form.placeholders.name")}
                       className={inputClass}
                     />
@@ -306,59 +296,37 @@ export default function Contact({ compact = false }: ContactProps) {
                   {/* Phone + Email */}
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="flex flex-col">
-                      <label className={labelClass}>
-                        {t("form.phone")} <span className="text-[#E11D48]">*</span>
-                      </label>
+                      <label className={labelClass}>{t("form.phone")}</label>
                       <input
                         name="phone"
                         type="tel"
-                        required
                         placeholder={t("form.placeholders.phone")}
                         className={inputClass}
                       />
                     </div>
                     <div className="flex flex-col">
-                      <label className={labelClass}>{t("form.email")}</label>
+                      <label className={labelClass}>
+                        {t("form.email")} <span className="text-[#E8354A]">*</span>
+                      </label>
                       <input
                         name="email"
                         type="email"
+                        required
                         placeholder={t("form.placeholders.email")}
                         className={inputClass}
                       />
                     </div>
                   </div>
 
-                  {/* Service */}
-                  <div className="flex flex-col">
-                    <label className={labelClass}>{t("form.service")}</label>
-                    <div className="relative">
-                      <select
-                        name="service"
-                        className={`${inputClass} appearance-none pr-10 cursor-pointer`}
-                        defaultValue=""
-                      >
-                        <option value="" disabled>
-                          {t("form.selectServicePlaceholder")}
-                        </option>
-                        {serviceOptions.map((opt) => (
-                          <option key={opt} value={opt}>
-                            {opt}
-                          </option>
-                        ))}
-                      </select>
-                      <ChevronDown
-                        size={16}
-                        className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#9C9B96] pointer-events-none"
-                      />
-                    </div>
-                  </div>
-
                   {/* Address */}
                   <div className="flex flex-col">
-                    <label className={labelClass}>{t("info.address")}</label>
+                    <label className={labelClass}>
+                      {t("info.address")} <span className="text-[#E8354A]">*</span>
+                    </label>
                     <input
                       name="address"
                       type="text"
+                      required
                       placeholder={t("form.placeholders.address")}
                       className={inputClass}
                     />
@@ -366,10 +334,13 @@ export default function Contact({ compact = false }: ContactProps) {
 
                   {/* Message */}
                   <div className="flex flex-col">
-                    <label className={labelClass}>{t("form.message")}</label>
+                    <label className={labelClass}>
+                      {t("form.message")} <span className="text-[#E8354A]">*</span>
+                    </label>
                     <textarea
                       name="message"
                       rows={4}
+                      required
                       placeholder={t("form.placeholders.message")}
                       className={`${inputClass} resize-none`}
                     />
@@ -380,8 +351,8 @@ export default function Contact({ compact = false }: ContactProps) {
                     <label className={`${labelClass} flex items-center gap-2`}>
                       <Paperclip size={12} /> {t("form.attachments")}
                     </label>
-                    <div className="flex gap-3 rounded-xl border border-[#E8EFFE] bg-[#F0F4FF] px-4 py-3">
-                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#1254B8]">
+                    <div className="flex gap-3 rounded-xl border border-[#E8EFFE] bg-white/50 backdrop-blur-sm px-4 py-3">
+                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#3B6CF4]">
                         <Info size={13} className="text-white" />
                       </div>
                       <p className="text-xs leading-relaxed text-[#5A5955]">
@@ -394,7 +365,7 @@ export default function Contact({ compact = false }: ContactProps) {
                       multiple
                       accept="image/*,video/*"
                       onChange={handleFilesChange}
-                      className="text-sm text-[#5A5955] file:mr-3 file:rounded-lg file:border-0 file:px-3 file:py-1.5 file:text-sm file:font-bold file:text-white file:bg-[#0B3D91] file:cursor-pointer"
+                      className="text-sm text-[#5A5955] file:mr-3 file:rounded-lg file:border-0 file:px-3 file:py-1.5 file:text-sm file:font-bold file:text-white file:bg-[#2B5CE6] file:cursor-pointer"
                     />
                     {fileMeta.length > 0 && (
                       <ul className="text-xs text-[#5A5955] space-y-0.5" aria-live="polite">
@@ -417,8 +388,8 @@ export default function Contact({ compact = false }: ContactProps) {
                   </div>
 
                   {showLargeFileFallback && (
-                    <div className="flex gap-3 rounded-xl border border-[#E8EFFE] bg-[#F0F4FF] px-4 py-3.5">
-                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#1254B8]">
+                    <div className="flex gap-3 rounded-xl border border-[#E8EFFE] bg-white/50 backdrop-blur-sm px-4 py-3.5">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#3B6CF4]">
                         <Mail size={16} className="text-white" />
                       </div>
                       <div>
@@ -427,7 +398,7 @@ export default function Contact({ compact = false }: ContactProps) {
                         </p>
                         <a
                           href={`mailto:${tc("email")}?subject=${encodeURIComponent("Contact — attachments")}`}
-                          className="mt-1.5 inline-flex items-center gap-1.5 text-sm font-bold text-[#1254B8] hover:underline"
+                          className="mt-1.5 inline-flex items-center gap-1.5 text-sm font-bold text-[#3B6CF4] hover:underline"
                         >
                           <Mail size={14} /> {tc("email")}
                         </a>
@@ -449,8 +420,8 @@ export default function Contact({ compact = false }: ContactProps) {
                     whileTap={{ scale: 0.98 }}
                     className="w-full flex items-center justify-center gap-2.5 disabled:opacity-60 text-white font-bold rounded-xl transition-all text-base py-3.5"
                     style={{
-                      background: "linear-gradient(135deg, #1254B8, #0B3D91)",
-                      boxShadow: "0 4px 16px rgba(18,84,184,0.25)",
+                      background: "linear-gradient(135deg, #3B6CF4, #2B5CE6)",
+                      boxShadow: "0 4px 16px rgba(59,108,244,0.25)",
                     }}
                   >
                     {loading ? (
@@ -507,19 +478,19 @@ function CompactForm({
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="rounded-2xl border border-[#E8EFFE] bg-[#F0F4FF] text-center p-8 flex flex-col items-center gap-4"
+        className="rounded-2xl border border-[#E8EFFE] bg-white/50 backdrop-blur-sm text-center p-8 flex flex-col items-center gap-4"
       >
         <div
           className="w-14 h-14 rounded-full flex items-center justify-center"
-          style={{ background: "linear-gradient(135deg, #1254B8, #0B3D91)" }}
+          style={{ background: "linear-gradient(135deg, #3B6CF4, #2B5CE6)" }}
         >
           <CheckCircle size={26} className="text-white" />
         </div>
-        <h3 className="font-bold text-[#0B3D91] font-space text-lg">{t("form.success")}</h3>
+        <h3 className="font-bold text-[#2B5CE6] font-space text-lg">{t("form.success")}</h3>
         <a
           href={`tel:${tc("phoneDial")}`}
           className="flex items-center gap-2 text-white font-bold px-5 py-2.5 rounded-xl text-sm"
-          style={{ background: "linear-gradient(135deg, #E11D48, #BE123C)" }}
+          style={{ background: "linear-gradient(135deg, #E8354A, #C8283C)" }}
         >
           <Phone size={15} /> {tc("callUs")}
         </a>
@@ -535,11 +506,11 @@ function CompactForm({
       <div className="grid sm:grid-cols-2 gap-3">
         <div className="flex flex-col gap-1.5">
           <label className={labelClass}>{t("form.name")}</label>
-          <input name="name" type="text" required className={inputClass} />
+          <input name="name" type="text" className={inputClass} />
         </div>
         <div className="flex flex-col gap-1.5">
           <label className={labelClass}>{t("form.phone")}</label>
-          <input name="phone" type="tel" required className={inputClass} />
+          <input name="phone" type="tel" className={inputClass} />
         </div>
       </div>
       <div className="flex flex-col gap-1.5">
@@ -557,7 +528,7 @@ function CompactForm({
           multiple
           accept="image/*,video/*"
           onChange={handleFilesChange}
-          className="text-sm text-[#5A5955] file:mr-3 file:rounded-lg file:border-0 file:px-3 file:py-1.5 file:text-sm file:font-bold file:text-white file:bg-[#0B3D91] file:cursor-pointer"
+          className="text-sm text-[#5A5955] file:mr-3 file:rounded-lg file:border-0 file:px-3 file:py-1.5 file:text-sm file:font-bold file:text-white file:bg-[#2B5CE6] file:cursor-pointer"
         />
         {fileMeta.length > 0 && (
           <ul className="text-xs text-[#5A5955] space-y-0.5">
@@ -577,15 +548,15 @@ function CompactForm({
         )}
       </div>
       {showLargeFileFallback && (
-        <div className="flex gap-3 rounded-xl border border-[#E8EFFE] bg-[#F0F4FF] px-3.5 py-3">
-          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#1254B8]">
+        <div className="flex gap-3 rounded-xl border border-[#E8EFFE] bg-white/50 backdrop-blur-sm px-3.5 py-3">
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#3B6CF4]">
             <Mail size={14} className="text-white" />
           </div>
           <div>
             <p className="text-xs font-medium text-[#374151]">{t("form.uploadFailLargeFile")}</p>
             <a
               href={`mailto:${tc("email")}`}
-              className="text-xs font-bold text-[#1254B8] hover:underline"
+              className="text-xs font-bold text-[#3B6CF4] hover:underline"
             >
               {tc("email")}
             </a>
@@ -605,8 +576,8 @@ function CompactForm({
         whileTap={{ scale: 0.98 }}
         className="w-full flex items-center justify-center gap-2.5 disabled:opacity-60 text-white font-bold rounded-xl text-sm py-3"
         style={{
-          background: "linear-gradient(135deg, #1254B8, #0B3D91)",
-          boxShadow: "0 4px 16px rgba(18,84,184,0.2)",
+          background: "linear-gradient(135deg, #3B6CF4, #2B5CE6)",
+          boxShadow: "0 4px 16px rgba(59,108,244,0.2)",
         }}
       >
         {loading ? (

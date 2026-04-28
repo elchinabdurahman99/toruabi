@@ -8,14 +8,9 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/",
-        destination: "/et",
-        permanent: true,
-      },
-      {
         source: "/:path*",
-        has: [{ type: "host", value: "www.ajsan.ee" }],
-        destination: "https://ajsan.ee/:path*",
+        has: [{ type: "host", value: "www.torudeabi24.ee" }],
+        destination: "https://torudeabi24.ee/:path*",
         permanent: true,
       },
     ];

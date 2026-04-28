@@ -7,7 +7,7 @@ import CookieBanner from "@/components/layout/CookieBanner";
 import { SITE_NAME, SITE_URL } from "@/lib/siteConfig";
 import type { Metadata, Viewport } from "next";
 import { openGraphPageUrl } from "@/lib/seo/pageMeta";
-import type { Locale } from "@/i18n/config";
+import { defaultLocale, type Locale } from "@/i18n/config";
 import { sanityFetch } from "@/lib/sanity/client";
 import { serviceCategoriesNavQuery } from "@/lib/sanity/queries";
 import type { NavCategory } from "@/components/layout/Navbar";
@@ -29,7 +29,8 @@ export const viewport: Viewport = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
+  const { locale: rawLocale } = await params;
+  const locale = hasLocale(routing.locales, rawLocale) ? rawLocale : defaultLocale;
   const messages = (await import(`@/messages/${locale}.json`)).default;
   const meta = messages.meta;
 
@@ -91,7 +92,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   ]);
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

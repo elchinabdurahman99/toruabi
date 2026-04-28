@@ -3,6 +3,7 @@
 import { useMemo, useState, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import PageBanner from "@/components/ui/PageBanner";
 import { ArrowRight, Search, ShieldCheck, LayoutGrid } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -37,7 +38,7 @@ interface Props {
 }
 
 // ── Constants ─────────────────────────────────────────────────────────────────
-const ACCENT_COLORS = ["#0B3D91", "#1254B8", "#E11D48", "#1B8E4A", "#7C3AED", "#0B7EA8", "#B45309", "#0B3D91", "#1254B8"];
+const ACCENT_COLORS = ["#2B5CE6", "#3B6CF4", "#E8354A", "#1B8E4A", "#7C3AED", "#0B7EA8", "#B45309", "#2B5CE6", "#3B6CF4"];
 
 function fallbackList(tItem: (k: string) => string): Service[] {
   return ALL_SERVICE_SLUGS.map((slug, i) => {
@@ -51,7 +52,7 @@ function ServiceCard({ service, accentColor, learnMore }: { service: Service; ac
   return (
     <Link
       href={internalPathToLinkHref(`/services/${service.slug}`)}
-      className="group flex flex-col h-full rounded-2xl border border-[#E8EFFE] bg-white hover:border-[#1254B8]/30 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_-12px_rgba(18,84,184,0.18)] transition-all duration-300 overflow-hidden relative"
+      className="group flex flex-col h-full rounded-2xl border border-[#3B6CF4]/12 bg-white/55 backdrop-blur-sm hover:border-[#8B3FC8]/35 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_-12px_rgba(59,108,244,0.18)] transition-all duration-300 overflow-hidden relative"
     >
       <div
         className="absolute top-0 right-0 w-28 h-28 rounded-bl-full opacity-[0.07] pointer-events-none group-hover:opacity-[0.12] transition-opacity duration-300"
@@ -82,7 +83,7 @@ function ServiceCard({ service, accentColor, learnMore }: { service: Service; ac
               strokeWidth={1.9}
             />
           </div>
-          <h2 className="font-bold text-[#0B3D91] text-[15px] leading-snug hyphens-auto font-space pt-0.5 group-hover:text-[#1254B8] transition-colors">
+          <h2 className="font-bold text-[#2B5CE6] text-[15px] leading-snug hyphens-auto font-space pt-0.5 group-hover:text-[#3B6CF4] transition-colors">
             {service.title}
           </h2>
         </div>
@@ -93,7 +94,7 @@ function ServiceCard({ service, accentColor, learnMore }: { service: Service; ac
         ) : (
           <div className="flex-1 mb-4" />
         )}
-        <span className="inline-flex items-center gap-1.5 text-[#1254B8] font-bold text-xs mt-auto opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+        <span className="inline-flex items-center gap-1.5 text-[#3B6CF4] font-bold text-xs mt-auto opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
           {learnMore}
           <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
         </span>
@@ -147,50 +148,40 @@ export default function ServicesGrid({ categories, allServices }: Props) {
   const isAllCats = activeCategory === null && !isSearching;
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Page header */}
-      <div className="bg-[#F0F4FF] border-b border-[#E8EFFE]">
-        <div className="max-w-7xl mx-auto px-6 pt-10 pb-12">
-          <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="w-8 h-0.5 bg-[#E11D48]" />
-              <span className="text-[#E11D48] text-xs font-bold uppercase tracking-[0.25em]">
-                torudeabi.ee · Tallinn & Harjumaa
-              </span>
-            </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.08] max-w-3xl text-[#0B3D91] font-space">
-              {t("title")}
-            </h1>
-            <p className="text-[#5A5955] text-base sm:text-lg mt-4 max-w-2xl leading-relaxed">
-              {t("subtitle")}
-            </p>
-          </motion.div>
+    <div className="min-h-screen">
+      <PageBanner
+        kicker="torudeabi.ee · Tallinn & Harjumaa"
+        title={t("title")}
+        subtitle={t("subtitle")}
+        breadcrumbs={[{ label: t("title") }]}
+        accentColor="#8B3FC8"
+      />
 
-          {/* Search */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.12 }}
-            className="mt-8 max-w-lg"
-          >
-            <label className="sr-only" htmlFor="svc-search">{t("searchLabel")}</label>
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#9C9B96]" size={17} />
-              <input
-                id="svc-search"
-                value={q}
-                onChange={(e) => { setQ(e.target.value); setActiveCategory(null); }}
-                placeholder={t("searchPlaceholder")}
-                className="w-full rounded-xl text-[#0B3D91] placeholder:text-[#9C9B96] pl-11 pr-4 py-3 text-sm font-medium bg-white border border-[#E8EFFE] focus:border-[#1254B8]/50 focus:outline-none transition-all shadow-sm"
-              />
-            </div>
-          </motion.div>
-        </div>
+      {/* Search bar */}
+      <div className="max-w-7xl mx-auto px-6 -mt-4 mb-6 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.18 }}
+          className="max-w-lg"
+        >
+          <label className="sr-only" htmlFor="svc-search">{t("searchLabel")}</label>
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#9C9B96]" size={17} />
+            <input
+              id="svc-search"
+              value={q}
+              onChange={(e) => { setQ(e.target.value); setActiveCategory(null); }}
+              placeholder={t("searchPlaceholder")}
+              className="w-full rounded-xl text-[#2B5CE6] placeholder:text-[#9C9B96] pl-11 pr-4 py-3 text-sm font-medium bg-white/75 backdrop-blur-sm border border-[#3B6CF4]/15 focus:border-[#8B3FC8]/50 focus:outline-none transition-all shadow-sm"
+            />
+          </div>
+        </motion.div>
       </div>
 
       {/* Category tabs — only show when data exists and not searching */}
       {hasCats && !isSearching && (
-        <div className="sticky top-17.5 lg:top-19.5 z-30 bg-white border-b border-[#E8EFFE] shadow-sm">
+        <div className="sticky top-17.5 lg:top-19.5 z-30 bg-white/80 backdrop-blur-md border-b border-[#3B6CF4]/10 shadow-sm">
           <div
             ref={tabsRef}
             className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-wrap gap-2 py-3"
@@ -200,8 +191,8 @@ export default function ServicesGrid({ categories, allServices }: Props) {
               onClick={() => setActiveCategory(null)}
               className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-200 ${
                 activeCategory === null
-                  ? "bg-[#0B3D91] text-white shadow-md"
-                  : "bg-[#F0F4FF] text-[#0B3D91] hover:bg-[#E8EFFE]"
+                  ? "bg-[#8B3FC8] text-white shadow-md"
+                  : "bg-white/60 text-[#2B5CE6] hover:bg-white/80"
               }`}
             >
               <LayoutGrid size={14} />
@@ -215,7 +206,7 @@ export default function ServicesGrid({ categories, allServices }: Props) {
                 className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-200 ${
                   activeCategory === cat._id
                     ? "text-white shadow-md"
-                    : "bg-[#F0F4FF] text-[#0B3D91] hover:bg-[#E8EFFE]"
+                    : "bg-white/60 text-[#2B5CE6] hover:bg-white/80"
                 }`}
                 style={activeCategory === cat._id ? { background: ACCENT_COLORS[i % ACCENT_COLORS.length] } : {}}
               >
@@ -224,7 +215,7 @@ export default function ServicesGrid({ categories, allServices }: Props) {
                   sanityIcon={cat.icon}
                   size={13}
                   strokeWidth={2}
-                  className={activeCategory === cat._id ? "text-white" : "text-[#1254B8]"}
+                  className={activeCategory === cat._id ? "text-white" : "text-[#3B6CF4]"}
                 />
                 <span>{cat.title}</span>
               </button>
@@ -258,7 +249,7 @@ export default function ServicesGrid({ categories, allServices }: Props) {
                         <ServiceIcon slug={cat.slug} sanityIcon={cat.icon} size={20} strokeWidth={1.9} />
                       </div>
                       <div>
-                        <h2 className="text-xl sm:text-2xl font-extrabold text-[#0B3D91] font-space">
+                        <h2 className="text-xl sm:text-2xl font-extrabold text-[#2B5CE6] font-space">
                           {cat.title}
                         </h2>
                         <p className="text-[#9C9B96] text-xs mt-0.5">
@@ -268,7 +259,7 @@ export default function ServicesGrid({ categories, allServices }: Props) {
                     </div>
                     <button
                       onClick={() => setActiveCategory(cat._id)}
-                      className="hidden sm:flex items-center gap-1.5 text-[#1254B8] text-sm font-bold hover:underline"
+                      className="hidden sm:flex items-center gap-1.5 text-[#3B6CF4] text-sm font-bold hover:underline"
                     >
                       View all <ArrowRight size={13} />
                     </button>
@@ -318,7 +309,7 @@ export default function ServicesGrid({ categories, allServices }: Props) {
                         >
                           <ServiceIcon slug={cat.slug} sanityIcon={cat.icon} size={20} strokeWidth={1.9} />
                         </div>
-                        <h2 className="text-2xl font-extrabold text-[#0B3D91] font-space">{cat.title}</h2>
+                        <h2 className="text-2xl font-extrabold text-[#2B5CE6] font-space">{cat.title}</h2>
                       </div>
                     ) : null;
                   })()}
@@ -356,15 +347,15 @@ export default function ServicesGrid({ categories, allServices }: Props) {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="mt-14 rounded-3xl bg-[#F0F4FF] border border-[#E8EFFE] p-8 sm:p-10 flex flex-col sm:flex-row items-center gap-6"
-          style={{ boxShadow: "0 4px 24px rgba(18,84,184,0.06)" }}
+          style={{ boxShadow: "0 4px 24px rgba(59,108,244,0.06)" }}
         >
           <div
             className="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0"
-            style={{ background: "linear-gradient(135deg, #1254B8, #0B3D91)", boxShadow: "0 8px 24px -4px rgba(18,84,184,0.3)" }}
+            style={{ background: "linear-gradient(135deg, #3B6CF4, #2B5CE6)", boxShadow: "0 8px 24px -4px rgba(59,108,244,0.3)" }}
           >
             <ShieldCheck size={30} className="text-white" />
           </div>
-          <p className="text-[#0B3D91] font-semibold text-lg sm:text-xl leading-relaxed text-center sm:text-left">
+          <p className="text-[#2B5CE6] font-semibold text-lg sm:text-xl leading-relaxed text-center sm:text-left">
             {t("guarantee")}
           </p>
         </motion.div>

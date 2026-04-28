@@ -12,7 +12,7 @@ interface Drop {
   phase: number; // stagger start offset
 }
 
-const COLORS = ["#1254B8", "#1254B8", "#1254B8", "#E11D48", "#0B3D91", "#E11D48"];
+const COLORS = ["#3B6CF4", "#3B6CF4", "#E8354A", "#8B3FC8", "#3B6CF4", "#8B3FC8"];
 const ANGLE = Math.PI / 11; // ~16° tilt like natural rain
 const sinA = Math.sin(ANGLE);
 const cosA = Math.cos(ANGLE);

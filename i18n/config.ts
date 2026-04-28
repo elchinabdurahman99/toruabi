@@ -17,6 +17,8 @@ export const localePrefixes: Record<Locale, Record<string, string>> = {
     terms: "tingimused",
     contact: "kontakt",
     "privacy-policy": "privaatsuspoliitika",
+    works: "meie-tood",
+    jobs: "tookoht",
   },
   en: {
     services: "services",
@@ -26,6 +28,8 @@ export const localePrefixes: Record<Locale, Record<string, string>> = {
     terms: "terms",
     contact: "contact",
     "privacy-policy": "privacy-policy",
+    works: "works",
+    jobs: "jobs",
   },
   ru: {
     services: "услуги",
@@ -35,5 +39,7 @@ export const localePrefixes: Record<Locale, Record<string, string>> = {
     terms: "условия",
     contact: "контакты",
     "privacy-policy": "политика-конфиденциальности",
+    works: "наши-работы",
+    jobs: "вакансии",
   },
 };

@@ -17,7 +17,8 @@
     "priceList": "Hinnakiri",
     "freeQuote": "Tasuta Pakkumine",
     "callNow": "Helista — Tasuta",
-    "selectService": "Vali teenus"
+    "selectService": "Vali teenus",
+    "works": "Meie Tööd"
   },
   "promoBar": {
     "discountHint": "Soodustus kehtib vastavalt kampaaniale — erandid ja öised hinnad on hinnakirjas.",
@@ -33,7 +34,12 @@
     "title": "Professionaalsed Koduteenused",
     "titleHighlight": "Siis Kui Vajate",
     "subtitle": "Kiired torutööd, elektritööd, renoveerimis- ja puhastusteenused Tallinnas ja Harjumaal. Sertifitseeritud tehnikud.",
-    "tags": ["Torutööd", "Elekter", "Renoveerimine", "Puhastus"],
+    "tags": [
+      "Torutööd",
+      "Elekter",
+      "Renoveerimine",
+      "Puhastus"
+    ],
     "cta": "Küsi Tasuta Pakkumist",
     "ctaSecondary": "Helista Kohe",
     "sliderAlts": [
@@ -97,6 +103,7 @@
     "pageCtaButton": "Küsi pakkumist",
     "relatedServices": "Seotud teenused",
     "allServicesCta": "Kõik teenused",
+    "premiumBadge": "Tippteenus",
     "guarantee": "Garanteerime kõrge kvaliteedi! Saavutame selle selge planeerimise, uusimate tehnoloogiate, kaasaegse varustuse ja professionaalsete töötajate kaudu.",
     "searchLabel": "Otsi teenuseid",
     "searchPlaceholder": "Otsi nime järgi…",
@@ -135,7 +142,22 @@
       "polyethyleneWelding": "Polüetüleentorude Keevitus",
       "applianceRepair": "Kodumasinate Remont",
       "handymanServices": "Kodumeistri teenused",
-      "sewerageVideo": "Kanalisatsiooni Videouuring"
+      "sewerageVideo": "Kanalisatsiooni Videouuring",
+      "radiatorInstallation": "Radiaatorite Paigaldus",
+      "cesspoolEmptying": "Fekaalivedu ja Septiku Tühjendus",
+      "electricalPanel": "Elektrikilbi Paigaldus",
+      "lightingInstallation": "Valgustuse Paigaldus",
+      "socketInstallation": "Pistikupesade ja Lülitite Paigaldus",
+      "washingMachineInstallation": "Pesumasina Paigaldus ja Ühendus",
+      "dishwasherInstallation": "Nõudepesumasina Paigaldus",
+      "cookerInstallation": "Pliidi ja Ahju Paigaldus",
+      "furnitureAssembly": "Mööbli Kokkupanemine",
+      "gasBoilerInstallation": "Gaasikatel — Paigaldus ja Hooldus",
+      "gasLineInstallation": "Gaasitorude Paigaldus",
+      "interiorDesign": "Sisearhitektuur ja Kujundus",
+      "visualization3d": "3D Visualiseerimine ja Renderdamine",
+      "buildingPermit": "Ehitusluba ja Projekt",
+      "propertyManagement": "Kinnisvara Haldus ja Hooldus"
     },
     "itemShort": {
       "plumbing": "Ööpäevaringne avariiabis — kiire väljakutse Tallinnas.",
@@ -171,8 +193,34 @@
       "polyethyleneWelding": "PE torude keevitus ja survetrassid.",
       "applianceRepair": "Kodumasinate remont ja paigaldus.",
       "handymanServices": "Pisiremont, montaaž ja kodumeister.",
-      "sewerageVideo": "Toru videouuring ja diagnostika kaameraga."
+      "sewerageVideo": "Toru videouuring ja diagnostika kaameraga.",
+      "radiatorInstallation": "Radiaatorite ja termostaatide professionaalne paigaldus.",
+      "cesspoolEmptying": "Fekaalivedu, septiku tühjendus ja hooldus.",
+      "electricalPanel": "Elektrikilbi paigaldus, uuendus ja ohutusaudit.",
+      "lightingInstallation": "Sise- ja välisvalgustuse paigaldus ning ühendus.",
+      "socketInstallation": "Pistikupesade ja lülitite paigaldus sertifitseeritud elektrikult.",
+      "washingMachineInstallation": "Pesumasina paigaldus, vee- ja kanalisatsioonitoru ühendus.",
+      "dishwasherInstallation": "Nõudepesumasina paigaldus ja torustiku ühendamine.",
+      "cookerInstallation": "Pliidi ja ahju paigaldus ning elektri- või gaasiühendus.",
+      "furnitureAssembly": "Mööbli kokkupanemine ja paigutamine professionaalselt.",
+      "gasBoilerInstallation": "Gaasikatla paigaldus, häälestus ja hooldus.",
+      "gasLineInstallation": "Gaasitorude projekteerimine ja paigaldus normide kohaselt.",
+      "interiorDesign": "Sisearhitektuuri lahendused ja ruumikujundus.",
+      "visualization3d": "3D visualiseerimine ja renderdamine enne ehituse algust.",
+      "buildingPermit": "Ehitusloa ja projektdokumentatsiooni koostamine.",
+      "propertyManagement": "Kinnisvara haldus, hooldus ja korrashoid."
     }
+  },
+  "serviceCats": {
+    "plumbing": "Santehnilised Tööd",
+    "pressureWashing": "Survepesu ja Eritehnika",
+    "electrical": "Elektritööd",
+    "appliances": "Kodumasinate Remont ja Paigaldus",
+    "gas": "Gaasitööd",
+    "interior": "Siseviimistlus ja Remont",
+    "exterior": "Välisehitus ja Fassaaditööd",
+    "design": "Disain ja Planeerimine",
+    "management": "Haldus ja Tugiteenused"
   },
   "whyUs": {
     "title": "Miks Valida Meid",
@@ -277,7 +325,8 @@
       "emergency": "Soovituste või kaebuste korral:",
       "emergencyEmail": "info@torudeabi24.ee"
     },
-    "orderHere": "Telli siit. Soodus -30%!"
+    "orderHere": "Telli siit. Soodus -30%!",
+    "kicker": "Võta ühendust"
   },
   "cta": {
     "notSure": "Pole kindel, millist teenust vajate?",
@@ -379,6 +428,24 @@
   "privacy": {
     "title": "Privaatsus- ja Küpsistepoliitika"
   },
+  "jobs": {
+    "title": "Tööpakkumised",
+    "subtitle": "Liitu meie sertifitseeritud tehnikute meeskonnaga — arenemisvõimalused, konkurentsivõimeline palk ja suurepärane meeskond.",
+    "kicker": "Karjäär",
+    "empty": "Praegu aktiivseid tööpakkumisi ei ole. Saada avaldus: info@torudeabi24.ee",
+    "emptyHint": "Aga võid alati saata meile oma CV aadressile info@torudeabi24.ee",
+    "applyNow": "Kandideeri",
+    "fullTime": "Täiskoormus",
+    "partTime": "Osakoormus",
+    "contract": "Leping",
+    "salary": "Palk",
+    "location": "Asukoht",
+    "department": "Osakond",
+    "filterAll": "Kõik",
+    "openPositions": "Avatud ametikohta",
+    "joinTeam": "Liitu meie meeskonnaga",
+    "joinTeamDesc": "Saada CV ja motivatsioonikiri aadressile info@torudeabi24.ee"
+  },
   "pageSeo": {
     "contact": {
       "title": "Kontakt — hinnapakkumine ja ööpäevaringne avariiabi | TorudeAbi24",
@@ -407,7 +474,39 @@
     "blogIndex": {
       "title": "Blogi — nõuanded kodu hoolduseks ja remondiks | TorudeAbi24",
       "description": "Praktilised artiklid torutööde, elektri, kütte ja remondi kohta Eestis — meie meeskonnalt Tallinnas ja Harjumaal."
+    },
+    "jobs": {
+      "title": "Tööpakkumised — karjäär TorudeAbi24-s | torudeabi24.ee",
+      "description": "Otsi tööd Tallinnas? Liitu meie meeskonnaga — sertifitseeritud tehnikud, paindlik tööaeg ja konkurentsivõimeline palk."
+    },
+    "works": {
+      "title": "Meie Tööd — lõpetatud projektid Tallinnas | TorudeAbi24",
+      "description": "Vaata meie lõpetatud töid: torustik, elekter, vannitoad, remont Tallinnas ja Harjumaal. Kvaliteet, mis räägib ise."
     }
+  },
+  "works": {
+    "title": "Meie Tööd",
+    "subtitle": "Valitud näited meie lõpetatud projektidest Tallinnas ja Harjumaal — iga töö räägib ise.",
+    "kicker": "Portfolio",
+    "filterAll": "Kõik tööd",
+    "serviceTypes": {
+      "plumbing": "Torustik",
+      "electrical": "Elekter",
+      "bathroom": "Vannituba",
+      "renovation": "Remont",
+      "gas": "Gaas",
+      "cleaning": "Puhastus",
+      "construction": "Ehitus",
+      "design": "Disain",
+      "other": "Muu"
+    },
+    "location": "Asukoht",
+    "completedAt": "Lõpetatud",
+    "highlights": "Projekti andmed",
+    "ctaTitle": "Tahad sama tulemust?",
+    "ctaSubtitle": "Küsi tasuta hinnapakkumist — vastame kiiresti Tallinnas ja Harjumaal.",
+    "ctaButton": "Küsi Pakkumist",
+    "projectCount": "{count} projekti"
   },
   "common": {
     "callUs": "Helista Meile",

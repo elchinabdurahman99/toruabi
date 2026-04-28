@@ -26,8 +26,8 @@ export default function CtaBlock({ variant = "dark", translationKey }: CtaBlockP
           style={
             isPrimary
               ? {
-                  background: "linear-gradient(135deg, rgba(225,29,72,0.12) 0%, rgba(18,84,184,0.12) 100%)",
-                  boxShadow: "0 0 60px rgba(225,29,72,0.08)",
+                  background: "linear-gradient(135deg, rgba(232,53,74,0.12) 0%, rgba(59,108,244,0.12) 100%)",
+                  boxShadow: "0 0 60px rgba(232,53,74,0.08)",
                 }
               : { background: "rgba(255,255,255,0.03)" }
           }
@@ -52,16 +52,16 @@ export default function CtaBlock({ variant = "dark", translationKey }: CtaBlockP
               href={`tel:${tc("phoneDial")}`}
               className="flex items-center gap-2 font-bold px-6 py-3.5 rounded-2xl transition-all text-sm hover:-translate-y-0.5 text-white"
               style={{
-                background: "linear-gradient(135deg, #E11D48, #BE123C)",
-                boxShadow: "0 8px 24px rgba(225,29,72,0.3)",
+                background: "linear-gradient(135deg, #E8354A, #C8283C)",
+                boxShadow: "0 8px 24px rgba(232,53,74,0.3)",
               }}
             >
               <Phone size={16} /> {tc("callUs")}
             </a>
             <Link
               href="/contact"
-              className="flex items-center gap-2 font-bold px-6 py-3.5 rounded-2xl transition-all text-sm text-white border border-white/10 hover:border-[#1254B8]/40"
-              style={{ background: "rgba(18,84,184,0.15)" }}
+              className="flex items-center gap-2 font-bold px-6 py-3.5 rounded-2xl transition-all text-sm text-white border border-white/10 hover:border-[#3B6CF4]/40"
+              style={{ background: "rgba(59,108,244,0.15)" }}
             >
               {tn("freeQuote")} <ArrowRight size={14} />
             </Link>

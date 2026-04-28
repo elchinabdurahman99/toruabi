@@ -273,3 +273,36 @@ export const termsPageQuery = (locale: Locale) => `
     "body": ${localizedField("body", locale)}
   }
 `;
+
+export const jobPostingsQuery = (locale: Locale) => `
+  *[_type == "jobPosting" && isActive == true] | order(coalesce(order, 999) asc, publishedAt desc) {
+    _id,
+    "title": coalesce(title.${locale}, title.et),
+    "slug": slug.current,
+    "description": coalesce(description.${locale}, description.et),
+    location,
+    type,
+    department,
+    salary,
+    publishedAt,
+    isActive
+  }
+`;
+
+export const workProjectsQuery = (locale: Locale) => `
+  *[_type == "workProject" && isPublished == true] | order(coalesce(order, 999) asc, completedAt desc) {
+    _id,
+    "title": coalesce(title.${locale}, title.et),
+    "slug": slug.current,
+    "shortDescription": coalesce(shortDescription.${locale}, shortDescription.et),
+    serviceType,
+    location,
+    completedAt,
+    mainImage { asset, hotspot, crop, "alt": coalesce(alt.${locale}, alt.et) },
+    "highlights": highlights[] {
+      "label": coalesce(label.${locale}, label.et),
+      value
+    },
+    isPublished
+  }
+`;

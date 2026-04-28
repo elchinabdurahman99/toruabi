@@ -41,17 +41,17 @@ function servicePortableComponents(serviceTitle: string): PortableTextComponents
     },
     block: {
       h2: ({ children }) => (
-        <h2 className="clear-both text-xl md:text-2xl font-extrabold text-[#0B3D91] mt-10 mb-4 first:mt-0 scroll-mt-28">
+        <h2 className="clear-both text-xl md:text-2xl font-extrabold text-[#2B5CE6] mt-10 mb-4 first:mt-0 scroll-mt-28">
           {children}
         </h2>
       ),
       h3: ({ children }) => (
-        <h3 className="clear-both text-lg md:text-xl font-extrabold text-[#0B3D91] mt-8 mb-3">
+        <h3 className="clear-both text-lg md:text-xl font-extrabold text-[#2B5CE6] mt-8 mb-3">
           {children}
         </h3>
       ),
       blockquote: ({ children }) => (
-        <blockquote className="clear-both border-l-4 border-[#1254B8] pl-5 my-6 text-base md:text-lg text-[#374151] font-medium italic bg-[#F0F4FF] py-3 pr-4 rounded-r-xl">
+        <blockquote className="clear-both border-l-4 border-[#3B6CF4] pl-5 my-6 text-base md:text-lg text-[#374151] font-medium italic bg-[#F0F4FF] py-3 pr-4 rounded-r-xl">
           {children}
         </blockquote>
       ),
@@ -74,7 +74,7 @@ function servicePortableComponents(serviceTitle: string): PortableTextComponents
           return (
             <a
               href={href}
-              className={`${pill} bg-[#E11D48] text-white hover:bg-[#BE123C] border border-black/5`}
+              className={`${pill} bg-[#E8354A] text-white hover:bg-[#C8283C] border border-black/5`}
             >
               {children}
             </a>
@@ -84,7 +84,7 @@ function servicePortableComponents(serviceTitle: string): PortableTextComponents
           return (
             <a
               href={href}
-              className={`${pill} bg-[#1254B8] text-white hover:bg-[#0B3D91] border border-black/10`}
+              className={`${pill} bg-[#3B6CF4] text-white hover:bg-[#2B5CE6] border border-black/10`}
             >
               {children}
             </a>
@@ -96,7 +96,7 @@ function servicePortableComponents(serviceTitle: string): PortableTextComponents
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${pill} bg-white text-[#1254B8] border-2 border-[#E8EFFE] hover:border-[#1254B8]`}
+              className={`${pill} bg-white text-[#3B6CF4] border-2 border-[#E8EFFE] hover:border-[#3B6CF4]`}
             >
               {children}
             </a>
@@ -105,14 +105,14 @@ function servicePortableComponents(serviceTitle: string): PortableTextComponents
         return (
           <Link
             href={internalPathToLinkHref(href)}
-            className={`${pill} bg-white text-[#1254B8] border-2 border-[#E8EFFE] hover:border-[#1254B8]`}
+            className={`${pill} bg-white text-[#3B6CF4] border-2 border-[#E8EFFE] hover:border-[#3B6CF4]`}
           >
             {children}
           </Link>
         );
       },
       strong: ({ children }) => (
-        <strong className="font-extrabold text-[#0B3D91]">{children}</strong>
+        <strong className="font-extrabold text-[#2B5CE6]">{children}</strong>
       ),
     },
     list: {
@@ -130,12 +130,12 @@ function servicePortableComponents(serviceTitle: string): PortableTextComponents
     listItem: {
       bullet: ({ children }) => (
         <li className="flex items-start gap-3 leading-relaxed">
-          <span className="mt-2 w-2 h-2 rounded-full bg-[#1254B8] shrink-0" />
+          <span className="mt-2 w-2 h-2 rounded-full bg-[#3B6CF4] shrink-0" />
           <span>{children}</span>
         </li>
       ),
       number: ({ children }) => (
-        <li className="flex items-start gap-3 leading-relaxed [counter-increment:list-counter] before:content-[counter(list-counter)] before:shrink-0 before:w-6 before:h-6 before:rounded-full before:bg-[#E8EFFE] before:text-[#1254B8] before:text-xs before:font-bold before:flex before:items-center before:justify-center before:mt-0.5">
+        <li className="flex items-start gap-3 leading-relaxed [counter-increment:list-counter] before:content-[counter(list-counter)] before:shrink-0 before:w-6 before:h-6 before:rounded-full before:bg-[#E8EFFE] before:text-[#3B6CF4] before:text-xs before:font-bold before:flex before:items-center before:justify-center before:mt-0.5">
           <span>{children}</span>
         </li>
       ),

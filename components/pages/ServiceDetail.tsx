@@ -42,13 +42,13 @@ export default function ServiceDetail({
     <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="bg-[#F0F4FF] border-b border-[#E8EFFE] relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-gradient-to-br from-[#1254B8]/6 to-transparent rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-[#0B3D91]/4 to-transparent rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-gradient-to-br from-[#3B6CF4]/6 to-transparent rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-[#2B5CE6]/4 to-transparent rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-14 sm:pt-10 sm:pb-20 relative z-10">
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 text-[#5A5955] hover:text-[#1254B8] text-sm font-bold tracking-wide mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-[#5A5955] hover:text-[#3B6CF4] text-sm font-bold tracking-wide mb-8 transition-colors"
           >
             <ArrowLeft size={16} /> {tc("back")}
           </Link>
@@ -59,8 +59,8 @@ export default function ServiceDetail({
                 <div
                   className="w-20 h-20 sm:w-24 sm:h-24 rounded-[1.5rem] flex items-center justify-center text-white shrink-0"
                   style={{
-                    background: "linear-gradient(135deg, #1254B8, #0B3D91)",
-                    boxShadow: "0 20px 40px -10px rgba(18,84,184,0.35)",
+                    background: "linear-gradient(135deg, #3B6CF4, #2B5CE6)",
+                    boxShadow: "0 20px 40px -10px rgba(59,108,244,0.35)",
                   }}
                 >
                   <ServiceIcon
@@ -71,17 +71,17 @@ export default function ServiceDetail({
                   />
                 </div>
                 <div>
-                  <p className="text-[#E11D48] text-sm font-bold uppercase tracking-[0.25em] mb-2">
-                    Premium Service
+                  <p className="text-[#E8354A] text-sm font-bold uppercase tracking-[0.25em] mb-2">
+                    {t("premiumBadge")}
                   </p>
-                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0B3D91] leading-[1.05] font-space tracking-tight">
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#2B5CE6] leading-[1.05] font-space tracking-tight">
                     {service.title}
                   </h1>
                 </div>
               </div>
 
               {service.shortDescription && (
-                <p className="text-[#374151] text-base sm:text-lg font-medium leading-relaxed max-w-2xl border-l-4 border-[#1254B8] pl-5 bg-[#E8EFFE]/50 py-3 pr-4 rounded-r-xl">
+                <p className="text-[#374151] text-base sm:text-lg font-medium leading-relaxed max-w-2xl border-l-4 border-[#3B6CF4] pl-5 bg-[#E8EFFE]/50 py-3 pr-4 rounded-r-xl">
                   {service.shortDescription}
                 </p>
               )}
@@ -93,25 +93,25 @@ export default function ServiceDetail({
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.15 }}
               className="rounded-[2rem] bg-white border border-[#E8EFFE] p-8 lg:sticky lg:top-28 relative z-20"
-              style={{ boxShadow: "0 20px 40px -15px rgba(11,61,145,0.08)" }}
+              style={{ boxShadow: "0 20px 40px -15px rgba(43,92,230,0.08)" }}
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#E8EFFE] to-transparent rounded-bl-full pointer-events-none" />
-              <p className="text-[#0B3D91] text-xs font-bold uppercase tracking-[0.2em] mb-5">
+              <p className="text-[#2B5CE6] text-xs font-bold uppercase tracking-[0.2em] mb-5">
                 {t("asideKicker")}
               </p>
               <a
                 href={`tel:${tc("phoneDial")}`}
                 className="flex items-center justify-center gap-2.5 w-full text-white text-base font-bold py-4 rounded-xl hover:-translate-y-1 transition-all mb-3"
                 style={{
-                  background: "linear-gradient(135deg, #E11D48, #BE123C)",
-                  boxShadow: "0 12px 24px -6px rgba(225,29,72,0.35)",
+                  background: "linear-gradient(135deg, #E8354A, #C8283C)",
+                  boxShadow: "0 12px 24px -6px rgba(232,53,74,0.35)",
                 }}
               >
                 <Phone size={18} /> {tc("callUs")}
               </a>
               <Link
                 href="/contact"
-                className="flex items-center justify-center gap-2.5 w-full border-2 border-[#E8EFFE] text-[#0B3D91] text-sm font-bold py-4 rounded-xl hover:border-[#1254B8] hover:text-[#1254B8] transition-colors"
+                className="flex items-center justify-center gap-2.5 w-full border-2 border-[#E8EFFE] text-[#2B5CE6] text-sm font-bold py-4 rounded-xl hover:border-[#3B6CF4] hover:text-[#3B6CF4] transition-colors"
               >
                 <MessageCircle size={18} /> {tc("writeUs")}
               </Link>
@@ -164,7 +164,7 @@ export default function ServiceDetail({
                     className="mt-8 bg-[#F0F4FF] rounded-2xl p-6 border border-[#E8EFFE]"
                     aria-label={t("relatedServices")}
                   >
-                    <h2 className="text-base font-bold text-[#0B3D91] mb-4">
+                    <h2 className="text-base font-bold text-[#2B5CE6] mb-4">
                       {t("relatedServices")}
                     </h2>
                     <ul className="flex flex-wrap gap-2">
@@ -172,7 +172,7 @@ export default function ServiceDetail({
                         <li key={item.slug}>
                           <Link
                             href={internalPathToLinkHref(`/services/${item.slug}`)}
-                            className="inline-flex items-center rounded-xl border border-[#E8EFFE] bg-white px-4 py-2 text-sm font-semibold text-[#374151] hover:border-[#1254B8]/40 hover:text-[#1254B8] transition-colors"
+                            className="inline-flex items-center rounded-xl border border-[#E8EFFE] bg-white px-4 py-2 text-sm font-semibold text-[#374151] hover:border-[#3B6CF4]/40 hover:text-[#3B6CF4] transition-colors"
                           >
                             {item.title}
                           </Link>
@@ -181,7 +181,7 @@ export default function ServiceDetail({
                     </ul>
                     <Link
                       href="/services"
-                      className="inline-block mt-4 text-sm font-bold text-[#1254B8] hover:underline"
+                      className="inline-block mt-4 text-sm font-bold text-[#3B6CF4] hover:underline"
                     >
                       {t("allServicesCta")} →
                     </Link>
@@ -192,13 +192,13 @@ export default function ServiceDetail({
                 <section
                   className="mt-12 rounded-[2rem] bg-[#F0F4FF] border border-[#E8EFFE] p-10 sm:p-14 relative overflow-hidden"
                   aria-labelledby="service-cta-heading"
-                  style={{ boxShadow: "0 4px 24px rgba(18,84,184,0.06)" }}
+                  style={{ boxShadow: "0 4px 24px rgba(59,108,244,0.06)" }}
                 >
-                  <div className="absolute right-0 bottom-0 w-64 h-64 bg-gradient-to-tl from-[#1254B8]/8 to-transparent rounded-tl-full pointer-events-none" />
+                  <div className="absolute right-0 bottom-0 w-64 h-64 bg-gradient-to-tl from-[#3B6CF4]/8 to-transparent rounded-tl-full pointer-events-none" />
                   <div className="relative z-10">
                     <h2
                       id="service-cta-heading"
-                      className="text-2xl sm:text-3xl font-extrabold text-[#0B3D91] leading-tight font-space mb-3"
+                      className="text-2xl sm:text-3xl font-extrabold text-[#2B5CE6] leading-tight font-space mb-3"
                     >
                       {t("pageCtaTitle")}
                     </h2>
@@ -210,21 +210,21 @@ export default function ServiceDetail({
                         href={`tel:${tc("phoneDial")}`}
                         className="flex items-center justify-center gap-2.5 flex-1 rounded-xl text-white font-bold py-4 text-sm transition-all hover:-translate-y-1"
                         style={{
-                          background: "linear-gradient(135deg, #E11D48, #BE123C)",
-                          boxShadow: "0 10px 25px -5px rgba(225,29,72,0.35)",
+                          background: "linear-gradient(135deg, #E8354A, #C8283C)",
+                          boxShadow: "0 10px 25px -5px rgba(232,53,74,0.35)",
                         }}
                       >
                         <Phone size={18} /> {tc("phone")}
                       </a>
                       <a
                         href={`mailto:${tc("email")}`}
-                        className="flex items-center justify-center gap-2.5 flex-1 rounded-xl font-bold py-4 text-sm border-2 border-[#E8EFFE] text-[#0B3D91] hover:border-[#1254B8] hover:text-[#1254B8] transition-colors"
+                        className="flex items-center justify-center gap-2.5 flex-1 rounded-xl font-bold py-4 text-sm border-2 border-[#E8EFFE] text-[#2B5CE6] hover:border-[#3B6CF4] hover:text-[#3B6CF4] transition-colors"
                       >
                         <Mail size={18} /> {tc("email")}
                       </a>
                       <Link
                         href="/contact"
-                        className="flex items-center justify-center gap-2.5 flex-1 rounded-xl font-bold py-4 text-sm bg-white border border-[#E8EFFE] text-[#0B3D91] hover:shadow-md hover:-translate-y-0.5 transition-all"
+                        className="flex items-center justify-center gap-2.5 flex-1 rounded-xl font-bold py-4 text-sm bg-white border border-[#E8EFFE] text-[#2B5CE6] hover:shadow-md hover:-translate-y-0.5 transition-all"
                       >
                         {t("pageCtaButton")}
                         <MessageCircle size={18} />
@@ -244,8 +244,8 @@ export default function ServiceDetail({
           <div className="hidden lg:block">
             <div className="sticky top-28 rounded-2xl bg-white border border-[#E8EFFE] p-6">
               <div className="flex items-center gap-3 mb-4">
-                <ShieldCheck size={20} className="text-[#1254B8]" />
-                <h3 className="font-bold text-[#0B3D91] text-sm">{t("asideKicker")}</h3>
+                <ShieldCheck size={20} className="text-[#3B6CF4]" />
+                <h3 className="font-bold text-[#2B5CE6] text-sm">{t("asideKicker")}</h3>
               </div>
               <p className="text-[#5A5955] text-sm leading-relaxed mb-5">
                 {service.shortDescription || t("subtitle")}
@@ -254,8 +254,8 @@ export default function ServiceDetail({
                 href={`tel:${tc("phoneDial")}`}
                 className="flex items-center justify-center gap-2 text-white text-sm font-bold py-3.5 rounded-xl w-full transition-all hover:-translate-y-0.5"
                 style={{
-                  background: "linear-gradient(135deg, #1254B8, #0B3D91)",
-                  boxShadow: "0 4px 16px rgba(18,84,184,0.2)",
+                  background: "linear-gradient(135deg, #3B6CF4, #2B5CE6)",
+                  boxShadow: "0 4px 16px rgba(59,108,244,0.2)",
                 }}
               >
                 <Phone size={15} /> {tc("phone")}
