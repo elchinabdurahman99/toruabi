@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "TorudeAbi24 — Plumber, Electrician & Renovation in Tallinn & Harjumaa | torudeabi24.ee",
-    "description": "Licensed plumbing, electrical, renovation & 24/7 emergency in Tallinn & Harjumaa. -30% discount on all services. Fast response, certified crew. Free quotes — torudeabi24.ee",
-    "keywords": "plumbing Tallinn, construction Tallinn, electrician Tallinn, emergency plumber Estonia, torudeabi24, pipe repair, pressure flushing"
+    "title": "TorudeAbi24 — 24/7 Plumbing & Electrical Tallinn | -30%",
+    "description": "Licensed 24/7 plumbing & electrical in Tallinn & Harjumaa. 30–60 min response. -30% discount 08–19h. Certified crew, pay after completion.",
+    "keywords": "plumber Tallinn, emergency plumber Tallinn, electrician Tallinn, plumbing repair Tallinn, bathroom renovation Tallinn, construction works Tallinn, 24/7 emergency plumbing Estonia, pipe repair Tallinn, blockage clearing Tallinn, boiler installation Tallinn, torudeabi24"
   },
   "nav": {
     "home": "Home",
@@ -18,7 +18,8 @@
     "freeQuote": "Free Quote",
     "callNow": "Call Now — Free",
     "selectService": "Select a service",
-    "works": "Our Works"
+    "works": "Our Works",
+    "closeMenu": "Close navigation menu"
   },
   "promoBar": {
     "discountHint": "Where our discount applies (see price list for exclusions and night rates).",
@@ -31,14 +32,14 @@
     "yearsExp": "15+ years experience",
     "discountLabel": "discount",
     "badge": "Emergency service",
-    "title": "Professional Home",
-    "titleHighlight": "Services On Demand",
-    "subtitle": "Plumbing, electrical, renovation & cleaning in Tallinn. Certified pros.",
+    "title": "Your personal craftsmen",
+    "titleHighlight": "– always close by!",
+    "subtitle": "24/7 emergency works, plumbing, electrical, gas, and welding works. Construction, renovation, and cleaning services in Tallinn and Harjumaa. Certified technicians.",
     "tags": [
+      "Emergency works",
       "Plumbing",
       "Electrical",
-      "Renovation",
-      "Cleaning"
+      "Construction & Repair"
     ],
     "cta": "Get Free Quote",
     "ctaSecondary": "Call Now",
@@ -63,7 +64,8 @@
       "available": "24/7",
       "availableLabel": "Available",
       "discount": "-30%",
-      "discountLabel": "Discount"
+      "discountLabel": "Discount",
+      "discountBadge": "-30% discount"
     }
   },
   "emergency": {
@@ -93,6 +95,8 @@
   },
   "services": {
     "title": "Our Services",
+    "pageTitle": "Plumbing Services in Tallinn — All Services",
+    "pageIntro": "24/7 emergency plumber, drain unblocking, pipe replacement and water heater installation, plus electrical, gas and renovation work across Tallinn and Harjumaa. Pick a category or search for a service by name.",
     "subtitle": "We provide the following services:",
     "viewAll": "View All Services",
     "galleryLabel": "Service photo gallery",
@@ -108,11 +112,13 @@
     "searchLabel": "Search services",
     "searchPlaceholder": "Search by name…",
     "noResults": "No services match your search.",
+    "serviceCount": "{count, plural, one {# service} other {# services}}",
+    "viewAllInCategory": "View all",
     "items": {
       "plumbing": "Plumber Service — 24 Hours",
       "pressureFlushing": "Pressure Flushing of Sewer System",
       "constructionWorks": "Construction Works",
-      "apartmentRepair": "Repair of Apartments and Offices",
+      "apartmentRepair": "Apartment & Office Renovation",
       "concreteWorks": "Concrete Works",
       "replacementRisers": "Replacement Risers",
       "wells": "Wells (Sale and Installation)",
@@ -124,13 +130,13 @@
       "roofing": "Roofing, Roof Repair",
       "pipeRepair": "Repair and Replacement of Pipes",
       "externalWaterSupply": "Construction of External Water Supply Networks",
-      "electrical": "Electrician Services, Electrical Works",
+      "electrical": "Electrical Work",
       "boilerInstallation": "Boiler Installation",
       "pavers": "Installation of Pavers",
       "floorHeating": "Installation of Floor Heating",
       "radiators": "Installation of Radiators",
       "toiletInstallation": "Toilet Installation",
-      "blockageClearing": "Elimination, Clearing of Blockage",
+      "blockageClearing": "Drain Unblocking",
       "gasWorks": "Gas Works",
       "defrostingPipes": "Defrosting Pipes",
       "design": "Design",
@@ -220,7 +226,7 @@
     "steps": {
       "call": "Call Us",
       "callDesc": "Contact us by phone or fill out the form. Describe your problem.",
-      "diagnose": "Free Diagnosis",
+      "diagnose": "Free Quote",
       "diagnoseDesc": "Our specialist arrives, diagnoses the problem and provides a free quote.",
       "fix": "We Fix It",
       "fixDesc": "Our certified technician performs the work using quality materials.",
@@ -249,10 +255,13 @@
     "success": "Thank you! Your review will appear after we approve it.",
     "error": "Could not submit. Please try again or call us.",
     "prevReview": "Previous review",
-    "nextReview": "Next review"
+    "nextReview": "Next review",
+    "basedOn": "Based on {count}+ customer reviews"
   },
   "contact": {
     "title": "Contact Us",
+    "formHeading": "Send a request",
+    "formIntro": "Describe the problem and attach a photo if you like — we'll get back to you shortly.",
     "subtitle": "Get in touch — we respond within 30 minutes during business hours.",
     "form": {
       "title": "Send a request",
@@ -283,6 +292,9 @@
       "success": "Thank you! We'll contact you shortly.",
       "attachments": "Photos or video (optional)",
       "attachmentsHint": "Up to 6 files, 12 MB each.",
+      "chooseFiles": "Choose files",
+      "filesSelected": "{count} files selected",
+      "noFileChosen": "No file chosen",
       "fileSizeInfo": "Files over 12 MB cannot be sent through this form. Please email them to info@torudeabi24.ee.",
       "fileTooLarge": "One or more files are over 12 MB. Remove them or send those files by email to info@torudeabi24.ee.",
       "uploadFailLargeFile": "We could not send your message with these attachments. If any file is over 2 MB, send your files directly to info@torudeabi24.ee and include your name, phone, and message in the email.",
@@ -309,8 +321,9 @@
     "readySubtitle": "Join 500+ satisfied clients. Free quote, 60-min response, pay after completion."
   },
   "seo": {
-    "title": "Professional trades in Tallinn & Harjumaa",
-    "content": "TorudeAbi24 (torudeabi24.ee) delivers plumbing, construction, electrical and emergency technical works across Tallinn and Harjumaa — planned jobs and rapid call-outs with transparent rates."
+    "title": "Our services",
+    "heading": "Plumbing, electrical & renovation across Tallinn & Harjumaa",
+    "content": "TorudeAbi24 (torudeabi24.ee) delivers 24/7 plumbing, construction, electrical and emergency works across Tallinn and Harjumaa — licensed technicians, 30–60 min response, transparent rates, pay after completion."
   },
   "footer": {
     "scrollTop": "Back to top",
@@ -329,22 +342,22 @@
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service",
     "cookiePolicy": "Cookie Policy",
-    "regNr": "TorudeAbi24",
-    "companyName": "TorudeAbi24",
-    "companyAddress": "Tallinn, Estonia"
+    "regNr": "Torudeabi24.ee OÜ",
+    "companyName": "Torudeabi24.ee OÜ",
+    "companyAddress": "Vene tn 28, Tallinn 10111, Estonia"
   },
   "priceList": {
     "kicker": "Pricing",
     "title": "Price list",
     "intro": "Prices for plumbing, construction, electrical, and emergency works.",
-    "vatNote": "",
+    "vatNote": "VAT is added to all prices where applicable.",
     "notesTitle": "General terms",
     "notes": [
       "The minimum charge for a service is the price of the first hour of work.",
       "Services not listed are priced separately.",
       "For large-scope jobs the price is negotiable.",
       "The discount does not apply to camera (pipeline) inspection.",
-      "Preparation of the deed is by separate agreement, prices from 15+km",
+      "Preparation of the deed is by separate agreement, prices from 15+Km",
       "Discounts do not apply to outdoor work (replacement of sewer, water, heating pipes, wells, pumps, etc.).",
       "Hourly rates are based on one specialist. If two or more people are required, time is billed accordingly."
     ],
@@ -352,15 +365,23 @@
     "discountHours": "Discounts apply between 8:00 and 19:00 (as advertised).",
     "nightLabel": "Night call-out",
     "nightSurcharge": "From 19:00 to 8:00, a call-out fee of €10 is added to the invoice.",
+    "discountSecondHour": "Discounts apply from the second hour!",
     "transportTallinn": "Transport within Tallinn is free from 8:00 to 19:00, except pressure washing and faecal transport.",
     "parking": "If the work vehicle must use paid parking, the actual parking cost is added to the invoice. You will be informed in advance when paid parking is needed.",
     "hourlyOnePerson": "NB! Hourly billing is calculated per one worker unless agreed otherwise.",
     "qualityTitle": "Quality commitment",
     "qualityBody": "We guarantee high quality. We deliver services through clear planning, up-to-date methods, modern equipment and materials, and skilled staff.",
     "warrantyNb": "NB! Warranty does not apply to blockage removal.",
-    "taxNote": "Tax is added to the price where applicable.",
+    "taxNote": "VAT is added to all services.",
     "callIntro": "Call us 24/7 for emergencies and bookings.",
-    "pressureFlushingVehicle": "High-Pressure Jetting Truck"
+    "pressureFlushingVehicle": "High-Pressure Jetting Truck",
+    "pressureWashingNote": "For pressure washing and the removal of sewage, <important>oil waste, sand, and hazardous waste</important>, water intake, waste disposal, and transport (round trip) are added to the working time. Depending on the location, this takes approximately 1 hour.",
+    "cameraInspectionTitle": "Additional Services",
+    "cameraInspectionName": "Exterior sewage camera inspection",
+    "cameraInspectionPrice": "€85",
+    "cameraInspectionUnit": "hour",
+    "sewerFlushingName": "Sewer pressure flushing (sewer jetting vehicle)",
+    "sewerFlushingPrice": "€110.00"
   },
   "blog": {
     "title": "Blog",
@@ -368,7 +389,8 @@
     "backToBlog": "Back to Blog",
     "publishedOn": "Published on",
     "serviceLinksTitle": "Popular services",
-    "serviceLinksIntro": "Explore what we offer in Tallinn & Harjumaa:"
+    "serviceLinksIntro": "Explore what we offer in Tallinn & Harjumaa:",
+    "minRead": "min read"
   },
   "partners": {
     "title": "Partners",
@@ -388,19 +410,32 @@
       "The work executed is covered by a two-year warranty for normal daily use.",
       "The company is not responsible for the installation of materials purchased by the customer.",
       "The customer under the contract for work and materials must pay on the basis of the invoice issued to the current account of the company.",
-      "Minor and emergency works are carried out by TorudeAbi24. Update license numbers in Studio if required."
+      "Minor and emergency works are carried out by Snn Rakentaminen OÜ. Update license numbers in Studio if required."
     ]
   },
   "cookieBanner": {
     "ariaLabel": "Cookie consent",
     "title": "We use cookies",
     "body": "We use cookies to improve your experience and analyse site traffic.",
-    "learnMore": "Learn more",
+    "learnMore": "Privacy Policy",
     "accept": "Accept",
     "reject": "Reject"
   },
   "privacy": {
     "title": "Privacy and Cookie Policy"
+  },
+  "seoTags": {
+    "247": "24/7",
+    "certified": "Certified",
+    "fullRefits": "Full refits",
+    "deepClean": "Deep clean",
+    "emergency": "Emergency",
+    "sameDay": "Same day",
+    "designBuild": "Design & build",
+    "fast": "Fast",
+    "custom": "Custom",
+    "install": "Install",
+    "local": "Local"
   },
   "jobs": {
     "title": "Jobs / Careers",
@@ -422,40 +457,40 @@
   },
   "pageSeo": {
     "contact": {
-      "title": "Contact TorudeAbi24 — quotes & 24/7 emergency | Tallinn & Harjumaa",
-      "description": "Request a free quote or report a plumbing or electrical emergency. We reply fast during business hours and answer emergency calls 24/7. Phone +372 56 89 79 29 · info@torudeabi24.ee"
+      "title": "Contact — Quotes & Emergency Tallinn 24/7",
+      "description": "Request a free quote or emergency plumbing & electrical service in Tallinn. Available 24/7. Call +372 56 89 79 29 or email info@torudeabi24.ee."
     },
     "partners": {
-      "title": "Partners — suppliers & organisations we work with | TorudeAbi24",
-      "description": "Companies and partners we collaborate with across Estonia for plumbing, electrical, construction and maintenance projects in Tallinn and Harjumaa."
+      "title": "Partners — Suppliers & Organisations",
+      "description": "Trusted supplier and partner organisations for plumbing, electrical and renovation services across Tallinn & Harjumaa. Quality materials, reliable expertise."
     },
     "priceList": {
-      "title": "Price list — hourly rates & services | TorudeAbi24 Tallinn",
-      "description": "Current prices for plumbing, construction, electrical and emergency work. Discount window, night surcharge, transport and terms explained."
+      "title": "Price List — Services & Rates Tallinn",
+      "description": "Plumbing, electrical & renovation prices in Tallinn. From €35/hour. -30% discount 08–19h weekdays. Night surcharge +€10. No upfront payment."
     },
     "terms": {
-      "title": "Terms of service — work, warranty & payment | TorudeAbi24",
+      "title": "Terms of Service — Work, Warranty & Payment",
       "description": "General terms for contracted work, warranties, customer obligations and billing for TorudeAbi24 (TorudeAbi24) services in Estonia."
     },
     "privacy": {
-      "title": "Privacy & cookies — how we handle your data | TorudeAbi24",
+      "title": "Privacy Policy — Data & Cookie Handling",
       "description": "How TorudeAbi24 collects, uses and protects personal data and cookies when you use torudeabi24.ee, contact us or book services in Estonia."
     },
     "servicesIndex": {
-      "title": "Services — plumbing, electrical, renovation & emergency | TorudeAbi24",
+      "title": "Services — Plumbing, Electrical & Renovation",
       "description": "Browse all trades: pipe repair, drainage, boilers, bathrooms, electrics, construction and 24/7 emergency help in Tallinn and Harjumaa."
     },
     "blogIndex": {
-      "title": "Blog — tips for home maintenance & renovations | TorudeAbi24",
+      "title": "Blog — Home Maintenance & Renovation Tips",
       "description": "Practical articles on plumbing, electrics, heating and renovation in Estonia — from our team in Tallinn & Harjumaa."
     },
     "jobs": {
-      "title": "Jobs & Careers at TorudeAbi24 | Tallinn | torudeabi24.ee",
+      "title": "Jobs & Careers at TorudeAbi24 Tallinn",
       "description": "Looking for work in Tallinn? Join our certified team — competitive salary, flexible hours and a supportive environment in home services."
     },
     "works": {
-      "title": "Our Works — Completed Projects in Tallinn | TorudeAbi24",
-      "description": "Browse our portfolio of completed projects: plumbing, electrical, bathrooms, renovation in Tallinn & Harjumaa. Quality that speaks for itself."
+      "title": "Completed Works — Plumbing & Renovation",
+      "description": "Completed plumbing, electrical & renovation projects in Tallinn & Harjumaa. Real photos, project scope, and client outcomes from our certified team."
     }
   },
   "works": {
@@ -492,5 +527,12 @@
     "address": "Tallinn, Estonia",
     "back": "Back",
     "loading": "Loading..."
+  },
+  "notFound": {
+    "heading": "Page Not Found",
+    "body": "The page you're looking for doesn't exist or has been moved. Need urgent help? Call us any time — 24/7.",
+    "goHome": "Go Home",
+    "allServices": "All Services",
+    "emergency": "Have a plumbing emergency?"
   }
 }

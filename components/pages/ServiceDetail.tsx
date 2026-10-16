@@ -1,14 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState, useEffect, type ReactNode } from "react";
 import Image from "next/image";
-import { ArrowLeft, Phone, MessageCircle, Mail, ShieldCheck } from "lucide-react";
-import { useTranslations } from "next-intl";
+import Phone from "lucide-react/dist/esm/icons/phone";
+import MessageCircle from "lucide-react/dist/esm/icons/message-circle";
+import Mail from "lucide-react/dist/esm/icons/mail";
+import ShieldCheck from "lucide-react/dist/esm/icons/shield-check";
+import ChevronDown from "lucide-react/dist/esm/icons/chevron-down";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { internalPathToLinkHref } from "@/lib/i18n/appHref";
 import ServiceIcon from "@/components/ui/ServiceIcon";
 import ServicePortableText from "@/components/portable/ServicePortableText";
 import type { PortableTextBlock } from "@portabletext/types";
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
 
 interface ServiceDetailProps {
   service: {
@@ -20,9 +30,144 @@ interface ServiceDetailProps {
     icon?: string | null;
     image?: unknown;
     gallery?: Array<{ _key?: string; alt?: string; asset?: unknown }>;
+    faq?: FaqItem[];
   };
   topImages?: Array<{ url: string; alt: string }>;
   relatedServices?: Array<{ slug: string; title: string }>;
+}
+
+function FaqItem({
+  item,
+  index,
+  isOpen,
+  onToggle,
+}: {
+  item: FaqItem;
+  index: number;
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <motion.li
+      className="border-b border-[#E8EFFE] last:border-b-0"
+      initial={false}
+    >
+      <button
+        type="button"
+        onClick={onToggle}
+        className="w-full flex items-start justify-between gap-4 px-6 py-5 text-left group"
+        aria-expanded={isOpen}
+      >
+        <div className="flex items-start gap-3 flex-1 min-w-0">
+          <span
+            className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-0.5 transition-colors duration-200"
+            style={{
+              background: isOpen ? "linear-gradient(135deg, #3B6CF4, #2B5CE6)" : "#E8EFFE",
+              color: isOpen ? "#fff" : "#3B6CF4",
+            }}
+          >
+            {index + 1}
+          </span>
+          <span
+            className="text-sm font-semibold leading-snug transition-colors duration-200"
+            style={{ color: isOpen ? "#2B5CE6" : "#1a2a6c" }}
+          >
+            {item.question}
+          </span>
+        </div>
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+          className="shrink-0 mt-0.5"
+        >
+          <ChevronDown
+            size={18}
+            className="transition-colors duration-200"
+            style={{ color: isOpen ? "#3B6CF4" : "#9CA3AF" }}
+          />
+        </motion.div>
+      </button>
+      <AnimateHeight isOpen={isOpen}>
+        <div className="px-6 pb-5 pl-[3.75rem]">
+          <p className="text-sm text-[#374151] leading-relaxed">{item.answer}</p>
+        </div>
+      </AnimateHeight>
+    </motion.li>
+  );
+}
+
+function AnimateHeight({ isOpen, children }: { isOpen: boolean; children: ReactNode }) {
+  return (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateRows: isOpen ? "1fr" : "0fr",
+        opacity: isOpen ? 1 : 0,
+        transition: "grid-template-rows 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.25s ease",
+        overflow: "hidden",
+      }}
+    >
+      <div style={{ overflow: "hidden" }}>{children}</div>
+    </div>
+  );
+}
+
+function FaqAccordion({ items, locale }: { items: FaqItem[]; locale: string }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  useEffect(() => { setOpenIndex(0); }, []);
+  const heading =
+    locale === "et"
+      ? "Korduma Kippuvad Küsimused"
+      : locale === "ru"
+      ? "Часто задаваемые вопросы"
+      : "Frequently Asked Questions";
+
+  return (
+    <section className="mt-8">
+      <div className="flex items-center gap-3 mb-4 px-1">
+        <div
+          className="w-1 h-6 rounded-full"
+          style={{ background: "linear-gradient(180deg, #3B6CF4, #2B5CE6)" }}
+        />
+        <h2 className="text-base font-bold text-[#1a2a6c]">{heading}</h2>
+      </div>
+      <motion.ul
+        className="rounded-2xl border border-[#E8EFFE] bg-white overflow-hidden divide-y divide-[#E8EFFE]"
+        style={{ boxShadow: "0 4px 24px rgba(59,108,244,0.06)" }}
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.06 } },
+        }}
+      >
+        {items.map((item, i) => (
+          <motion.div
+            key={i}
+            variants={{
+              hidden: { opacity: 0, y: 8 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+            }}
+          >
+            <FaqItem
+              item={item}
+              index={i}
+              isOpen={openIndex === i}
+              onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+            />
+          </motion.div>
+        ))}
+      </motion.ul>
+    </section>
+  );
+}
+
+const CITY_SUFFIX: Record<string, string> = { et: " Tallinnas", ru: " в Таллине", en: " in Tallinn" };
+
+/** Adds the city to the H1 for local search unless the title already names a place. */
+function withCity(title: string, locale: string): string {
+  if (/tallin|таллин|harju|харью/i.test(title)) return title;
+  return title + (CITY_SUFFIX[locale] ?? "");
 }
 
 export default function ServiceDetail({
@@ -32,6 +177,7 @@ export default function ServiceDetail({
 }: ServiceDetailProps) {
   const t = useTranslations("services");
   const tc = useTranslations("common");
+  const locale = useLocale();
 
   const bodyBlocks =
     service.body && Array.isArray(service.body)
@@ -46,12 +192,17 @@ export default function ServiceDetail({
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-[#2B5CE6]/4 to-transparent rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-14 sm:pt-10 sm:pb-20 relative z-10">
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 text-[#5A5955] hover:text-[#3B6CF4] text-sm font-bold tracking-wide mb-8 transition-colors"
-          >
-            <ArrowLeft size={16} /> {tc("back")}
-          </Link>
+          <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-[#5A5955] mb-8 flex-wrap">
+            <Link href="/" className="hover:text-[#3B6CF4] transition-colors font-medium">
+              {locale === "et" ? "Avaleht" : locale === "ru" ? "Главная" : "Home"}
+            </Link>
+            <span className="text-[#C4C0BB]" aria-hidden="true">›</span>
+            <Link href="/services" className="hover:text-[#3B6CF4] transition-colors font-medium">
+              {locale === "et" ? "Teenused" : locale === "ru" ? "Услуги" : "Services"}
+            </Link>
+            <span className="text-[#C4C0BB]" aria-hidden="true">›</span>
+            <span className="text-[#2B5CE6] font-semibold" aria-current="page">{service.title}</span>
+          </nav>
 
           <div className="grid lg:grid-cols-[1fr_340px] gap-10 lg:gap-16 items-start">
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
@@ -75,7 +226,7 @@ export default function ServiceDetail({
                     {t("premiumBadge")}
                   </p>
                   <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#2B5CE6] leading-[1.05] font-space tracking-tight">
-                    {service.title}
+                    {withCity(service.title, locale)}
                   </h1>
                 </div>
               </div>
@@ -158,6 +309,10 @@ export default function ServiceDetail({
                 <article className="bg-white rounded-2xl border border-[#E8EFFE] p-6 sm:p-8">
                   <ServicePortableText value={bodyBlocks} serviceTitle={service.title} />
                 </article>
+
+                {Array.isArray(service.faq) && service.faq.length > 0 && (
+                  <FaqAccordion items={service.faq} locale={locale} />
+                )}
 
                 {relatedServices.length > 0 && (
                   <nav

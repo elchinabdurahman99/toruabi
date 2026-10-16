@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import { Check, ArrowRight } from "lucide-react";
+import Check from "lucide-react/dist/esm/icons/check";
+import ArrowRight from "lucide-react/dist/esm/icons/arrow-right";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
@@ -97,7 +98,7 @@ export default function Pricing() {
                 >
                   {plan.from}
                 </div>
-                <p className="text-[#9C9B96] text-xs mt-0.5">/ {plan.unit}</p>
+                <p className="text-[#6B7280] text-xs mt-0.5">/ {plan.unit}</p>
               </div>
 
               <div className="p-6">
@@ -131,7 +132,7 @@ export default function Pricing() {
           ))}
         </div>
 
-        <p className="text-center text-[#9C9B96] text-sm mt-8">
+        <p className="text-center text-[#6B7280] text-sm mt-8">
           {t("note")}
         </p>
       </div>

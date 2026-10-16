@@ -10,6 +10,8 @@ const INTERNAL_SEGMENT_TO_KEY: Record<string, PrefixKey> = {
   terms: "terms",
   contact: "contact",
   "privacy-policy": "privacy-policy",
+  works: "works",
+  jobs: "jobs",
 };
 
 /**

@@ -1,7 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { Phone, Search, Wrench, CheckCircle } from "lucide-react";
+import Phone from "lucide-react/dist/esm/icons/phone";
+import Search from "lucide-react/dist/esm/icons/search";
+import Wrench from "lucide-react/dist/esm/icons/wrench";
+import CheckCircle from "lucide-react/dist/esm/icons/check-circle";
 
 const STEP_ICONS = [Phone, Search, Wrench, CheckCircle];
 const STEP_COLORS = [
@@ -90,9 +93,9 @@ export default function Process() {
                     </span>
                   </motion.div>
                   <div className="lg:mt-4">
-                    <h4 className="font-bold text-[#2B5CE6] text-sm sm:text-base mb-1 sm:mb-1.5 font-space">
+                    <h3 className="font-bold text-[#2B5CE6] text-sm sm:text-base mb-1 sm:mb-1.5 font-space">
                       {t(`steps.${step.titleKey}`)}
-                    </h4>
+                    </h3>
                     <p className="text-[#5A5955] text-xs sm:text-sm leading-relaxed">
                       {t(`steps.${step.titleKey}Desc`)}
                     </p>

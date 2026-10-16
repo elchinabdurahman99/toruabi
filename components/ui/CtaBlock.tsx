@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import { Phone, ArrowRight } from "lucide-react";
+import Phone from "lucide-react/dist/esm/icons/phone";
+import ArrowRight from "lucide-react/dist/esm/icons/arrow-right";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 

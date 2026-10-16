@@ -59,7 +59,8 @@ const blogMatchAnySlug = `(
 export const allServicesForSitemapQuery = `
   *[_type == "service" && slug.current != "plumber"] | order(slug.current asc) {
     "canonicalSlug": slug.current,
-    pathSegment
+    pathSegment,
+    _updatedAt
   }
 `;
 
@@ -67,7 +68,8 @@ export const allServicesForSitemapQuery = `
 export const allBlogPostsForSitemapQuery = `
   *[_type == "blogPost"] | order(publishedAt desc) {
     "canonicalSlug": slug.current,
-    pathSegment
+    pathSegment,
+    _updatedAt
   }
 `;
 
@@ -145,13 +147,15 @@ export const servicesListQuery = (locale: Locale) => `
       asset,
       hotspot,
       crop,
-      "alt": coalesce(alt.${locale}, alt.et)
+      "alt": coalesce(alt.${locale}, alt.et),
+      "originalFilename": asset->originalFilename
     }
   }
 `;
 
 export const serviceBySlugQuery = (locale: Locale) => `
-  *[_type == "service" && ${serviceMatchAnySlug} && slug.current != "plumber"][0] {
+  *[_type == "service" && ${serviceMatchAnySlug} && slug.current != "plumber"]
+    | order(defined(category) desc, _createdAt asc)[0] {
     _id,
     "canonicalSlug": slug.current,
     pathSegment,
@@ -165,23 +169,39 @@ export const serviceBySlugQuery = (locale: Locale) => `
       asset,
       hotspot,
       crop,
-      "alt": coalesce(alt.${locale}, alt.et)
+      "alt": coalesce(alt.${locale}, alt.et),
+      "originalFilename": asset->originalFilename
     },
     gallery[] {
       _key,
       asset,
       hotspot,
       crop,
-      "alt": coalesce(alt.${locale}, alt.et)
+      "alt": coalesce(alt.${locale}, alt.et),
+      "originalFilename": asset->originalFilename
     },
-    "icon": icon
+    "icon": icon,
+    faq[] {
+      "question": coalesce(question.${locale}, question.et, question.en),
+      "answer": coalesce(answer.${locale}, answer.et, answer.en)
+    }
   }
 `;
 
 export const servicesByCanonicalSlugsQuery = (locale: Locale) => `
   *[_type == "service" && slug.current in $slugs]{
     "canonicalSlug": slug.current,
-    "slug": ${servicePathSegmentSlug(locale)}
+    "slug": ${servicePathSegmentSlug(locale)},
+    "title": ${localizedField("title", locale)}
+  }
+`;
+
+/** Footer: fetch locale-specific slug + title for a fixed list of canonical slugs. */
+export const footerServicesQuery = (locale: Locale) => `
+  *[_type == "service" && slug.current in $slugs && slug.current != "plumber"] | order(coalesce(order, 999) asc) {
+    "canonicalSlug": slug.current,
+    "slug": ${servicePathSegmentSlug(locale)},
+    "title": ${localizedField("title", locale)}
   }
 `;
 
@@ -193,8 +213,13 @@ export const blogPostsQuery = (locale: Locale) => `
     "slug": ${blogPathSegmentSlug(locale)},
     "excerpt": ${localizedField("excerpt", locale)},
     "publishedAt": publishedAt,
-    mainImage,
-    "author": author->name
+    mainImage {
+      asset,
+      hotspot,
+      crop,
+      "alt": coalesce(alt.${locale}, alt.et, alt.en),
+      "originalFilename": asset->originalFilename
+    },
   }
 `;
 
@@ -211,7 +236,6 @@ export const blogPostBySlugQuery = (locale: Locale) => `
     "metaDescription": ${localizedField("metaDescription", locale)},
     "publishedAt": publishedAt,
     mainImage,
-    "author": author->name
   }
 `;
 
@@ -292,17 +316,42 @@ export const jobPostingsQuery = (locale: Locale) => `
 export const workProjectsQuery = (locale: Locale) => `
   *[_type == "workProject" && isPublished == true] | order(coalesce(order, 999) asc, completedAt desc) {
     _id,
-    "title": coalesce(title.${locale}, title.et),
+    "title": coalesce(title.${locale}, title.et, title.en),
     "slug": slug.current,
-    "shortDescription": coalesce(shortDescription.${locale}, shortDescription.et),
+    "shortDescription": coalesce(shortDescription.${locale}, shortDescription.et, shortDescription.en),
     serviceType,
     location,
     completedAt,
-    mainImage { asset, hotspot, crop, "alt": coalesce(alt.${locale}, alt.et) },
+    mainImage {
+      asset,
+      hotspot,
+      crop,
+      "alt": coalesce(alt.${locale}, alt.et, alt.en),
+      "originalFilename": asset->originalFilename
+    },
+    "gallery": gallery[] {
+      asset,
+      hotspot,
+      crop,
+      "alt": coalesce(alt.${locale}, alt.et, alt.en),
+      "originalFilename": asset->originalFilename
+    },
     "highlights": highlights[] {
-      "label": coalesce(label.${locale}, label.et),
+      "label": coalesce(label.${locale}, label.et, label.en),
       value
     },
+    "metaTitle": coalesce(metaTitle.${locale}, metaTitle.et, metaTitle.en),
+    "metaDescription": coalesce(metaDescription.${locale}, metaDescription.et, metaDescription.en),
     isPublished
+  }
+`;
+
+export const heroSlidesQuery = (locale: string) => `
+  *[_type == "siteSettings"][0].heroSlides[] {
+    "_key": _key,
+    asset,
+    hotspot,
+    crop,
+    "alt": coalesce(alt.${locale}, alt.et, alt.en, "TorudeAbi24")
   }
 `;

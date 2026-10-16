@@ -131,6 +131,36 @@ export const service = defineType({
       type: "localeText",
     }),
     defineField({
+      name: "faq",
+      title: "FAQ — Rich Results",
+      description: "Add Q&A pairs to unlock FAQ rich results in Google. Min 2, max 10.",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            defineField({
+              name: "question",
+              title: "Question",
+              type: "localeString",
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: "answer",
+              title: "Answer",
+              type: "localeText",
+              validation: (Rule) => Rule.required(),
+            }),
+          ],
+          preview: {
+            select: { title: "question.en" },
+            prepare: ({ title }: { title?: string }) => ({ title: title ?? "FAQ item" }),
+          },
+        },
+      ],
+      validation: (Rule) => Rule.max(10),
+    }),
+    defineField({
       name: "order",
       title: "Display Order",
       type: "number",

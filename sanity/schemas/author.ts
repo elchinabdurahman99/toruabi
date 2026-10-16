@@ -13,9 +13,34 @@ export const author = defineType({
     }),
     defineField({
       name: "image",
-      title: "Image",
+      title: "Photo",
       type: "image",
       options: { hotspot: true },
+    }),
+    defineField({
+      name: "role",
+      title: "Role / Title",
+      type: "string",
+      description: "e.g. 'Licensed Plumber', 'Certified Electrician', 'Content Editor'",
+    }),
+    defineField({
+      name: "bio",
+      title: "Biography",
+      type: "text",
+      rows: 3,
+      description: "Short bio for E-E-A-T — mention certifications and years of experience.",
+    }),
+    defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: { source: "name" },
+      description: "Used for future author profile pages.",
+    }),
+    defineField({
+      name: "linkedin",
+      title: "LinkedIn URL",
+      type: "url",
     }),
   ],
   preview: {

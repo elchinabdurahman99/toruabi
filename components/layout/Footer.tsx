@@ -1,10 +1,20 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Phone, Mail, MapPin, Clock, ChevronUp } from "lucide-react";
+import Phone from "lucide-react/dist/esm/icons/phone";
+import Mail from "lucide-react/dist/esm/icons/mail";
+import MapPin from "lucide-react/dist/esm/icons/map-pin";
+import Clock from "lucide-react/dist/esm/icons/clock";
+import ChevronUp from "lucide-react/dist/esm/icons/chevron-up";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { internalPathToLinkHref } from "@/lib/i18n/appHref";
 import BrandLogo from "@/components/ui/BrandLogo";
+
+export interface FooterServiceLink {
+  canonicalSlug: string;
+  slug: string;
+  title: string;
+}
 
 function ScrollToTop() {
   const t = useTranslations("footer");
@@ -32,22 +42,17 @@ function ScrollToTop() {
   );
 }
 
-export default function Footer() {
+export default function Footer({
+  logoUrl,
+  serviceLinks = [],
+}: {
+  logoUrl?: string;
+  serviceLinks?: FooterServiceLink[];
+}) {
   const t = useTranslations("footer");
   const tc = useTranslations("common");
   const ts = useTranslations("services");
   const tn = useTranslations("nav");
-
-  const serviceLinks = [
-    { label: ts("items.plumbing"), slug: "plumber-24h-tallinn" },
-    { label: ts("items.electrical"), slug: "electrician-services" },
-    { label: ts("items.bathroomRepair"), slug: "bathroom-repair" },
-    { label: ts("items.constructionWorks"), slug: "construction-works" },
-    { label: ts("items.cleaning"), slug: "cleaning-services" },
-    { label: ts("items.design"), slug: "disain" },
-    { label: ts("items.insuredAccident"), slug: "kindlustus-remont" },
-    { label: ts("items.toiletInstallation"), slug: "wc-paigaldus" },
-  ];
 
   const companyLinks = [
     { label: tn("services"), href: "/services" as const },
@@ -58,7 +63,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative overflow-hidden bg-white/30 backdrop-blur-sm text-[#2B5CE6] border-t border-[#3B6CF4]/10">
+    <footer className="relative overflow-hidden bg-white/30 backdrop-blur-sm text-[#2B5CE6] border-t border-[#3B6CF4]/10" itemScope itemType="https://schema.org/LocalBusiness">
       <div className="pointer-events-none absolute -top-24 -left-16 h-72 w-72 rounded-full bg-[#3B6CF4]/12 blur-3xl" />
       <div className="pointer-events-none absolute top-10 right-[-90px] h-80 w-80 rounded-full bg-[#E8354A]/10 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[#8B3FC8]/12 blur-3xl" />
@@ -73,14 +78,13 @@ export default function Footer() {
               className="inline-block mb-5 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B6CF4]"
               aria-label="TorudeAbi — Avaleht"
             >
-              <BrandLogo variant="footer" />
+              <BrandLogo variant="footer" logoUrl={logoUrl} />
             </Link>
             <p className="text-[#34415D] text-sm leading-relaxed mb-4">
               {t("description")}
             </p>
-            <p className="text-[#5C6A86] text-xs font-semibold mb-0.5">{t("companyName")}</p>
-            <p className="text-[#5C6A86] text-xs mb-0.5">{t("companyAddress")}</p>
-            <p className="text-[#5C6A86] text-xs mb-5">{t("regNr")}</p>
+            <p className="text-[#5C6A86] text-xs font-semibold mb-0.5" itemProp="name">{t("companyName")}</p>
+            <p className="text-[#5C6A86] text-xs mb-5" itemProp="address">{t("companyAddress")}</p>
             <div className="flex gap-2">
               {["FB", "IG", "TW"].map((s) => (
                 <div
@@ -93,19 +97,19 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Services */}
+          {/* Services — dinamik Sanity-dən */}
           <div>
-            <h4 className="font-bold text-[#2B5CE6] text-sm mb-5 uppercase tracking-widest font-space">
+            <h3 className="font-bold text-[#2B5CE6] text-sm mb-5 uppercase tracking-widest font-space">
               {t("servicesTitle")}
-            </h4>
+            </h3>
             <ul className="space-y-2.5">
               {serviceLinks.map((s) => (
-                <li key={s.slug}>
+                <li key={s.canonicalSlug}>
                   <Link
                     href={internalPathToLinkHref(`/services/${s.slug}`)}
                     className="text-[#34415D] hover:text-[#E8354A] text-sm transition-colors"
                   >
-                    {s.label}
+                    {s.title}
                   </Link>
                 </li>
               ))}
@@ -122,9 +126,9 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-bold text-[#2B5CE6] text-sm mb-5 uppercase tracking-widest font-space">
+            <h3 className="font-bold text-[#2B5CE6] text-sm mb-5 uppercase tracking-widest font-space">
               {t("companyTitle")}
-            </h4>
+            </h3>
             <ul className="space-y-2.5">
               {companyLinks.map((l) => (
                 <li key={l.href}>
@@ -141,9 +145,9 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-bold text-[#2B5CE6] text-sm mb-5 uppercase tracking-widest font-space">
+            <h3 className="font-bold text-[#2B5CE6] text-sm mb-5 uppercase tracking-widest font-space">
               {t("contactTitle")}
-            </h4>
+            </h3>
             <div className="space-y-4">
               {[
                 { icon: Phone, label: tc("phone"), sub: t("phoneSub"), href: `tel:${tc("phoneDial")}` },
@@ -179,7 +183,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="hover:text-[#E8354A] transition-colors"
             >
-              Made with ❤️ by Navalab © 2026. All rights reserved.
+              {t("copyright_navalab_v1", { year: new Date().getFullYear() })}
             </a>
           </p>
           <div className="flex gap-6">

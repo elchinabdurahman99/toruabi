@@ -6,15 +6,17 @@ import clsx from "clsx";
 type Props = {
   className?: string;
   variant?: "nav" | "footer" | "drawer";
+  logoUrl?: string;
 };
 
-export default function BrandLogo({ className, variant = "nav" }: Props) {
+export default function BrandLogo({ className, variant = "nav", logoUrl }: Props) {
+  // Dimensions match the Sanity logo's natural 300×110 ratio (2.727:1) to satisfy image-aspect-ratio audit
   const size =
     variant === "footer"
-      ? { width: 180, height: 60 }
+      ? { width: 180, height: 66 }
       : variant === "drawer"
-        ? { width: 160, height: 54 }
-        : { width: 140, height: 48 };
+        ? { width: 161, height: 59 }
+        : { width: 131, height: 48 };
   return (
     <span
       className={clsx(
@@ -23,13 +25,13 @@ export default function BrandLogo({ className, variant = "nav" }: Props) {
       )}
     >
       <Image
-        src="/toru.png"
+        src={logoUrl || "/toru.png"}
         alt="TorudeAbi24"
         width={size.width}
         height={size.height}
         className="object-contain w-auto"
         style={{ maxHeight: size.height }}
-        priority
+        sizes="164px"
       />
     </span>
   );

@@ -58,16 +58,18 @@ export const blogPost = defineType({
       ],
     }),
     defineField({
-      name: "author",
-      title: "Author",
-      type: "reference",
-      to: [{ type: "author" }],
-    }),
-    defineField({
       name: "mainImage",
       title: "Main Image",
       type: "image",
       options: { hotspot: true },
+      fields: [
+        defineField({
+          name: "alt",
+          title: "Alt text (SEO & accessibility)",
+          type: "localeString",
+          description: "Describe the image in each language for screen readers and Google Image Search.",
+        }),
+      ],
     }),
     defineField({
       name: "publishedAt",
@@ -96,14 +98,6 @@ export const blogPost = defineType({
     }),
   ],
   preview: {
-    select: {
-      title: "title.en",
-      author: "author.name",
-      media: "mainImage",
-    },
-    prepare(selection) {
-      const { author } = selection;
-      return { ...selection, subtitle: author && `by ${author}` };
-    },
+    select: { title: "title.en", media: "mainImage" },
   },
 });

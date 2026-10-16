@@ -1,7 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, X, MessageCircle } from "lucide-react";
+import Phone from "lucide-react/dist/esm/icons/phone";
+import X from "lucide-react/dist/esm/icons/x";
+import MessageCircle from "lucide-react/dist/esm/icons/message-circle";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
@@ -68,6 +70,7 @@ export default function FloatingCTA() {
             whileHover={{ scale: 1.07 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setExpanded(!expanded)}
+            aria-label={expanded ? "Close contact menu" : "Open contact menu"}
             className="w-14 h-14 rounded-full flex items-center justify-center relative text-white"
             style={{
               background: "linear-gradient(135deg, #E8354A, #3B6CF4)",

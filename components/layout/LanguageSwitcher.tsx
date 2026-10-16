@@ -4,7 +4,8 @@ import { useParams } from "next/navigation";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { locales, localeNames, type Locale } from "@/i18n/config";
 import { useState, useRef, useEffect } from "react";
-import { Globe, ChevronDown } from "lucide-react";
+import Globe from "lucide-react/dist/esm/icons/globe";
+import ChevronDown from "lucide-react/dist/esm/icons/chevron-down";
 import { getLocalizedSlug } from "@/lib/seo/serviceSlugMappings";
 
 export default function LanguageSwitcher() {
@@ -25,12 +26,24 @@ export default function LanguageSwitcher() {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
+  const SERVICE_PATH_PREFIXES = ["/services/", "/teenused/", "/услуги/"];
+  const BLOG_PATH_PREFIXES = ["/blog/", "/blogi/", "/блог/"];
+
   const switchLocale = (newLocale: Locale) => {
     const path = pathname ?? "/";
-    if (slug && path.startsWith("/services/")) {
-      const localizedSlug = getLocalizedSlug(slug, newLocale) || slug;
+    const isServicePage = slug && SERVICE_PATH_PREFIXES.some((p) => path.startsWith(p));
+    const isBlogPage = slug && BLOG_PATH_PREFIXES.some((p) => path.startsWith(p));
+
+    if (isServicePage) {
+      // Read Sanity pathSegment from data-attribute set by SetPageSlugs, fall back to static mapping
+      const ds = document.documentElement.dataset;
+      const sanitySlug =
+        newLocale === "et" ? ds.slugEt :
+        newLocale === "en" ? ds.slugEn :
+        newLocale === "ru" ? ds.slugRu : undefined;
+      const localizedSlug = sanitySlug || getLocalizedSlug(slug, newLocale) || slug;
       router.replace({ pathname: "/services/[slug]", params: { slug: localizedSlug } }, { locale: newLocale });
-    } else if (slug && path.startsWith("/blog/")) {
+    } else if (isBlogPage) {
       router.replace({ pathname: "/blog/[slug]", params: { slug } }, { locale: newLocale });
     } else {
       router.replace(path as never, { locale: newLocale });

@@ -1,7 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, ArrowRight, Tag, Zap } from "lucide-react";
+import Phone from "lucide-react/dist/esm/icons/phone";
+import ArrowRight from "lucide-react/dist/esm/icons/arrow-right";
+import Tag from "lucide-react/dist/esm/icons/tag";
+import Zap from "lucide-react/dist/esm/icons/zap";
 import { useTranslations } from "next-intl";
 
 export default function PromoBar() {

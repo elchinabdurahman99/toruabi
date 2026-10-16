@@ -1,6 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
-import { Phone, Clock, Wrench, CreditCard, Zap } from "lucide-react";
+import Phone from "lucide-react/dist/esm/icons/phone";
+import Clock from "lucide-react/dist/esm/icons/clock";
+import Wrench from "lucide-react/dist/esm/icons/wrench";
+import CreditCard from "lucide-react/dist/esm/icons/credit-card";
+import Zap from "lucide-react/dist/esm/icons/zap";
 import { useTranslations } from "next-intl";
 
 export default function Emergency() {

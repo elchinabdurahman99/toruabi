@@ -6,9 +6,13 @@ import { schemaTypes } from "./sanity/schemas/index";
 type CategoryDoc = { _id: string; title: { en?: string; et?: string; az?: string } };
 
 export default defineConfig({
-  name: "ajsan",
-  title: "Ajsan CMS",
+  name: "torudeabi24",
+  title: "TorudeAbi24 CMS",
   basePath: "/studio",
+  icon: () => {
+    const { createElement } = require("react");
+    return createElement("img", { src: "/favicon.png", alt: "TorudeAbi24", style: { width: 24, height: 24, borderRadius: 4 } });
+  },
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "",
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
   plugins: [
@@ -34,7 +38,7 @@ export default defineConfig({
         );
 
         return S.list()
-          .title("Ajsan CMS")
+          .title("TorudeAbi24 CMS")
           .items([
             S.listItem()
               .title("⚙️ Site Settings")
@@ -63,10 +67,28 @@ export default defineConfig({
                   ])
               ),
 
+            S.listItem()
+              .title("🖼️ Hero Slider")
+              .id("hero-slider")
+              .child(
+                S.document()
+                  .schemaType("siteSettings")
+                  .documentId("siteSettings")
+                  .title("Hero Slider Images")
+              ),
+            S.listItem()
+              .title("🏗️ Our Works")
+              .id("works-group")
+              .schemaType("workProject")
+              .child(
+                S.documentList()
+                  .title("Our Works")
+                  .filter('_type == "workProject"')
+                  .defaultOrdering([{ field: "order", direction: "asc" }])
+              ),
             S.documentTypeListItem("pricingCategory").title("💰 Pricing"),
             S.divider(),
             S.documentTypeListItem("blogPost").title("✍️ Blog Posts"),
-            S.documentTypeListItem("author").title("👤 Authors"),
             S.documentTypeListItem("partner").title("🤝 Partners"),
             S.documentTypeListItem("testimonial").title("⭐ Testimonials"),
             S.divider(),

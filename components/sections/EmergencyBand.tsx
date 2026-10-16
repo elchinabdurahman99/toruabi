@@ -1,5 +1,5 @@
 "use client";
-import { Phone } from "lucide-react";
+import Phone from "lucide-react/dist/esm/icons/phone";
 import { useTranslations } from "next-intl";
 
 export default function EmergencyBand() {

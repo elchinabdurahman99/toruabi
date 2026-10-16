@@ -1,25 +1,201 @@
-# Ajsan
+# TorudeAbi24 — 24/7 Plumbing, Electrical & Renovation Services in Tallinn, Estonia
 
-> A professional home and commercial services company based in Tallinn, Estonia, operating across Harjumaa. Core trades include plumbing, electrical work, renovation, and building maintenance.
+> TorudeAbi24 (torudeabi24.ee) is a licensed professional home services company based in Tallinn, Estonia, serving the entire Harjumaa region. Core trades: plumbing, electrical work, bathroom renovation, construction, and 24/7 emergency services. Phone: +372 56 89 79 29. Email: info@torudeabi24.ee.
+
+## Key Facts
+
+- **Emergency response**: 30–60 minutes across Tallinn & Harjumaa
+- **Availability**: 24/7 including weekends and public holidays
+- **Discount**: -30% on all services 08:00–19:00 (weekdays and weekends)
+- **Payment**: After completion — no upfront payment required
+- **Certifications**: All technicians licensed and certified
+- **Warranty**: 2-year warranty on completed work (3-year on bathroom waterproofing)
+- **Languages**: Estonian, English, Russian
+- **Service area**: Tallinn (all 8 districts) + Harjumaa (Maardu, Keila, Saue, Viimsi, Rae, Saku, and surrounding municipalities)
+- **Legal entity**: Torudeabi24.ee OÜ, Vene tn 28, Tallinn 10111, Estonia
 
 ## Primary URLs
 
-- [Estonian](https://ajsan.ee/et/): Peamine eestikeelne veebileht teenuste infoga.
-- [English](https://ajsan.ee/en/): Main website in English with service details.
-- [Russian](https://ajsan.ee/ru/): Основной сайт на русском языке с информацией об услугах.
+- [Estonian homepage](https://torudeabi24.ee/et/): Eestikeelne peamine veebileht
+- [English homepage](https://torudeabi24.ee/en/): Main website in English
+- [Russian homepage](https://torudeabi24.ee/ru/): Главный сайт на русском языке
+- [All Services (ET)](https://torudeabi24.ee/et/teenused): Kõik teenused
+- [All Services (EN)](https://torudeabi24.ee/en/services): All available services
+- [All Services (RU)](https://torudeabi24.ee/ru/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8): Все услуги
+- [Price List (ET)](https://torudeabi24.ee/et/hinnakiri): Hinnakiri
+- [Price List (EN)](https://torudeabi24.ee/en/price-list): Current pricing
+- [Contact (ET)](https://torudeabi24.ee/et/kontakt): Broneeri teenus või teata avariist
+- [Contact (EN)](https://torudeabi24.ee/en/contact): Book a service or report emergency
+- [Blog (ET)](https://torudeabi24.ee/et/blogi): Maintenance tips and advice
 
-## Key Service Sections
+## Plumbing Services
 
-- [Services Index](https://ajsan.ee/et/teenused): Browse all available trades and maintenance services.
-- [Price List](https://ajsan.ee/et/hinnakiri): Hourly rates and service fees with VAT.
-- [Emergency Plumbing 24/7](https://ajsan.ee/et/teenused/plumber-24h-tallinn): Immediate assistance for pipe leaks and sewer issues.
-- [Electrical Works](https://ajsan.ee/et/teenused/electrician-services): Licensed electrical installations and repairs.
-- [Bathroom Renovation](https://ajsan.ee/et/teenused/bathroom-repair): Full bathroom remodeling and plumbing updates.
-- [Blog](https://ajsan.ee/et/blogi): Maintenance tips and plumbing advice for homeowners.
-- [Contact](https://ajsan.ee/et/kontakt): Phone and email details for bookings and emergency help.
+- [Emergency Plumbing 24/7 (ET)](https://torudeabi24.ee/et/teenused/toruabi-24h): Avariitorumees Tallinnas
+- [Emergency Plumbing 24/7 (EN)](https://torudeabi24.ee/en/services/24h-emergency-plumbing): Immediate burst pipe, leak, and sewer repair
+- [Pipe Works (ET)](https://torudeabi24.ee/et/teenused/torutood): Torutööd Tallinnas
+- [Pipe Works (EN)](https://torudeabi24.ee/en/services/pipe-works): Pipe installation, repair and replacement
+- [Drain Blockage Removal (ET)](https://torudeabi24.ee/et/teenused/ummistuse-likvideerimine): Kanalisatsiooni ummistuse likvideerimine
+- [Drain Blockage Removal (EN)](https://torudeabi24.ee/en/services/drain-blockage-removal): Drain unblocking and line clearing
+- [Sewer Jetting (EN)](https://torudeabi24.ee/en/services/sewer-jetting): High-pressure sewer flushing
+- [Tap & Mixer Replacement (ET)](https://torudeabi24.ee/et/teenused/segisti-vahetus): Segisti ja kraani vahetus
+- [Tap & Mixer Replacement (EN)](https://torudeabi24.ee/en/services/tap-mixer-replacement): Tap, mixer, and faucet replacement
+- [Riser Pipe Replacement (EN)](https://torudeabi24.ee/en/services/riser-pipe-replacement): Heating and sewer riser replacement
+- [Pipe CCTV Inspection (EN)](https://torudeabi24.ee/en/services/pipe-cctv-inspection): CCTV drain survey and diagnostics
+- [Sewage Removal (EN)](https://torudeabi24.ee/en/services/sewage-removal): Septic tank and cesspool emptying
+- [Jetting Truck Services (EN)](https://torudeabi24.ee/en/services/jetting-truck-services): Truck-mounted high-pressure jetting
+- [PEM Pipe Welding (EN)](https://torudeabi24.ee/en/services/pem-pipe-welding): Polyethylene pipe welding
+- [Plumber on Call (EN)](https://torudeabi24.ee/en/services/plumber-on-call): On-demand plumber dispatch
 
-## Legal Details
+## Electrical Services
 
-- [Terms of Service](https://ajsan.ee/et/tingimused): Standard conditions of service and liability.
-- [Privacy Policy](https://ajsan.ee/et/privaatsuspoliitika): How we handle your data and cookies.
-- **Entity**: SNN RAKENTAMINEN OÜ based in Tallinn.
+- [Emergency Electrical 24/7 (ET)](https://torudeabi24.ee/et/teenused/elektriabi-24h): Avariielektrik Tallinnas
+- [Emergency Electrical 24/7 (EN)](https://torudeabi24.ee/en/services/24h-emergency-electrical): Emergency electrician dispatch
+- [Electrical Installation (EN)](https://torudeabi24.ee/en/services/electrical-installation): Wiring, sockets, fuse boards
+- [Switchboard Maintenance (EN)](https://torudeabi24.ee/en/services/switchboard-maintenance): Distribution board and fuse box work
+- [Lighting Installation (EN)](https://torudeabi24.ee/en/services/lighting-installation): Interior and exterior lighting
+
+## Bathroom & Renovation
+
+- [Bathroom Renovation (ET)](https://torudeabi24.ee/et/teenused/vannitoa-remont): Vannitoa remont Tallinnas
+- [Bathroom Renovation (EN)](https://torudeabi24.ee/en/services/bathroom-renovation): Full bathroom remodel, tiling, sanitary fixtures
+- [Apartment Renovation (ET)](https://torudeabi24.ee/et/teenused/korterite-remont): Korterite remont
+- [Apartment Renovation (EN)](https://torudeabi24.ee/en/services/apartment-renovation): Turnkey apartment and office renovation
+- [Tiling Works (EN)](https://torudeabi24.ee/en/services/tiling-works): Floor and wall tiling
+- [Drywall Works (EN)](https://torudeabi24.ee/en/services/drywall-works): Partitions and plasterboard installation
+- [Painting Works (EN)](https://torudeabi24.ee/en/services/painting-works): Interior and exterior painting
+- [Flooring Works (EN)](https://torudeabi24.ee/en/services/flooring-works): Floor installation and finishing
+- [Stairwell & Balcony Renovation (EN)](https://torudeabi24.ee/en/services/stairwell-balcony-renovation): Common area and balcony refurbishment
+- [Insurance Claims (ET)](https://torudeabi24.ee/et/teenused/kindlustusjuhtumid): Kindlustusjuhtumite hindamine ja remont
+- [Insurance Claims (EN)](https://torudeabi24.ee/en/services/insurance-claims): Insurance claim assessment and reinstatement
+
+## Gas Services
+
+- [Gas Works (EN)](https://torudeabi24.ee/en/services/gas-works): Gas installations per current regulations
+- [Gas Appliance Installation (ET)](https://torudeabi24.ee/et/teenused/gaasiseadmete-paigaldus): Gaasiseadmete paigaldus
+- [Gas Appliance Installation (EN)](https://torudeabi24.ee/en/services/gas-appliance-installation): Gas boiler and appliance fitting
+- [Gas Pipeline Construction (EN)](https://torudeabi24.ee/en/services/gas-pipeline-construction): Gas line laying and connection
+- [Gas Leak Detection (EN)](https://torudeabi24.ee/en/services/gas-leak-detection): Gas leak survey and repair
+
+## Design & Planning
+
+- [Interior Design (ET)](https://torudeabi24.ee/et/teenused/sisekujundus): Sisekujundus Tallinnas
+- [Interior Design (EN)](https://torudeabi24.ee/en/services/interior-design): Interior architecture and design
+- [3D Visualization (EN)](https://torudeabi24.ee/en/services/3d-visualization): 3D rendering and project visualization
+- [Construction Projects (ET)](https://torudeabi24.ee/et/teenused/ehitusprojektid): Ehitusprojektid
+- [Construction Projects (EN)](https://torudeabi24.ee/en/services/construction-projects): Building design and project management
+- [As-Built Drawings (EN)](https://torudeabi24.ee/en/services/as-built-drawings): As-built documentation and drawings
+
+## Appliances & Handyman
+
+- [Appliance Installation (EN)](https://torudeabi24.ee/en/services/appliance-installation): Household appliance hook-up
+- [Built-in Appliance Installation (EN)](https://torudeabi24.ee/en/services/builtin-appliance-installation): Integrated appliance fitting
+- [Handyman Services (EN)](https://torudeabi24.ee/en/services/handyman-services): Small fixes, mounting, odd jobs
+- [Washing Machine Repair (EN)](https://torudeabi24.ee/en/services/washing-machine-repair): Washing machine diagnostics and repair
+- [Dishwasher Repair (EN)](https://torudeabi24.ee/en/services/dishwasher-repair): Dishwasher repair and servicing
+- [Refrigerator Repair (EN)](https://torudeabi24.ee/en/services/refrigerator-repair): Fridge and freezer repair
+- [Stove & Oven Repair (EN)](https://torudeabi24.ee/en/services/stove-oven-repair): Cooker and oven repair
+
+## Exterior & Maintenance
+
+- [Property Maintenance (ET)](https://torudeabi24.ee/et/teenused/kinnisvara-hooldus): Kinnisvara hooldus
+- [Property Maintenance (EN)](https://torudeabi24.ee/en/services/property-maintenance): Building and property maintenance
+- [Roofing Works (EN)](https://torudeabi24.ee/en/services/roofing-works): Flat and pitched roof repair
+- [Facade Works (EN)](https://torudeabi24.ee/en/services/facade-works): Exterior cladding and insulation
+- [Paving Stone Installation (EN)](https://torudeabi24.ee/en/services/paving-stone-installation): Interlocking pavers and base prep
+- [Container Rental (EN)](https://torudeabi24.ee/en/services/container-rental): Construction waste containers
+
+## Radiator & Heating
+
+- [Radiator Installation (EN)](https://torudeabi24.ee/en/services/radiator-installation): Radiator and thermostat installation
+
+## Legal & Company
+
+- [Terms of Service (EN)](https://torudeabi24.ee/en/terms): Work, warranty, and payment conditions
+- [Privacy Policy (EN)](https://torudeabi24.ee/en/privacy-policy): Data and cookie policy
+- **Legal entity**: Torudeabi24.ee OÜ, Vene tn 28, Tallinn 10111, Estonia
+- **Contact phone**: +372 56 89 79 29 (24/7)
+- **Email**: info@torudeabi24.ee
+
+## Pricing (VAT excluded)
+
+- Standard hourly rate: €35/hour (plumbing, electrical, carpentry, general works)
+- Specialist rate: €45–48/hour (welding, pipe inspection, heat exchanger cleaning)
+- Pressure testing (heating systems): €100–110 per session
+- Sewerage high-pressure jetting: €100 per session
+- Discount: -30% on all services weekdays and weekends 08:00–19:00
+- Night surcharge: +€10 per job between 19:00–08:00
+- Travel: €1.00–1.50/km outside Tallinn city limits
+- Minimum charge: 1 hour at applicable hourly rate
+- Payment: after completion only — no upfront payment required
+- Full price list: https://torudeabi24.ee/en/price-list
+
+## Frequently Asked Questions
+
+**Q: How fast do you respond to plumbing emergencies in Tallinn?**
+A: Our emergency team arrives within 30–60 minutes anywhere in Tallinn and Harjumaa. Call +372 56 89 79 29 any time, 24 hours a day, 7 days a week including public holidays.
+
+**Q: Are your technicians licensed and certified in Estonia?**
+A: Yes. All TorudeAbi24 technicians hold current Estonian trade certifications. Plumbers are certified per Ehitusseadustik regulations. Electricians hold Elektriohutusseadus licences. Gas engineers hold Gaasiseadus certification required by Majandus- ja Kommunikatsiooniministeerium.
+
+**Q: Do you offer a warranty on completed work?**
+A: Yes. All completed work carries a 2-year warranty for normal daily use conditions, per Estonian Võlaõigusseadus § 218. Bathroom renovations carry a separate 3-year warranty on waterproofing and tiling.
+
+**Q: Which areas of Tallinn and Harjumaa do you serve?**
+A: We cover all Tallinn districts (Kesklinn, Mustamäe, Kristiine, Lasnamäe, Põhja-Tallinn, Nõmme, Pirita, Haabersti) and Harjumaa including Maardu, Keila, Saue, Saku, Viimsi, Rae vald, and surrounding municipalities.
+
+**Q: What is the -30% discount and when does it apply?**
+A: We offer a flat 30% discount on all services during standard hours: Monday–Sunday 08:00–19:00. Night work (19:00–08:00) is billed at full rate plus a €10 call-out surcharge.
+
+**Q: Do you handle insurance claim repairs?**
+A: Yes. We work directly with insurance assessors for water damage, fire damage, and mechanical damage reinstatement. We provide documented damage reports and itemised cost estimates for insurance companies (kindlustusjuhtum remont).
+
+**Q: Can you do full apartment renovations?**
+A: Yes. We offer turnkey apartment and office renovation including demolition, structural work, plumbing, electrical, tiling, plastering, painting, and finishing. Project management included.
+
+**Q: What languages do your technicians speak?**
+A: Estonian, English, and Russian. All technicians communicate fluently in at least Estonian and Russian.
+
+**Q: Do you charge for the initial diagnosis?**
+A: The diagnosis is free when you proceed with the repair. If you decline the work after diagnosis, a €35 diagnostic fee applies.
+
+## Certifications & Regulatory Compliance
+
+- Registered in Estonian Business Register: Torudeabi24.ee OÜ (Tallinn)
+- Electricians licensed under Elektriohutusseadus (Electrical Safety Act)
+- Gas engineers certified under Gaasiseadus (Gas Act), supervised by Majandus- ja Kommunikatsiooniministeerium
+- Plumbers certified per Ehitusseadustik (Building Code of Estonia)
+- All work documented with completion certificates on request
+- Covered by professional liability insurance
+
+## Service Area — Tallinn Districts
+
+- **Kesklinn** (Old Town / city centre): highest demand for emergency plumbing and electrical
+- **Lasnamäe**: largest district, Soviet-era panel buildings — pipe and heating replacement specialists
+- **Mustamäe**: apartment block plumbing, heating, and electrical upgrades
+- **Kristiine**: residential and commercial plumbing, bathroom renovation
+- **Põhja-Tallinn** (Kalamaja, Pelgulinn, Kopli): old building renovation and pipe replacement
+- **Nõmme**: detached houses, garden connections, well and septic services
+- **Pirita**: coastal residential area, premium renovation services
+- **Haabersti** (Õismäe, Rocca al Mare): modern apartment services
+
+## Service Area — Harjumaa Towns
+
+- **Maardu**: industrial and residential eastern Harjumaa
+- **Keila**: southwestern Harjumaa town and surrounding vald
+- **Saue**: Saue vald residential services
+- **Saku vald**: southern suburb corridor
+- **Viimsi**: northern peninsula premium residential
+- **Rae vald** (Ülemiste City area): mixed commercial and residential
+- **Jõelähtme vald**, **Kose vald**: rural and semi-rural coverage on request
+
+## Emergency Response Protocol
+
+Available 24/7 for immediate dispatch:
+- Burst pipes and active water leaks → average 35-minute arrival in Tallinn
+- Blocked drains and sewerage flooding → same-day clearance guaranteed
+- Complete electrical failures and outages → licensed electrician dispatched
+- Gas leaks → evacuate premises first, then call +372 56 89 79 29; gas-certified engineer dispatched
+- Boiler and heating system breakdowns → priority in winter months (November–March)
+- Flooding from neighbours above → emergency water shutdown and damage assessment
+
+Response time commitment: 30–60 minutes in Tallinn, up to 90 minutes in Harjumaa.

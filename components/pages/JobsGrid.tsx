@@ -3,7 +3,13 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { MapPin, Briefcase, DollarSign, Building2, ArrowRight, Users, Sparkles } from "lucide-react";
+import MapPin from "lucide-react/dist/esm/icons/map-pin";
+import Briefcase from "lucide-react/dist/esm/icons/briefcase";
+import DollarSign from "lucide-react/dist/esm/icons/dollar-sign";
+import Building2 from "lucide-react/dist/esm/icons/building-2";
+import ArrowRight from "lucide-react/dist/esm/icons/arrow-right";
+import Users from "lucide-react/dist/esm/icons/users";
+import Sparkles from "lucide-react/dist/esm/icons/sparkles";
 import { Link } from "@/i18n/navigation";
 import PageBanner from "@/components/ui/PageBanner";
 
@@ -183,8 +189,8 @@ function EmptyState({ t }: { t: ReturnType<typeof useTranslations> }) {
         <Users size={36} style={{ color: "#8B3FC8" }} />
       </div>
       <h3 className="font-extrabold text-[#1a2a6c] text-xl mb-3">{t("joinTeam")}</h3>
-      <p className="text-[#9C9B96] text-base font-medium max-w-md mx-auto mb-2">{t("empty")}</p>
-      <p className="text-[#9C9B96] text-sm max-w-sm mx-auto">{t("emptyHint")}</p>
+      <p className="text-[#6B7280] text-base font-medium max-w-md mx-auto mb-2">{t("empty")}</p>
+      <p className="text-[#6B7280] text-sm max-w-sm mx-auto">{t("emptyHint")}</p>
     </motion.div>
   );
 }
@@ -245,7 +251,7 @@ export default function JobsGrid({ jobs }: { jobs: JobPosting[] }) {
                 <p className="font-extrabold text-[#1a2a6c] text-sm">
                   {jobs.length} {t("openPositions")}
                 </p>
-                <p className="text-[#9C9B96] text-xs">{t("joinTeamDesc")}</p>
+                <p className="text-[#6B7280] text-xs">{t("joinTeamDesc")}</p>
               </div>
             </div>
             <a

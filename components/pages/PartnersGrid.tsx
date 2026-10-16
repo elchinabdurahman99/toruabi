@@ -54,7 +54,7 @@ export default function PartnersGrid({ partners }: { partners: Partner[] }) {
   return (
     <div className="min-h-screen">
       <PageBanner
-        kicker="torudeabi.ee"
+        kicker="torudeabi24.ee"
         title={t("title")}
         subtitle={t("subtitle")}
         breadcrumbs={[{ label: t("title") }]}
@@ -64,7 +64,7 @@ export default function PartnersGrid({ partners }: { partners: Partner[] }) {
       <div className="max-w-7xl mx-auto px-6 py-14">
         {partners.length === 0 ? (
           <div className="text-center py-24 rounded-2xl bg-white/50 backdrop-blur-sm border border-dashed border-[#8B3FC8]/20">
-            <p className="text-[#9C9B96] text-base font-medium">{t("empty")}</p>
+            <p className="text-[#6B7280] text-base font-medium">{t("empty")}</p>
           </div>
         ) : (
           <>
@@ -73,7 +73,7 @@ export default function PartnersGrid({ partners }: { partners: Partner[] }) {
               <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-28 z-10 bg-gradient-to-r from-white/40 to-transparent" />
               <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-28 z-10 bg-gradient-to-l from-white/40 to-transparent" />
 
-              <div className="py-10 md:py-14">
+              <div className="py-10 md:py-14 relative z-20">
                 <div className="flex w-max animate-partner-marquee hover:[animation-play-state:paused] gap-6 px-8">
                   {[...partners, ...partners].map((partner, i) => (
                     <LogoBox key={`${partner._id}-${i}`} partner={partner} />
@@ -81,7 +81,7 @@ export default function PartnersGrid({ partners }: { partners: Partner[] }) {
                 </div>
               </div>
             </div>
-            <p className="text-center text-[#9C9B96] text-sm mt-6">{t("sliderHint")}</p>
+            <p className="text-center text-[#6B7280] text-sm mt-6">{t("sliderHint")}</p>
           </>
         )}
       </div>

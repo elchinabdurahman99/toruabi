@@ -31,7 +31,7 @@ function servicePortableComponents(serviceTitle: string): PortableTextComponents
               />
             </div>
             {caption ? (
-              <figcaption className="mt-2 text-center text-sm text-[#9C9B96] font-medium">
+              <figcaption className="mt-2 text-center text-sm text-[#6B7280] font-medium">
                 {caption}
               </figcaption>
             ) : null}

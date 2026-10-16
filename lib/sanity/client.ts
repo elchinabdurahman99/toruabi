@@ -8,6 +8,9 @@ export const client = isConfigured
       ...sanityConfig,
       useCdn: false,
       token: process.env.SANITY_API_READ_TOKEN,
+      // With a token and apiVersion < 2025-02-19 the default perspective is "raw",
+      // which leaks unpublished drafts onto the live site and duplicates sitemap URLs.
+      perspective: "published",
       stega: { enabled: false },
     })
   : null;

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Cookie } from "lucide-react";
+import Cookie from "lucide-react/dist/esm/icons/cookie";
 
 const STORAGE_KEY = "torudeabi24_cookie_consent";
 

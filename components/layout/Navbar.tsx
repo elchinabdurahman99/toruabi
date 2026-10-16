@@ -1,7 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronRight, ChevronDown, Phone, ArrowUpRight } from "lucide-react";
+import Menu from "lucide-react/dist/esm/icons/menu";
+import X from "lucide-react/dist/esm/icons/x";
+import ChevronRight from "lucide-react/dist/esm/icons/chevron-right";
+import ChevronDown from "lucide-react/dist/esm/icons/chevron-down";
+import Phone from "lucide-react/dist/esm/icons/phone";
+import ArrowUpRight from "lucide-react/dist/esm/icons/arrow-up-right";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -25,7 +30,13 @@ export type NavCategory = {
   services: NavServiceItem[];
 };
 
-export default function Navbar({ navCategories = [] }: { navCategories?: NavCategory[] }) {
+export default function Navbar({
+  navCategories = [],
+  logoUrl,
+}: {
+  navCategories?: NavCategory[];
+  logoUrl?: string;
+}) {
   const t = useTranslations("nav");
   const tc = useTranslations("common");
   const pathname = usePathname();
@@ -47,7 +58,7 @@ export default function Navbar({ navCategories = [] }: { navCategories?: NavCate
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", fn);
+    window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
@@ -60,8 +71,8 @@ export default function Navbar({ navCategories = [] }: { navCategories?: NavCate
   const linkCls = (active: boolean) =>
     `relative px-3.5 py-2 rounded-lg text-[13.5px] font-bold transition-all duration-200 group inline-flex items-center gap-1 ${
       active
-        ? "text-[#E8354A] bg-white shadow-[0_4px_12px_rgba(0,0,0,0.07)]"
-        : "text-[#1A1917] hover:text-[#E8354A] hover:bg-white/80"
+        ? "text-[#B91C1C] bg-white shadow-[0_4px_12px_rgba(0,0,0,0.07)]"
+        : "text-[#1A1917] hover:text-[#B91C1C] hover:bg-white/80"
     }`;
 
   return (
@@ -81,7 +92,7 @@ export default function Navbar({ navCategories = [] }: { navCategories?: NavCate
           <div className={`h-full flex items-center justify-between ${headerExpanded ? "px-4 sm:px-6" : "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"}`}>
             {/* Logo */}
             <Link href="/" aria-label="TorudeAbi — Avaleht" className="shrink-0 rounded-lg focus-visible:ring-2 focus-visible:ring-[#3B6CF4] focus:outline-none">
-              <BrandLogo variant="nav" className="transition-opacity hover:opacity-80" />
+              <BrandLogo variant="nav" logoUrl={logoUrl} className="transition-opacity hover:opacity-80" />
             </Link>
 
             {/* Desktop nav pill */}
@@ -145,8 +156,8 @@ export default function Navbar({ navCategories = [] }: { navCategories?: NavCate
               className="fixed top-0 right-0 bottom-0 z-100 w-[min(320px,88vw)] bg-white flex flex-col shadow-2xl"
             >
               <div className="flex items-center justify-between px-5 py-3.5 border-b border-[#3B6CF4]/15">
-                <Link href="/" onClick={() => setDrawerOpen(false)}><BrandLogo variant="drawer" /></Link>
-                <button onClick={() => setDrawerOpen(false)} className="p-1.5 rounded-lg text-[#3B6CF4] hover:bg-[#3B6CF4]/10"><X size={19} /></button>
+                <Link href="/" onClick={() => setDrawerOpen(false)}><BrandLogo variant="drawer" logoUrl={logoUrl} /></Link>
+                <button onClick={() => setDrawerOpen(false)} aria-label={t("closeMenu")} className="p-1.5 rounded-lg text-[#3B6CF4] hover:bg-[#3B6CF4]/10"><X size={19} /></button>
               </div>
 
               <div className="flex-1 overflow-y-auto px-2.5 py-3 space-y-0.5">
@@ -179,9 +190,9 @@ export default function Navbar({ navCategories = [] }: { navCategories?: NavCate
                               onClick={() => setMobileCatOpen((v) => v === cat._id ? null : cat._id)}
                               className="flex items-center justify-between w-full px-3 py-2 rounded-lg text-[12.5px] font-bold text-[#2B5CE6] hover:bg-white/60 transition-colors"
                             >
-                              <span className="flex items-center gap-2">
-                                <ServiceIcon slug={cat.slug} sanityIcon={cat.icon} size={13} strokeWidth={2} className="text-[#3B6CF4]" />
-                                {cat.title}
+                              <span className="flex items-start gap-3 text-left">
+                                <ServiceIcon slug={cat.slug} sanityIcon={cat.icon} size={15} strokeWidth={2} className="text-[#3B6CF4] mt-0.5 shrink-0" />
+                                <span className="flex-1 leading-snug">{cat.title}</span>
                               </span>
                               <ChevronDown size={12} className={`opacity-40 transition-transform ${mobileCatOpen === cat._id ? "rotate-180" : ""}`} />
                             </button>

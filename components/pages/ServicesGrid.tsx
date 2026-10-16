@@ -4,7 +4,10 @@ import { useMemo, useState, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import PageBanner from "@/components/ui/PageBanner";
-import { ArrowRight, Search, ShieldCheck, LayoutGrid } from "lucide-react";
+import ArrowRight from "lucide-react/dist/esm/icons/arrow-right";
+import Search from "lucide-react/dist/esm/icons/search";
+import ShieldCheck from "lucide-react/dist/esm/icons/shield-check";
+import LayoutGrid from "lucide-react/dist/esm/icons/layout-grid";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { internalPathToLinkHref } from "@/lib/i18n/appHref";
@@ -88,7 +91,7 @@ function ServiceCard({ service, accentColor, learnMore }: { service: Service; ac
           </h2>
         </div>
         {service.description ? (
-          <p className="text-[#9C9B96] text-sm leading-relaxed line-clamp-2 mb-4 flex-1">
+          <p className="text-[#6B7280] text-sm leading-relaxed line-clamp-2 mb-4 flex-1">
             {service.description}
           </p>
         ) : (
@@ -150,9 +153,9 @@ export default function ServicesGrid({ categories, allServices }: Props) {
   return (
     <div className="min-h-screen">
       <PageBanner
-        kicker="torudeabi.ee · Tallinn & Harjumaa"
-        title={t("title")}
-        subtitle={t("subtitle")}
+        kicker="torudeabi24.ee · Tallinn & Harjumaa"
+        title={t("pageTitle")}
+        subtitle={t("pageIntro")}
         breadcrumbs={[{ label: t("title") }]}
         accentColor="#8B3FC8"
       />
@@ -167,13 +170,13 @@ export default function ServicesGrid({ categories, allServices }: Props) {
         >
           <label className="sr-only" htmlFor="svc-search">{t("searchLabel")}</label>
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#9C9B96]" size={17} />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#6B7280]" size={17} />
             <input
               id="svc-search"
               value={q}
               onChange={(e) => { setQ(e.target.value); setActiveCategory(null); }}
               placeholder={t("searchPlaceholder")}
-              className="w-full rounded-xl text-[#2B5CE6] placeholder:text-[#9C9B96] pl-11 pr-4 py-3 text-sm font-medium bg-white/75 backdrop-blur-sm border border-[#3B6CF4]/15 focus:border-[#8B3FC8]/50 focus:outline-none transition-all shadow-sm"
+              className="w-full rounded-xl text-[#2B5CE6] placeholder:text-[#6B7280] pl-11 pr-4 py-3 text-sm font-medium bg-white/75 backdrop-blur-sm border border-[#3B6CF4]/15 focus:border-[#8B3FC8]/50 focus:outline-none transition-all shadow-sm"
             />
           </div>
         </motion.div>
@@ -252,8 +255,8 @@ export default function ServicesGrid({ categories, allServices }: Props) {
                         <h2 className="text-xl sm:text-2xl font-extrabold text-[#2B5CE6] font-space">
                           {cat.title}
                         </h2>
-                        <p className="text-[#9C9B96] text-xs mt-0.5">
-                          {cat.services.length} {cat.services.length === 1 ? "service" : "services"}
+                        <p className="text-[#6B7280] text-xs mt-0.5">
+                          {t("serviceCount", { count: cat.services.length })}
                         </p>
                       </div>
                     </div>
@@ -261,7 +264,7 @@ export default function ServicesGrid({ categories, allServices }: Props) {
                       onClick={() => setActiveCategory(cat._id)}
                       className="hidden sm:flex items-center gap-1.5 text-[#3B6CF4] text-sm font-bold hover:underline"
                     >
-                      View all <ArrowRight size={13} />
+                      {t("viewAllInCategory")} <ArrowRight size={13} />
                     </button>
                   </div>
 
@@ -294,7 +297,7 @@ export default function ServicesGrid({ categories, allServices }: Props) {
               transition={{ duration: 0.2 }}
             >
               {displayedServices.length === 0 ? (
-                <p className="text-center text-[#9C9B96] py-16">{t("noResults")}</p>
+                <p className="text-center text-[#6B7280] py-16">{t("noResults")}</p>
               ) : (
                 <>
                   {/* Category heading when filtered */}

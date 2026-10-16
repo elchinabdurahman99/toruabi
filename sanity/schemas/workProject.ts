@@ -60,8 +60,9 @@ export const workProject = defineType({
       fields: [
         defineField({
           name: "alt",
-          title: "Alt Text",
+          title: "Alt Text (SEO)",
           type: "localeString",
+          description: "Describe the image in each language for accessibility and SEO.",
         }),
       ],
     }),
@@ -76,8 +77,9 @@ export const workProject = defineType({
           fields: [
             defineField({
               name: "alt",
-              title: "Alt Text",
-              type: "string",
+              title: "Alt Text (SEO)",
+              type: "localeString",
+              description: "Describe the photo in each language for SEO.",
             }),
           ],
         }),
@@ -107,6 +109,18 @@ export const workProject = defineType({
           },
         }),
       ],
+    }),
+    defineField({
+      name: "metaTitle",
+      title: "SEO Title",
+      type: "localeString",
+      description: "Overrides the page title for search engines (50–60 chars recommended).",
+    }),
+    defineField({
+      name: "metaDescription",
+      title: "SEO Description",
+      type: "localeText",
+      description: "Meta description for search engines (140–160 chars recommended).",
     }),
     defineField({
       name: "isPublished",

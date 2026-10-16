@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import { Star } from "lucide-react";
+import Star from "lucide-react/dist/esm/icons/star";
 import { useTranslations } from "next-intl";
 import { urlFor } from "@/lib/sanity/image";
 
@@ -22,12 +22,12 @@ type Props = {
 };
 
 const AVATAR_COLORS = [
-  "#2B5CE6",
-  "#E8354A",
-  "#1B8E4A",
-  "#7C3AED",
-  "#3B6CF4",
-  "#D97706",
+  "#1E46C4",
+  "#C41F33",
+  "#166534",
+  "#5B21B6",
+  "#1D4ED8",
+  "#92400E",
 ];
 
 function Stars({ rating, size = 14 }: { rating: number; size?: number }) {
@@ -122,7 +122,7 @@ export default function TestimonialsSection({
       : "5.0";
 
   const inputClass =
-    "w-full rounded-xl px-3 py-2.5 text-sm text-[#2B5CE6] border border-[#E8EFFE] bg-white/50 focus:outline-none focus:border-[#3B6CF4]/50 focus:bg-white transition-colors placeholder:text-[#9C9B96]";
+    "w-full rounded-xl px-3 py-2.5 text-sm text-[#2B5CE6] border border-[#E8EFFE] bg-white/50 focus:outline-none focus:border-[#3B6CF4]/50 focus:bg-white transition-colors placeholder:text-[#6B7280]";
   const slides = useMemo(() => {
     const source = items.slice(0, 9);
     const grouped: TestimonialItem[][] = [];
@@ -201,13 +201,13 @@ export default function TestimonialsSection({
             <h3 className="font-bold text-[#2B5CE6] font-space text-base mb-1">
               {t("formTitle")}
             </h3>
-            <p className="text-[#9C9B96] text-xs mb-4">{t("formHint")}</p>
+            <p className="text-[#6B7280] text-xs mb-4">{t("formHint")}</p>
             {done ? (
               <p className="text-[#2B5CE6] font-bold text-center py-4">{t("success")}</p>
             ) : (
               <form onSubmit={submitReview} className="space-y-3">
                 <div>
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-[#9C9B96] block mb-1">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-[#6B7280] block mb-1">
                     {t("yourName")}
                   </label>
                   <input
@@ -218,7 +218,7 @@ export default function TestimonialsSection({
                   />
                 </div>
                 <div>
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-[#9C9B96] block mb-1">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-[#6B7280] block mb-1">
                     {t("rating")}
                   </label>
                   <div className="flex gap-1.5">
@@ -235,7 +235,7 @@ export default function TestimonialsSection({
                                 background: "rgba(59,108,244,0.08)",
                                 color: "#3B6CF4",
                               }
-                            : { borderColor: "#E8EFFE", background: "white", color: "#9C9B96" }
+                            : { borderColor: "#E8EFFE", background: "white", color: "#6B7280" }
                         }
                       >
                         {num}
@@ -244,7 +244,7 @@ export default function TestimonialsSection({
                   </div>
                 </div>
                 <div>
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-[#9C9B96] block mb-1">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-[#6B7280] block mb-1">
                     {t("yourReview")}
                   </label>
                   <textarea
@@ -295,7 +295,7 @@ export default function TestimonialsSection({
 
             {/* Cards slider */}
             {n === 0 ? (
-              <p className="text-center text-[#9C9B96] py-8">{t("empty")}</p>
+              <p className="text-center text-[#6B7280] py-8">{t("empty")}</p>
             ) : (
               <div className="mb-10">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -310,11 +310,13 @@ export default function TestimonialsSection({
                         key={idx}
                         type="button"
                         onClick={() => setSlideIndex(idx)}
-                        className={`h-2.5 rounded-full transition-all ${
-                          idx === slideIndex ? "w-7 bg-[#3B6CF4]" : "w-2.5 bg-[#3B6CF4]/25 hover:bg-[#3B6CF4]/45"
-                        }`}
+                        className="flex items-center justify-center w-11 h-11"
                         aria-label={`Go to review slide ${idx + 1}`}
-                      />
+                      >
+                        <span className={`h-2.5 rounded-full transition-all pointer-events-none ${
+                          idx === slideIndex ? "w-7 bg-[#3B6CF4]" : "w-2.5 bg-[#3B6CF4]/25 hover:bg-[#3B6CF4]/45"
+                        }`} />
+                      </button>
                     ))}
                   </div>
                 ) : null}
@@ -328,8 +330,8 @@ export default function TestimonialsSection({
                   {avg}
                 </span>
                 <Stars rating={Math.round(Number(avg))} size={22} />
-                <p className="text-[#9C9B96] text-sm font-medium">
-                  Põhineb {n}+ kliendi hinnangul
+                <p className="text-[#6B7280] text-sm font-medium">
+                  {t("basedOn", { count: n })}
                 </p>
               </div>
             )}
@@ -342,7 +344,7 @@ export default function TestimonialsSection({
             <h3 className="font-bold text-[#2B5CE6] font-space text-lg mb-1.5">
               {t("formTitle")}
             </h3>
-            <p className="text-[#9C9B96] text-sm mb-5">{t("formHint")}</p>
+            <p className="text-[#6B7280] text-sm mb-5">{t("formHint")}</p>
             {done ? (
               <p className="text-[#2B5CE6] font-bold text-center py-6 text-lg">
                 {t("success")}
@@ -350,7 +352,7 @@ export default function TestimonialsSection({
             ) : (
               <form onSubmit={submitReview} className="space-y-4">
                 <div>
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-[#9C9B96] block mb-1">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-[#6B7280] block mb-1">
                     {t("yourName")}
                   </label>
                   <input
@@ -361,7 +363,7 @@ export default function TestimonialsSection({
                   />
                 </div>
                 <div>
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-[#9C9B96] block mb-1">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-[#6B7280] block mb-1">
                     {t("rating")}
                   </label>
                   <div className="flex gap-1.5">
@@ -378,7 +380,7 @@ export default function TestimonialsSection({
                                 background: "rgba(59,108,244,0.08)",
                                 color: "#3B6CF4",
                               }
-                            : { borderColor: "#E8EFFE", background: "white", color: "#9C9B96" }
+                            : { borderColor: "#E8EFFE", background: "white", color: "#6B7280" }
                         }
                       >
                         {num}
@@ -387,7 +389,7 @@ export default function TestimonialsSection({
                   </div>
                 </div>
                 <div>
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-[#9C9B96] block mb-1">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-[#6B7280] block mb-1">
                     {t("yourReview")}
                   </label>
                   <textarea

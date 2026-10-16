@@ -47,163 +47,6 @@ export interface WorkProject {
   isPublished?: boolean;
 }
 
-// ---------------------------------------------------------------------------
-// Mock data
-// ---------------------------------------------------------------------------
-const MOCK_PROJECTS: WorkProject[] = [
-  {
-    _id: "mock-1",
-    title: "Torustiku täielik vahetus Kristiines",
-    slug: "torustiku-vahetus-kristiine",
-    shortDescription:
-      "Vanaaegse terastorusiku asendamine kaasaegse PP-torustikuga. Töö hõlmas kõiki vertikaalseid ja horisontaalseid trassid.",
-    serviceType: "plumbing",
-    location: "Tallinn, Kristiine",
-    completedAt: "2025-11-10T00:00:00Z",
-    mainImage: {
-      asset: { url: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80" },
-      alt: "PP torustiku paigaldus Kristiines",
-    },
-    highlights: [
-      { label: "Kestus", value: "3 päeva" },
-      { label: "Materjal", value: "PP torustik" },
-      { label: "Pindala", value: "72 m²" },
-    ],
-  },
-  {
-    _id: "mock-2",
-    title: "Elektriseadmete uuendus Ülemiste ärimajas",
-    slug: "elektriseadmete-uuendus-ulemiste",
-    shortDescription:
-      "Vananenud elektrijuhtmestiku täielik asendamine, kilpide uuendamine ja LED-valgustuse paigaldus kolmekorruselises ärimajas.",
-    serviceType: "electrical",
-    location: "Tallinn, Ülemiste",
-    completedAt: "2025-10-05T00:00:00Z",
-    mainImage: {
-      asset: { url: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" },
-      alt: "Elektritööd Ülemiste ärimajas",
-    },
-    highlights: [
-      { label: "Kestus", value: "5 päeva" },
-      { label: "Paneelid", value: "4 tk" },
-      { label: "Valgustid", value: "LED 48 tk" },
-    ],
-  },
-  {
-    _id: "mock-3",
-    title: "Vannitoa kompleksremont Mustamäel",
-    slug: "vannitoa-remont-mustamae",
-    shortDescription:
-      "Terviklik vannitoa renoveerimine: plaatimine, sanitaartehnika vahetus, sooja põranda paigaldus ja kaasaegne ventilatsioon.",
-    serviceType: "bathroom",
-    location: "Tallinn, Mustamäe",
-    completedAt: "2025-09-20T00:00:00Z",
-    mainImage: {
-      asset: { url: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80" },
-      alt: "Renoveeritud vannituba Mustamäel",
-    },
-    highlights: [
-      { label: "Kestus", value: "8 päeva" },
-      { label: "Pindala", value: "6,5 m²" },
-      { label: "Garantii", value: "2 aastat" },
-    ],
-  },
-  {
-    _id: "mock-4",
-    title: "Karkassmaja ehitus Piritale",
-    slug: "karkassmaja-ehitus-pirita",
-    shortDescription:
-      "Ühepereelamule karkassehituse teostamine: vundament, seinad, katus ja välisviimistlus avturneeritud lahendusega.",
-    serviceType: "construction",
-    location: "Tallinn, Pirita",
-    completedAt: "2025-07-15T00:00:00Z",
-    mainImage: {
-      asset: { url: "https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=800&q=80" },
-      alt: "Karkassmaja ehitus Pirita",
-    },
-    highlights: [
-      { label: "Kestus", value: "45 päeva" },
-      { label: "Pindala", value: "180 m²" },
-      { label: "Korruseid", value: "2" },
-    ],
-  },
-  {
-    _id: "mock-5",
-    title: "Korterirenoveerimine Lasnamäel",
-    slug: "korteri-renoveerimine-lasnamae",
-    shortDescription:
-      "3-toalise korteri täielik renoveerimine: uued põrandad, laed, sisseehitatud mööbel ja kaasaegne köögitehnika.",
-    serviceType: "renovation",
-    location: "Tallinn, Lasnamäe",
-    completedAt: "2025-06-01T00:00:00Z",
-    mainImage: {
-      asset: { url: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80" },
-      alt: "Renoveeritud korter Lasnamäel",
-    },
-    highlights: [
-      { label: "Kestus", value: "21 päeva" },
-      { label: "Pindala", value: "78 m²" },
-      { label: "Toad", value: "3" },
-    ],
-  },
-  {
-    _id: "mock-6",
-    title: "Plaatimistööd Kalamaja saunamajas",
-    slug: "plaatimistood-kalamaja",
-    shortDescription:
-      "Spaa-taseme plaatimistööd: põrand, seinad ja lagi. Kasutatud itaalia portselanplaadid, soe põrand kogu alal.",
-    serviceType: "bathroom",
-    location: "Tallinn, Kalamaja",
-    completedAt: "2025-04-18T00:00:00Z",
-    mainImage: {
-      asset: { url: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&q=80" },
-      alt: "Plaatimistööd Kalamaja saunamajas",
-    },
-    highlights: [
-      { label: "Kestus", value: "4 päeva" },
-      { label: "Plaadid", value: "IT portselan" },
-      { label: "Pindala", value: "28 m²" },
-    ],
-  },
-  {
-    _id: "mock-7",
-    title: "Interjööridesain ja remont Kesklinn",
-    slug: "interjooridesain-kesklinn",
-    shortDescription:
-      "Penthouse-korteri sisekujunduslahendus ja täielik remont: avatud plaan, luksuslikud viimistlusmaterjalid ja nutimaja lahendus.",
-    serviceType: "design",
-    location: "Tallinn, Kesklinn",
-    completedAt: "2025-02-28T00:00:00Z",
-    mainImage: {
-      asset: { url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&q=80" },
-      alt: "Penthouse interjöör Tallinnas",
-    },
-    highlights: [
-      { label: "Kestus", value: "60 päeva" },
-      { label: "Pindala", value: "145 m²" },
-      { label: "Stiil", value: "Skandinaavia" },
-    ],
-  },
-  {
-    _id: "mock-8",
-    title: "Ärihoone fassaadiremont Vanalinn",
-    slug: "arihoone-fassaad-vanalinn",
-    shortDescription:
-      "Ajaloolise ärihoone välisfassaadi renoveerimine: krohv, soojustus ja akende vahetus energia­tõhususe parandamiseks.",
-    serviceType: "construction",
-    location: "Tallinn, Vanalinn",
-    completedAt: "2024-12-10T00:00:00Z",
-    mainImage: {
-      asset: { url: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" },
-      alt: "Ärihoone fassaadiremont Vanalinnas",
-    },
-    highlights: [
-      { label: "Kestus", value: "15 päeva" },
-      { label: "Fassaad", value: "320 m²" },
-      { label: "Aknad", value: "24 tk" },
-    ],
-  },
-];
 
 // ---------------------------------------------------------------------------
 // Service type config
@@ -262,24 +105,40 @@ const SERVICE_CONFIG: Record<
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
+// Cards are at most ~420px wide (4:3); 800px covers 2x screens. Next image optimisation is off in
+// production, so size and format are requested from the Sanity CDN directly.
+const CARD_IMAGE_PARAMS = "w=800&h=600&fit=crop&auto=format&q=75";
+
+function withCardParams(url: string): string {
+  if (!url.startsWith("https://cdn.sanity.io/")) return url;
+  return `${url}${url.includes("?") ? "&" : "?"}${CARD_IMAGE_PARAMS}`;
+}
+
 function imageUrl(project: WorkProject): string | null {
   const asset = project.mainImage?.asset as { _ref?: string; url?: string } | undefined;
   if (!asset) return null;
-  if (asset.url) return asset.url;
+  if (asset.url) return withCardParams(asset.url);
   // Sanity CDN URL from _ref
   if (asset._ref) {
     const ref = asset._ref as string;
     const [, id, dimensions, format] = ref.match(/image-([^-]+(?:-[^-]+)*)-(\d+x\d+)-(\w+)$/) || [];
     if (id && dimensions && format) {
-      return `https://cdn.sanity.io/images/${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}/production/${id}-${dimensions}.${format}`;
+      return withCardParams(
+        `https://cdn.sanity.io/images/${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}/production/${id}-${dimensions}.${format}`,
+      );
     }
   }
   return null;
 }
 
-function formatDate(iso?: string) {
+const LOCALE_MAP: Record<string, string> = { et: "et-EE", en: "en-GB", ru: "ru-RU" };
+
+function formatDate(iso?: string, locale = "et") {
   if (!iso) return null;
-  return new Date(iso).toLocaleDateString("et-EE", { year: "numeric", month: "short" });
+  return new Date(iso).toLocaleDateString(LOCALE_MAP[locale] ?? "et-EE", {
+    year: "numeric",
+    month: "short",
+  });
 }
 
 function safeServiceTypeLabel(type: string, t: ReturnType<typeof useTranslations>) {
@@ -293,11 +152,11 @@ function safeServiceTypeLabel(type: string, t: ReturnType<typeof useTranslations
 // ---------------------------------------------------------------------------
 // Project Card
 // ---------------------------------------------------------------------------
-function ProjectCard({ project, t }: { project: WorkProject; t: ReturnType<typeof useTranslations> }) {
+function ProjectCard({ project, t, locale }: { project: WorkProject; t: ReturnType<typeof useTranslations>; locale: string }) {
   const [hovered, setHovered] = useState(false);
   const cfg = SERVICE_CONFIG[project.serviceType ?? "other"] ?? SERVICE_CONFIG.other;
   const imgSrc = imageUrl(project);
-  const dateStr = formatDate(project.completedAt);
+  const dateStr = formatDate(project.completedAt, locale);
   const serviceLabel = project.serviceType ? safeServiceTypeLabel(project.serviceType, t) : null;
 
   return (
@@ -418,14 +277,14 @@ function ProjectCard({ project, t }: { project: WorkProject; t: ReturnType<typeo
 // ---------------------------------------------------------------------------
 interface Props {
   projects: WorkProject[];
+  locale?: string;
 }
 
-export default function WorksGrid({ projects }: Props) {
+export default function WorksGrid({ projects, locale = "et" }: Props) {
   const t = useTranslations("works");
   const [activeFilter, setActiveFilter] = useState<string>("all");
 
-  // Use mock data if no real projects
-  const data = projects.length > 0 ? projects : MOCK_PROJECTS;
+  const data = projects;
 
   // Build filter tabs from available service types
   const tabs = useMemo(() => {
@@ -506,11 +365,7 @@ export default function WorksGrid({ projects }: Props) {
 
         {/* Project count */}
         <p className="text-xs text-[#5A5955] mb-6">
-          {filtered.length}{" "}
-          {t("projectCount", { count: filtered.length }).replace(
-            filtered.length.toString(),
-            ""
-          ).trim() || "projekti"}
+          {t("projectCount", { count: filtered.length })}
         </p>
 
         {/* Masonry-style grid */}
@@ -520,7 +375,7 @@ export default function WorksGrid({ projects }: Props) {
         >
           <AnimatePresence mode="popLayout">
             {filtered.map((project) => (
-              <ProjectCard key={project._id} project={project} t={t} />
+              <ProjectCard key={project._id} project={project} t={t} locale={locale} />
             ))}
           </AnimatePresence>
         </motion.div>

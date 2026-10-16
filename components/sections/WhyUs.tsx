@@ -1,6 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
-import { Zap, Award, Shield, DollarSign, Search, ThumbsUp } from "lucide-react";
+import Zap from "lucide-react/dist/esm/icons/zap";
+import Award from "lucide-react/dist/esm/icons/award";
+import Shield from "lucide-react/dist/esm/icons/shield";
+import DollarSign from "lucide-react/dist/esm/icons/dollar-sign";
+import Search from "lucide-react/dist/esm/icons/search";
+import ThumbsUp from "lucide-react/dist/esm/icons/thumbs-up";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 

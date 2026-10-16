@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Ajsan Studio",
-  description: "Content management for ajsan.ee",
+  title: "TorudeAbi24 Studio",
+  description: "Content management for torudeabi24.ee",
 };
 
 /** Root layout for Sanity Studio. */

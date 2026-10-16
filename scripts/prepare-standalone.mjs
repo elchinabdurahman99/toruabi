@@ -1,39 +1,41 @@
 /**
- * Next.js `output: "standalone"` does not copy `.next/static` or `public` into `.next/standalone`.
- * Docker / self-hosted runs need them next to the server bundle.
+ * scripts/prepare-standalone.mjs
  *
- * Run automatically after `next build` via package.json `postbuild`.
+ * Runs automatically after `npm run build` (postbuild hook).
+ *
+ * Next.js `output: "standalone"` creates a minimal server at
+ * `.next/standalone/server.js` but does NOT copy static assets.
+ * Without this step the server starts but returns 404 for all
+ * CSS / JS / image files — nothing loads in the browser.
+ *
+ * This script copies:
+ *   .next/static/  →  .next/standalone/.next/static/
+ *   public/        →  .next/standalone/public/
  */
-import { cpSync, existsSync, mkdirSync } from "node:fs";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const root = join(__dirname, "..");
+import { cpSync, existsSync } from "fs";
+import { join } from "path";
+
+const root       = process.cwd();
 const standalone = join(root, ".next", "standalone");
-const nextDir = join(standalone, ".next");
 
 if (!existsSync(standalone)) {
-  console.warn("[prepare-standalone] .next/standalone missing — skip (not a standalone build?)");
+  console.log("⚠️  .next/standalone not found — skipping (not a standalone build?)");
   process.exit(0);
 }
 
-mkdirSync(nextDir, { recursive: true });
+// 1. Copy Next.js static chunks (JS, CSS, source maps, images)
+const nextStatic    = join(root, ".next", "static");
+const standaloneStatic = join(standalone, ".next", "static");
+cpSync(nextStatic, standaloneStatic, { recursive: true });
+console.log("✅  Copied .next/static → .next/standalone/.next/static");
 
-const staticSrc = join(root, ".next", "static");
-const staticDest = join(nextDir, "static");
-if (existsSync(staticSrc)) {
-  cpSync(staticSrc, staticDest, { recursive: true, force: true });
-  console.log("[prepare-standalone] .next/static → .next/standalone/.next/static");
-} else {
-  console.warn("[prepare-standalone] .next/static missing — skipped");
-}
+// 2. Copy public folder (favicon, robots.txt, llms.txt, og-image, etc.)
+const publicDir         = join(root, "public");
+const standalonePublic  = join(standalone, "public");
+cpSync(publicDir, standalonePublic, { recursive: true });
+console.log("✅  Copied public/ → .next/standalone/public/");
 
-const publicSrc = join(root, "public");
-const publicDest = join(standalone, "public");
-if (existsSync(publicSrc)) {
-  cpSync(publicSrc, publicDest, { recursive: true, force: true });
-  console.log("[prepare-standalone] public → .next/standalone/public");
-} else {
-  console.warn("[prepare-standalone] public/ missing — skipped");
-}
+console.log("\n✨  Standalone build ready.");
+console.log("    Start with: node .next/standalone/server.js");
+console.log("    Or via PM2: pm2 start ecosystem.config.cjs --update-env\n");

@@ -3,15 +3,18 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import MotionProvider from "@/components/providers/MotionProvider";
 import CookieBanner from "@/components/layout/CookieBanner";
 import { SITE_NAME, SITE_URL } from "@/lib/siteConfig";
 import type { Metadata, Viewport } from "next";
-import { openGraphPageUrl } from "@/lib/seo/pageMeta";
+import { defaultOgImageAlt, openGraphPageUrl } from "@/lib/seo/pageMeta";
 import { defaultLocale, type Locale } from "@/i18n/config";
 import { sanityFetch } from "@/lib/sanity/client";
-import { serviceCategoriesNavQuery } from "@/lib/sanity/queries";
+import { serviceCategoriesNavQuery, siteSettingsQuery, footerServicesQuery } from "@/lib/sanity/queries";
+import { urlFor } from "@/lib/sanity/image";
 import type { NavCategory } from "@/components/layout/Navbar";
-import "../globals.css";
+import { Toaster } from "sonner";
 
 type Props = {
   children: React.ReactNode;
@@ -25,7 +28,12 @@ export function generateStaticParams() {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#FFFFFF",
+  minimumScale: 1,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#3B6CF4" },
+    { media: "(prefers-color-scheme: dark)", color: "#1a2a6c" },
+  ],
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -49,12 +57,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: SITE_NAME,
       locale: locale === "et" ? "et_EE" : locale === "ru" ? "ru_RU" : "en_US",
       type: "website",
-      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: `${SITE_NAME} — professional home services in Tallinn` }],
+      images: [
+        {
+          url: "/api/og",
+          width: 1200,
+          height: 630,
+          alt: defaultOgImageAlt(locale),
+          type: "image/png",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: meta.title,
       description: meta.description,
+      images: ["/api/og"],
     },
     robots: {
       index: true,
@@ -67,13 +84,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         "max-snippet": -1,
       },
     },
-    verification: {},
     icons: {
       icon: [
-        { url: "/favicon.png", type: "image/png" },
+        { url: "/favicon.ico", type: "image/x-icon" },
+        { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+        { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+        { url: "/favicon-48x48.png", type: "image/png", sizes: "48x48" },
+        { url: "/favicon-192x192.png", type: "image/png", sizes: "192x192" },
+        { url: "/favicon-512x512.png", type: "image/png", sizes: "512x512" },
       ],
-      apple: "/favicon.png",
+      apple: [
+        { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      ],
+      shortcut: [{ url: "/favicon.ico", type: "image/x-icon" }],
     },
+    category: "home services",
   };
 }
 
@@ -86,28 +111,40 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   setRequestLocale(locale);
 
-  const [messages, navCategories] = await Promise.all([
+  const FOOTER_CANONICAL_SLUGS = [
+    "24h-emergency-plumbing",
+    "plumber-on-call",
+    "drain-blockage-removal",
+    "pipe-works",
+    "boiler-installation",
+    "tap-mixer-replacement",
+    "24h-emergency-electrical",
+    "bathroom-renovation",
+  ];
+
+  const [messages, navCategories, siteSettings, footerServices] = await Promise.all([
     getMessages(),
     sanityFetch<NavCategory[]>(serviceCategoriesNavQuery(locale as Locale)).catch(() => []),
+    sanityFetch<any>(siteSettingsQuery(locale as Locale)).catch(() => null),
+    sanityFetch<Array<{ canonicalSlug: string; slug: string; title: string }>>(
+      footerServicesQuery(locale as Locale),
+      { slugs: FOOTER_CANONICAL_SLUGS },
+    ).catch(() => []),
   ]);
 
+  const logoUrl = siteSettings?.logo?.asset
+    ? urlFor(siteSettings.logo).url()
+    : undefined;
+
   return (
-    <html lang={locale} suppressHydrationWarning data-scroll-behavior="smooth">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Nunito:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="font-inter antialiased" style={{ fontFamily: "'Nunito', sans-serif" }}>
-        <NextIntlClientProvider messages={messages}>
-          <Navbar navCategories={navCategories ?? []} />
-          {children}
-          <CookieBanner />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider messages={messages}>
+      <MotionProvider>
+        <Navbar navCategories={navCategories ?? []} logoUrl={logoUrl} />
+        {children}
+        <Footer logoUrl={logoUrl} serviceLinks={footerServices ?? []} />
+        <Toaster position="top-right" expand={false} richColors />
+        <CookieBanner />
+      </MotionProvider>
+    </NextIntlClientProvider>
   );
 }

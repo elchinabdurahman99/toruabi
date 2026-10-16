@@ -1,7 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowRight, Calendar } from "lucide-react";
-import { useTranslations } from "next-intl";
+import ArrowRight from "lucide-react/dist/esm/icons/arrow-right";
+import Calendar from "lucide-react/dist/esm/icons/calendar";
+import { useFormatter, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { internalPathToLinkHref } from "@/lib/i18n/appHref";
 import Image from "next/image";
@@ -20,11 +21,12 @@ interface BlogPost {
 
 export default function BlogGrid({ posts }: { posts: BlogPost[] }) {
   const t = useTranslations("blog");
+  const format = useFormatter();
 
   return (
     <div className="min-h-screen">
       <PageBanner
-        kicker="torudeabi.ee"
+        kicker="torudeabi24.ee"
         title={t("title")}
         breadcrumbs={[{ label: t("title") }]}
       />
@@ -32,7 +34,7 @@ export default function BlogGrid({ posts }: { posts: BlogPost[] }) {
       <div className="max-w-7xl mx-auto px-6 py-10">
         {posts.length === 0 ? (
           <div className="text-center py-24 rounded-2xl bg-white/50 backdrop-blur-sm border border-[#8B3FC8]/15">
-            <p className="text-[#9C9B96] text-base">No blog posts yet. Check back soon!</p>
+            <p className="text-[#6B7280] text-base">No blog posts yet. Check back soon!</p>
           </div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -63,9 +65,9 @@ export default function BlogGrid({ posts }: { posts: BlogPost[] }) {
                   )}
                   <div className="flex flex-col flex-1 px-4 py-6">
                     {post.publishedAt && (
-                      <div className="flex items-center gap-1.5 text-[#9C9B96] text-xs font-semibold mb-3">
+                      <div className="flex items-center gap-1.5 text-[#6B7280] text-xs font-semibold mb-3">
                         <Calendar size={12} />
-                        {new Date(post.publishedAt).toLocaleDateString()}
+                        {format.dateTime(new Date(post.publishedAt), { day: "numeric", month: "numeric", year: "numeric" })}
                         {post.author && <span>· {post.author}</span>}
                       </div>
                     )}

@@ -1,7 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
-import Footer from "@/components/layout/Footer";
+
 import Contact from "@/components/sections/Contact";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import FloatingCTA from "@/components/ui/FloatingCTA";
@@ -9,8 +9,10 @@ import PageBanner from "@/components/ui/PageBanner";
 import { sanityFetch } from "@/lib/sanity/client";
 import { testimonialsQuery } from "@/lib/sanity/queries";
 import type { Locale } from "@/i18n/config";
-import { alternatesForPage, openGraphPageUrl } from "@/lib/seo/pageMeta";
+import { alternatesForPage, openGraphPageUrl, pageTitle, socialMeta } from "@/lib/seo/pageMeta";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
+export const revalidate = 3600;
 type Props = {
   params: Promise<{ locale: string }>;
 };
@@ -18,11 +20,13 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "pageSeo" });
+  const title = t("contact.title");
+  const description = t("contact.description");
   return {
-    title: t("contact.title"),
-    description: t("contact.description"),
+    title: pageTitle(title),
+    description,
     alternates: alternatesForPage(locale as Locale, "/contact"),
-    openGraph: { url: openGraphPageUrl(locale as Locale, "/contact") },
+    ...socialMeta({ locale, url: openGraphPageUrl(locale as Locale, "/contact"), title, description }),
   };
 }
 
@@ -39,9 +43,13 @@ export default async function ContactPage({ params }: Props) {
 
   return (
     <>
+      <BreadcrumbJsonLd
+        locale={locale}
+        items={[{ name: t("title"), href: "/contact" }]}
+      />
       <main>
         <PageBanner
-          kicker="torudeabi.ee"
+          kicker="torudeabi24.ee"
           title={t("title")}
           subtitle={t("subtitle")}
           breadcrumbs={[{ label: t("title") }]}
@@ -50,7 +58,7 @@ export default async function ContactPage({ params }: Props) {
         <Contact />
         <TestimonialsSection items={testimonials ?? []} showList={false} showForm={true} />
       </main>
-      <Footer />
+      
       <FloatingCTA />
     </>
   );

@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import ArrowRight from "lucide-react/dist/esm/icons/arrow-right";
+import ArrowUpRight from "lucide-react/dist/esm/icons/arrow-up-right";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { internalPathToLinkHref } from "@/lib/i18n/appHref";
@@ -103,7 +104,16 @@ export default function ServicesPreview({
         {/* Service cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {list.map((item, i) => {
-            const isFirst = i === 0;
+            // Color palette for cards: vibrant & distinct
+            const CARD_THEMES = [
+              { bg: "#E8354A", accent: "#FF6B7A", text: "white", iconBg: "rgba(255,255,255,0.22)", shadow: "rgba(232,53,74,0.35)" },
+              { bg: "#2B5CE6", accent: "#3B6CF4", text: "white", iconBg: "rgba(255,255,255,0.20)", shadow: "rgba(43,92,230,0.35)" },
+              { bg: "#8B3FC8", accent: "#A35DD8", text: "white", iconBg: "rgba(255,255,255,0.20)", shadow: "rgba(139,63,200,0.35)" },
+              { bg: "#059669", accent: "#10B981", text: "white", iconBg: "rgba(255,255,255,0.20)", shadow: "rgba(5,150,105,0.35)" },
+              { bg: "#D97706", accent: "#F59E0B", text: "white", iconBg: "rgba(255,255,255,0.22)", shadow: "rgba(217,119,6,0.35)" },
+              { bg: "#0E7490", accent: "#0891B2", text: "white", iconBg: "rgba(255,255,255,0.20)", shadow: "rgba(14,116,144,0.35)" },
+            ];
+            const theme = CARD_THEMES[i % CARD_THEMES.length];
             return (
               <motion.div
                 key={item._id}
@@ -112,69 +122,45 @@ export default function ServicesPreview({
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ delay: Math.min(i * 0.05, 0.25) }}
               >
-                {isFirst ? (
-                  /* Featured first card — blue */
-                  <Link
-                    href={internalPathToLinkHref(`/services/${item.slug}`)}
-                    className="group flex flex-col gap-4 bg-[#2B5CE6] rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden h-full"
-                    style={{ boxShadow: "0 8px 32px -8px rgba(43,92,230,0.35)" }}
+                <Link
+                  href={internalPathToLinkHref(`/services/${item.slug}`)}
+                  className="group flex flex-col gap-4 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden h-full"
+                  style={{
+                    background: `linear-gradient(135deg, ${theme.bg} 0%, ${theme.accent} 100%)`,
+                    boxShadow: `0 8px 32px -8px ${theme.shadow}`,
+                  }}
+                >
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-3xl pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 w-20 h-20 bg-black/5 rounded-tr-3xl pointer-events-none" />
+
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center text-white shrink-0 relative z-10"
+                    style={{ background: theme.iconBg, backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.25)" }}
                   >
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#3B6CF4]/40 rounded-bl-3xl pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-tr-3xl pointer-events-none" />
+                    <ServiceIcon slug={canon(item)} sanityIcon={item.icon} size={22} strokeWidth={1.9} />
+                  </div>
 
-                    <div className="w-12 h-12 rounded-xl bg-[#E8354A] flex items-center justify-center text-white shrink-0 relative z-10">
-                      <ServiceIcon slug={canon(item)} sanityIcon={item.icon} size={22} strokeWidth={1.9} />
-                    </div>
-
-                    <div className="flex flex-col gap-2 relative z-10 flex-1">
-                      <span className="text-white text-base font-extrabold leading-snug font-space hyphens-auto">
-                        {titleFor(item)}
-                      </span>
-                      {descFor(item) ? (
-                        <span className="text-white/65 text-xs leading-relaxed line-clamp-3">
-                          {descFor(item)}
-                        </span>
-                      ) : null}
-                    </div>
-
-                    <span className="relative z-10 flex items-center gap-1 text-[#E8354A] text-[11px] font-bold uppercase tracking-wide">
-                      {t("learnMore")} <ArrowUpRight size={11} />
+                  <div className="flex flex-col gap-2 relative z-10 flex-1">
+                    <span className="text-white text-base font-extrabold leading-snug font-space hyphens-auto">
+                      {titleFor(item)}
                     </span>
-                  </Link>
-                ) : (
-                  /* Regular card */
-                  <Link
-                    href={internalPathToLinkHref(`/services/${item.slug}`)}
-                    className="group flex flex-col gap-4 bg-white/55 backdrop-blur-sm border border-[#3B6CF4]/12 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#3B6CF4]/30 hover:shadow-[0_12px_36px_-8px_rgba(59,108,244,0.15)] relative overflow-hidden h-full"
-                  >
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#E8EFFE] to-transparent rounded-bl-3xl pointer-events-none transition-opacity group-hover:opacity-60" />
-
-                    <div className="w-12 h-12 rounded-xl bg-[#E8EFFE] flex items-center justify-center text-[#3B6CF4] shrink-0 group-hover:bg-[#3B6CF4] group-hover:text-white transition-all duration-300">
-                      <ServiceIcon slug={canon(item)} sanityIcon={item.icon} size={22} strokeWidth={1.9} />
-                    </div>
-
-                    <div className="flex flex-col gap-2 flex-1">
-                      <span className="text-[#2B5CE6] text-base font-extrabold leading-snug group-hover:text-[#3B6CF4] transition-colors font-space hyphens-auto">
-                        {titleFor(item)}
+                    {descFor(item) ? (
+                      <span className="text-white/70 text-xs leading-relaxed line-clamp-3">
+                        {descFor(item)}
                       </span>
-                      {descFor(item) ? (
-                        <span className="text-[#9C9B96] text-xs leading-relaxed line-clamp-2">
-                          {descFor(item)}
-                        </span>
-                      ) : null}
-                    </div>
+                    ) : null}
+                  </div>
 
-                    <span className="flex items-center gap-1 text-[#3B6CF4] text-[11px] font-bold uppercase tracking-wide opacity-0 group-hover:opacity-100 transition-opacity">
-                      {t("learnMore")} <ArrowUpRight size={11} />
-                    </span>
-                  </Link>
-                )}
+                  <span className="relative z-10 flex items-center gap-1 text-white/80 group-hover:text-white text-[11px] font-bold uppercase tracking-wide transition-colors">
+                    {t("learnMore")} <ArrowUpRight size={11} />
+                  </span>
+                </Link>
               </motion.div>
             );
           })}
         </div>
 
-        <p className="text-center text-[#9C9B96] text-sm mt-8">
+        <p className="text-center text-[#6B7280] text-sm mt-8">
           {tp("countHint", { shown: PREVIEW_HOME_LIMIT, total: totalCount })}
         </p>
       </div>

@@ -5,6 +5,7 @@ import { allBlogPostsForSitemapQuery, allServicesForSitemapQuery } from "@/lib/s
 import { buildI18nAlternates } from "@/lib/seo/pageMeta";
 import { alternatesForBlogPostPage, alternatesForServicePage, segmentTripleFromSanity } from "@/lib/seo/localeSegments";
 import type { Locale } from "@/i18n/config";
+import { DUPLICATE_SERVICE_OF } from "@/lib/seo/duplicateServices";
 
 const staticPaths = [
   "",
@@ -15,6 +16,7 @@ const staticPaths = [
   "/terms",
   "/contact",
   "/privacy-policy",
+  "/works",
 ];
 
 /** Regenerate periodically; avoids hammering Sanity on every crawl */
@@ -30,7 +32,6 @@ function pushCluster(
     const { canonical, languages } = buildI18nAlternates(locale as Locale, pathAfterLocale);
     entries.push({
       url: canonical,
-      lastModified: new Date().toISOString(),
       changeFrequency,
       priority,
       alternates: { languages },
@@ -38,7 +39,11 @@ function pushCluster(
   }
 }
 
-type SitemapRow = { canonicalSlug: string; pathSegment?: { et?: string; en?: string; ru?: string } | null };
+type SitemapRow = {
+  canonicalSlug: string;
+  pathSegment?: { et?: string; en?: string; ru?: string } | null;
+  _updatedAt?: string;
+};
 
 function pushServiceOrBlogClusters(
   entries: MetadataRoute.Sitemap,
@@ -56,7 +61,7 @@ function pushServiceOrBlogClusters(
           : alternatesForBlogPostPage(seg, loc as Locale);
       entries.push({
         url: canonical,
-        lastModified: new Date().toISOString(),
+        ...(row._updatedAt ? { lastModified: row._updatedAt } : {}),
         changeFrequency,
         priority,
         alternates: { languages },
@@ -77,11 +82,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     sanityFetch<SitemapRow[]>(allBlogPostsForSitemapQuery),
   ]);
 
-  const services = Array.isArray(serviceRows) ? serviceRows : [];
+  const services = (Array.isArray(serviceRows) ? serviceRows : []).filter(
+    (row) => !DUPLICATE_SERVICE_OF[row.canonicalSlug],
+  );
   const blogs = Array.isArray(blogRows) ? blogRows : [];
 
   pushServiceOrBlogClusters(entries, services, "services", "weekly", 0.75);
   pushServiceOrBlogClusters(entries, blogs, "blog", "monthly", 0.65);
 
-  return entries;
+  // The same localized URL can come from more than one Sanity document; list it once.
+  const seen = new Set<string>();
+  return entries.filter((e) => (seen.has(e.url) ? false : (seen.add(e.url), true)));
 }

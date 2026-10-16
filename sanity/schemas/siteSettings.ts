@@ -46,6 +46,35 @@ export const siteSettings = defineType({
       type: "image",
     }),
     defineField({
+      name: "heroSlides",
+      title: "🖼️ Hero Slider Images",
+      description: "Upload images for the homepage hero slider. Recommended size: 800×533px. Order = display order.",
+      type: "array",
+      of: [
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [
+            defineField({
+              name: "alt",
+              title: "Alt text (ET / EN / RU)",
+              type: "localeString",
+              description: "Describe the image in each language for SEO & accessibility.",
+            }),
+            defineField({
+              name: "order",
+              title: "Order",
+              type: "number",
+              initialValue: 1,
+            }),
+          ],
+          preview: {
+            select: { title: "alt.et", media: "asset" },
+          },
+        },
+      ],
+    }),
+    defineField({
       name: "socialLinks",
       title: "Social Links",
       type: "object",

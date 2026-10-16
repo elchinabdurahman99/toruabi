@@ -6,5 +6,5 @@
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://torudeabi24.ee";
 
-export const SITE_NAME = "TorudeAbi24";
-export const LEGAL_ENTITY = "TorudeAbi24";
+export const SITE_NAME = "TorudeAbi24.ee";
+export const LEGAL_ENTITY = "Torudeabi24.ee OÜ";

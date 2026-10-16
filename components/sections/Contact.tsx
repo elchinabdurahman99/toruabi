@@ -1,11 +1,16 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  Phone, Mail, MapPin, Send, CheckCircle, Paperclip,
-  Info, AlertCircle,
-} from "lucide-react";
+import Phone from "lucide-react/dist/esm/icons/phone";
+import Mail from "lucide-react/dist/esm/icons/mail";
+import MapPin from "lucide-react/dist/esm/icons/map-pin";
+import Send from "lucide-react/dist/esm/icons/send";
+import CheckCircle from "lucide-react/dist/esm/icons/check-circle";
+import Paperclip from "lucide-react/dist/esm/icons/paperclip";
+import Info from "lucide-react/dist/esm/icons/info";
+import AlertCircle from "lucide-react/dist/esm/icons/alert-circle";
 import { useTranslations } from "next-intl";
+import { toast } from "sonner";
 
 type ContactProps = { compact?: boolean };
 
@@ -13,7 +18,7 @@ const MAX_BYTES_PER_FILE = 12 * 1024 * 1024;
 const LARGE_FALLBACK_BYTES = 2 * 1024 * 1024;
 
 const inputClass =
-  "w-full rounded-xl px-3.5 py-2.5 text-sm text-[#2B5CE6] border border-[#E8EFFE] bg-white/50 focus:outline-none focus:border-[#3B6CF4]/50 focus:bg-white transition-all placeholder:text-[#9C9B96]";
+  "w-full rounded-xl px-3.5 py-2.5 text-sm text-[#2B5CE6] border border-[#E8EFFE] bg-white/50 focus:outline-none focus:border-[#3B6CF4]/50 focus:bg-white transition-all placeholder:text-[#6B7280]";
 
 const labelClass = "text-[#5A5955] text-[10px] font-bold uppercase tracking-[0.15em] block mb-1.5";
 
@@ -33,6 +38,13 @@ export default function Contact({ compact = false }: ContactProps) {
       value: tc("phone"),
       sub: t("info.phoneSub"),
       href: `tel:${tc("phoneDial")}`,
+    },
+    {
+      icon: Phone,
+      label: "Lauatelefon",
+      value: "+372 6897929",
+      sub: t("info.phoneSub"),
+      href: `tel:+3726897929`,
     },
     {
       icon: Phone,
@@ -90,6 +102,7 @@ export default function Contact({ compact = false }: ContactProps) {
               ? data.error
               : t("form.error");
         setError(msg);
+        toast.error(msg);
         if (
           hasLargeForFallback ||
           (typeof data.suggestEmailFallback === "boolean" && data.suggestEmailFallback)
@@ -99,11 +112,21 @@ export default function Contact({ compact = false }: ContactProps) {
         return;
       }
       setSubmitted(true);
+      toast.success(t("form.success"));
+      // Google Ads conversion tracking — fires when contact form is submitted
+      if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+        (window as any).gtag("event", "conversion", {
+          send_to: "AW-18102033273/5YITCNmujKscEPm23LdD",
+          value: 1.0,
+          currency: "EUR",
+        });
+      }
       form.reset();
       setFileMeta([]);
       setClientFileError(null);
     } catch {
       setError(t("form.error"));
+      toast.error(t("form.error"));
       if (hasLargeForFallback) setShowLargeFileFallback(true);
     } finally {
       setLoading(false);
@@ -143,7 +166,7 @@ export default function Contact({ compact = false }: ContactProps) {
                   <item.icon size={14} />
                 </div>
                 <div>
-                  <p className="text-[#9C9B96] text-[10px] font-bold uppercase tracking-widest mb-0.5">
+                  <p className="text-[#6B7280] text-[10px] font-bold uppercase tracking-widest mb-0.5">
                     {item.label}
                   </p>
                   {item.href ? (
@@ -156,7 +179,7 @@ export default function Contact({ compact = false }: ContactProps) {
                   ) : (
                     <p className="text-[#2B5CE6] font-bold text-sm">{item.value}</p>
                   )}
-                  <p className="text-[#9C9B96] text-xs">{item.sub}</p>
+                  <p className="text-[#6B7280] text-xs">{item.sub}</p>
                 </div>
               </div>
             ))}
@@ -214,15 +237,15 @@ export default function Contact({ compact = false }: ContactProps) {
                   </span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-space mb-4 leading-tight">
-                  {t("title")}
+                  {t("formHeading")}
                 </h2>
-                <p className="text-white/65 text-base leading-relaxed">{t("subtitle")}</p>
+                <p className="text-white/65 text-base leading-relaxed">{t("formIntro")}</p>
               </div>
 
               <div className="relative z-10 flex flex-col gap-3">
-                {contactItems.map((item) => (
+                {contactItems.map((item, idx) => (
                   <div
-                    key={item.label}
+                    key={`${item.label}-${idx}`}
                     className="flex gap-3.5 items-center bg-white/10 rounded-xl px-4 py-3.5 border border-white/10 hover:bg-white/15 transition-colors"
                   >
                     <div className="w-9 h-9 rounded-lg bg-white/15 flex items-center justify-center shrink-0">
@@ -253,7 +276,7 @@ export default function Contact({ compact = false }: ContactProps) {
               <h3 className="text-2xl font-extrabold text-[#2B5CE6] font-space mb-2">
                 {t("form.title")}
               </h3>
-              <p className="text-[#9C9B96] text-sm mb-7">
+              <p className="text-[#6B7280] text-sm mb-7">
                 {t("form.hint")}
               </p>
 
@@ -296,22 +319,24 @@ export default function Contact({ compact = false }: ContactProps) {
                   {/* Phone + Email */}
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="flex flex-col">
-                      <label className={labelClass}>{t("form.phone")}</label>
+                      <label className={labelClass}>
+                        {t("form.phone")} <span className="text-[#E8354A]">*</span>
+                      </label>
                       <input
                         name="phone"
                         type="tel"
+                        required
                         placeholder={t("form.placeholders.phone")}
                         className={inputClass}
                       />
                     </div>
                     <div className="flex flex-col">
                       <label className={labelClass}>
-                        {t("form.email")} <span className="text-[#E8354A]">*</span>
+                        {t("form.email")}
                       </label>
                       <input
                         name="email"
                         type="email"
-                        required
                         placeholder={t("form.placeholders.email")}
                         className={inputClass}
                       />
@@ -321,12 +346,11 @@ export default function Contact({ compact = false }: ContactProps) {
                   {/* Address */}
                   <div className="flex flex-col">
                     <label className={labelClass}>
-                      {t("info.address")} <span className="text-[#E8354A]">*</span>
+                      {t("info.address")}
                     </label>
                     <input
                       name="address"
                       type="text"
-                      required
                       placeholder={t("form.placeholders.address")}
                       className={inputClass}
                     />
@@ -356,17 +380,28 @@ export default function Contact({ compact = false }: ContactProps) {
                         <Info size={13} className="text-white" />
                       </div>
                       <p className="text-xs leading-relaxed text-[#5A5955]">
-                        {t("form.fileSizeInfo")}
+                        {t("form.fileSizeInfo").split("info@torudeabi24.ee")[0]}
+                        <a href={`mailto:${tc("email")}`} className="text-[#3B6CF4] hover:underline font-bold">info@torudeabi24.ee</a>
+                        {t("form.fileSizeInfo").split("info@torudeabi24.ee")[1]}
                       </p>
                     </div>
-                    <input
-                      name="files"
-                      type="file"
-                      multiple
-                      accept="image/*,video/*"
-                      onChange={handleFilesChange}
-                      className="text-sm text-[#5A5955] file:mr-3 file:rounded-lg file:border-0 file:px-3 file:py-1.5 file:text-sm file:font-bold file:text-white file:bg-[#2B5CE6] file:cursor-pointer"
-                    />
+                    <div className="relative flex items-center gap-3">
+                      <input
+                        name="files"
+                        type="file"
+                        multiple
+                        accept="image/*,video/*"
+                        onChange={handleFilesChange}
+                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                        title={fileMeta.length > 0 ? t("form.filesSelected", { count: fileMeta.length }) : t("form.noFileChosen")}
+                      />
+                      <div className="rounded-lg px-3 py-1.5 text-sm font-bold text-white bg-[#2B5CE6] pointer-events-none">
+                        {t("form.chooseFiles")}
+                      </div>
+                      <span className="text-sm text-[#5A5955] truncate pointer-events-none">
+                        {fileMeta.length > 0 ? t("form.filesSelected", { count: fileMeta.length }) : t("form.noFileChosen")}
+                      </span>
+                    </div>
                     {fileMeta.length > 0 && (
                       <ul className="text-xs text-[#5A5955] space-y-0.5" aria-live="polite">
                         {fileMeta.map((f) => (
@@ -394,7 +429,9 @@ export default function Contact({ compact = false }: ContactProps) {
                       </div>
                       <div>
                         <p className="text-sm font-medium text-[#374151] leading-snug">
-                          {t("form.uploadFailLargeFile")}
+                          {t("form.uploadFailLargeFile").split("info@torudeabi24.ee")[0]}
+                          <a href={`mailto:${tc("email")}`} className="text-[#3B6CF4] hover:underline font-bold">info@torudeabi24.ee</a>
+                          {t("form.uploadFailLargeFile").split("info@torudeabi24.ee")[1]}
                         </p>
                         <a
                           href={`mailto:${tc("email")}?subject=${encodeURIComponent("Contact — attachments")}`}
@@ -418,10 +455,11 @@ export default function Contact({ compact = false }: ContactProps) {
                     disabled={loading || !!clientFileError}
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full flex items-center justify-center gap-2.5 disabled:opacity-60 text-white font-bold rounded-xl transition-all text-base py-3.5"
+                    className="w-full flex items-center justify-center gap-2.5 disabled:opacity-60 cursor-pointer disabled:cursor-not-allowed text-white font-bold rounded-xl transition-all text-base py-3.5"
                     style={{
                       background: "linear-gradient(135deg, #3B6CF4, #2B5CE6)",
                       boxShadow: "0 4px 16px rgba(59,108,244,0.25)",
+                      cursor: "pointer",
                     }}
                   >
                     {loading ? (
@@ -432,7 +470,7 @@ export default function Contact({ compact = false }: ContactProps) {
                     {loading ? "..." : `${t("form.submit")} →`}
                   </motion.button>
 
-                  <p className="text-center text-[#9C9B96] text-xs">
+                  <p className="text-center text-[#6B7280] text-xs">
                     {t("form.hint")}
                   </p>
                 </form>
@@ -509,8 +547,10 @@ function CompactForm({
           <input name="name" type="text" className={inputClass} />
         </div>
         <div className="flex flex-col gap-1.5">
-          <label className={labelClass}>{t("form.phone")}</label>
-          <input name="phone" type="tel" className={inputClass} />
+          <label className={labelClass}>
+            {t("form.phone")} <span className="text-[#E8354A]">*</span>
+          </label>
+          <input name="phone" type="tel" required className={inputClass} />
         </div>
       </div>
       <div className="flex flex-col gap-1.5">
@@ -518,18 +558,31 @@ function CompactForm({
         <input name="email" type="email" className={inputClass} />
       </div>
       <div className="flex flex-col gap-1.5">
+        <label className={labelClass}>{t("info.address")}</label>
+        <input name="address" type="text" className={inputClass} />
+      </div>
+      <div className="flex flex-col gap-1.5">
         <label className={labelClass}>{t("form.message")}</label>
         <textarea name="message" rows={3} className={`${inputClass} resize-none`} />
       </div>
       <div className="flex flex-col gap-1.5">
-        <input
-          name="files"
-          type="file"
-          multiple
-          accept="image/*,video/*"
-          onChange={handleFilesChange}
-          className="text-sm text-[#5A5955] file:mr-3 file:rounded-lg file:border-0 file:px-3 file:py-1.5 file:text-sm file:font-bold file:text-white file:bg-[#2B5CE6] file:cursor-pointer"
-        />
+        <div className="relative flex items-center gap-3">
+          <input
+            name="files"
+            type="file"
+            multiple
+            accept="image/*,video/*"
+            onChange={handleFilesChange}
+            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+            title={fileMeta.length > 0 ? t("form.filesSelected", { count: fileMeta.length }) : t("form.noFileChosen")}
+          />
+          <div className="rounded-lg px-3 py-1.5 text-sm font-bold text-white bg-[#2B5CE6] pointer-events-none">
+            {t("form.chooseFiles")}
+          </div>
+          <span className="text-sm text-[#5A5955] truncate pointer-events-none">
+            {fileMeta.length > 0 ? t("form.filesSelected", { count: fileMeta.length }) : t("form.noFileChosen")}
+          </span>
+        </div>
         {fileMeta.length > 0 && (
           <ul className="text-xs text-[#5A5955] space-y-0.5">
             {fileMeta.map((f) => (
@@ -574,10 +627,11 @@ function CompactForm({
         disabled={loading || !!clientFileError}
         whileHover={{ scale: 1.01 }}
         whileTap={{ scale: 0.98 }}
-        className="w-full flex items-center justify-center gap-2.5 disabled:opacity-60 text-white font-bold rounded-xl text-sm py-3"
+        className="w-full flex items-center justify-center gap-2.5 disabled:opacity-60 cursor-pointer disabled:cursor-not-allowed text-white font-bold rounded-xl text-sm py-3"
         style={{
           background: "linear-gradient(135deg, #3B6CF4, #2B5CE6)",
           boxShadow: "0 4px 16px rgba(59,108,244,0.2)",
+          cursor: "pointer",
         }}
       >
         {loading ? (

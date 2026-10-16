@@ -1,11 +1,16 @@
 "use client";
 import { motion } from "framer-motion";
-import { Phone, ArrowRight, CheckCircle2, Star, ShieldCheck, Clock } from "lucide-react";
+import Phone from "lucide-react/dist/esm/icons/phone";
+import ArrowRight from "lucide-react/dist/esm/icons/arrow-right";
+import CheckCircle2 from "lucide-react/dist/esm/icons/check-circle-2";
+import Star from "lucide-react/dist/esm/icons/star";
+import ShieldCheck from "lucide-react/dist/esm/icons/shield-check";
+import Clock from "lucide-react/dist/esm/icons/clock";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import HeroSlider from "@/components/sections/HeroSlider";
+import HeroSlider, { type HeroSlide } from "@/components/sections/HeroSlider";
 
-export default function Hero() {
+export default function Hero({ slides }: { slides?: HeroSlide[] }) {
   const t = useTranslations("hero");
   const tc = useTranslations("common");
 
@@ -29,32 +34,17 @@ export default function Hero() {
           </svg>
 
           {/* Glow blob — Blue (top-left) */}
-          <motion.div
-            animate={{ x: [0, 24, -12, 0], y: [0, -18, 12, 0] }}
-            transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -left-28 top-10 h-[480px] w-[480px] rounded-full opacity-[0.22] blur-[100px]"
-            style={{ background: "#3B6CF4" }}
-          />
+          <div className="hero-blob-1 absolute -left-28 top-10 h-[480px] w-[480px] rounded-full opacity-[0.22] blur-[100px]" style={{ background: "#3B6CF4" }} />
           {/* Glow blob — Red (top-right) */}
-          <motion.div
-            animate={{ x: [0, -18, 10, 0], y: [0, 14, -20, 0] }}
-            transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute right-[-60px] top-[-40px] h-[500px] w-[500px] rounded-full opacity-[0.16] blur-[110px]"
-            style={{ background: "#E8354A" }}
-          />
+          <div className="hero-blob-2 absolute right-[-60px] top-[-40px] h-[500px] w-[500px] rounded-full opacity-[0.16] blur-[110px]" style={{ background: "#E8354A" }} />
           {/* Glow blob — Purple (bottom-center) */}
-          <motion.div
-            animate={{ x: [0, -10, 14, 0], y: [0, 10, -8, 0] }}
-            transition={{ duration: 19, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute left-1/2 bottom-10 h-[340px] w-[340px] -translate-x-1/2 rounded-full opacity-[0.18] blur-[80px]"
-            style={{ background: "#8B3FC8" }}
-          />
+          <div className="hero-blob-3 absolute left-1/2 bottom-10 h-[340px] w-[340px] rounded-full opacity-[0.18] blur-[80px]" style={{ background: "#8B3FC8" }} />
 
         </div>
 
         {/* ── Content ── */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center min-h-[100svh] pt-24 pb-28 lg:pt-28 lg:pb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center min-h-[100svh] pt-28 pb-16 lg:pt-36 lg:pb-20">
 
             {/* LEFT */}
             <div className="lg:col-span-6 xl:col-span-5 flex flex-col">
@@ -64,7 +54,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: -12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.05, duration: 0.45 }}
-                className="inline-flex items-center gap-2 self-start mb-6"
+                className="hidden sm:inline-flex items-center gap-2 self-start mb-6"
               >
                 <span
                   className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.22em] px-4 py-2 rounded-full text-white"
@@ -73,7 +63,7 @@ export default function Hero() {
                   <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                   {t("badge")}
                 </span>
-                <span className="flex items-center gap-1.5 text-[11px] font-bold text-[#3B6CF4] bg-white/80 backdrop-blur-sm px-3 py-2 rounded-full border border-[#3B6CF4]/15 shadow-sm">
+                <span className="flex items-center gap-1.5 text-[11px] font-bold text-[#1E3EA8] bg-white/80 backdrop-blur-sm px-3 py-2 rounded-full border border-[#3B6CF4]/15 shadow-sm">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] animate-pulse shadow-[0_0_6px_#22C55E]" />
                   {t("availableNow")}
                 </span>
@@ -84,12 +74,12 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 22 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-                className="font-black font-space tracking-tight text-[#1a2a6c] mb-5 hyphens-auto"
-                style={{ fontSize: "clamp(1.9rem, 3.8vw, 3rem)", lineHeight: 1.08 }}
+                className="font-black font-space tracking-tight text-[#1a2a6c] mb-6 sm:mb-8"
+                style={{ fontSize: "clamp(1.35rem, 3vw, 2.6rem)", lineHeight: 1.18, WebkitHyphens: "none", MozHyphens: "none", hyphens: "none", overflowWrap: "normal", wordBreak: "keep-all" }}
               >
-                {t("title")}
+                <span className="lg:whitespace-nowrap">{t("title")}</span>
                 <br />
-                <span className="relative inline-block mt-1">
+                <span className="relative inline-block">
                   <span className="relative z-10 text-[#E8354A]">{t("titleHighlight")}</span>
                   <motion.span
                     initial={{ scaleX: 0 }}
@@ -105,7 +95,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.18, duration: 0.5 }}
-                className="text-[#2E3B6C] text-[15px] sm:text-[15.5px] leading-[1.7] max-w-lg mb-7 font-medium"
+                className="text-[#2E3B6C] text-[13.5px] sm:text-[15.5px] leading-[1.6] sm:leading-[1.7] max-w-lg mb-5 sm:mb-7 font-medium"
               >
                 {t("subtitle")}
               </motion.p>
@@ -115,7 +105,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.24 }}
-                className="flex flex-wrap gap-2 mb-8"
+                className="flex flex-wrap gap-2 mb-5 sm:mb-8"
               >
                 {tags.map((tag, i) => (
                   <motion.span
@@ -136,13 +126,13 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.34 }}
-                className="flex flex-col sm:flex-row gap-3 mb-9"
+                className="flex flex-col sm:flex-row gap-2 sm:gap-3 mb-6 sm:mb-9"
               >
                 {/* Primary – red */}
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.97 }}>
                   <Link
                     href="/contact"
-                    className="relative flex items-center justify-center gap-2.5 font-black text-[15px] px-7 py-4 rounded-2xl text-white overflow-hidden group"
+                    className="relative flex items-center justify-center gap-2.5 font-black text-[14px] sm:text-[15px] px-6 sm:px-7 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-white overflow-hidden group"
                     style={{
                       background: "linear-gradient(135deg,#E8354A,#C8283C)",
                       boxShadow: "0 16px 40px rgba(232,53,74,0.32), inset 0 1px 0 rgba(255,255,255,0.18)",
@@ -163,7 +153,7 @@ export default function Hero() {
                   href={`tel:${tc("phoneDial")}`}
                   whileHover={{ y: -4, scale: 1.02, boxShadow: "0 18px 40px rgba(59,108,244,0.22)" }}
                   whileTap={{ scale: 0.97 }}
-                  className="flex items-center justify-center gap-2.5 font-black text-[15px] px-6 py-4 rounded-2xl bg-white text-[#1a2a6c] border border-[#3B6CF4]/20 shadow-md transition-all group"
+                  className="flex items-center justify-center gap-2.5 font-black text-[14px] sm:text-[15px] px-5 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl bg-white text-[#1a2a6c] border border-[#3B6CF4]/20 shadow-md transition-all group"
                 >
                   <Phone size={18} className="text-[#3B6CF4] group-hover:rotate-12 transition-transform" />
                   {t("ctaSecondary")}
@@ -175,7 +165,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.46 }}
-                className="flex flex-wrap items-center gap-x-5 gap-y-3"
+                className="hidden sm:flex flex-wrap items-center gap-x-5 gap-y-3"
               >
                 {/* Stars */}
                 <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-3.5 py-2 rounded-xl border border-[#E8354A]/12 shadow-sm">
@@ -204,12 +194,13 @@ export default function Hero() {
               </motion.div>
             </div>
 
-            {/* RIGHT */}
+            {/* RIGHT — opacity 0.01 (not 0) keeps the element LCP-eligible from first paint
+                so the preload scanner's image counts toward LCP, not JS-fire time. */}
             <motion.div
-              initial={{ opacity: 0, x: 36, scale: 0.96 }}
+              initial={{ opacity: 0.01, x: 36, scale: 0.96 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
               transition={{ delay: 0.14, duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-6 xl:col-span-7 relative mt-10 lg:mt-0"
+              className="lg:col-span-6 xl:col-span-7 relative mt-6 lg:mt-0"
             >
               {/* Outer decorative rings */}
               <div className="absolute -inset-4 rounded-[3rem] border border-[#E8354A]/14 -z-10" />
@@ -220,7 +211,7 @@ export default function Hero() {
                 className="relative p-2.5 rounded-[2.4rem] bg-white/55 backdrop-blur-md border border-white/70"
                 style={{ boxShadow: "0 40px 90px rgba(59,108,244,0.18), 0 8px 24px rgba(0,0,0,0.07), inset 0 1px 0 rgba(255,255,255,0.9)" }}
               >
-                <HeroSlider />
+                <HeroSlider slides={slides ?? []} />
               </div>
 
               {/* ── Float: Emergency ── */}
@@ -243,7 +234,7 @@ export default function Hero() {
                     <Phone size={19} className="text-white" />
                   </motion.div>
                   <div>
-                    <p className="text-[9px] font-black text-[#E8354A] uppercase tracking-[0.22em] leading-none mb-1.5">
+                    <p className="text-[9px] font-black text-[#B01F30] uppercase tracking-[0.22em] leading-none mb-1.5">
                       {t("emergencyLabel") || "KIIRABI 24/7"}
                     </p>
                     <a

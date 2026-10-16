@@ -1,7 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
-import { Home, ChevronRight } from "lucide-react";
+import Home from "lucide-react/dist/esm/icons/home";
+import ChevronRight from "lucide-react/dist/esm/icons/chevron-right";
 import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 interface Props {
   kicker?: string;
@@ -18,6 +20,7 @@ export default function PageBanner({
   breadcrumbs,
   accentColor = "#E8354A",
 }: Props) {
+  const tn = useTranslations("nav");
   return (
     <div className="relative overflow-hidden pt-24 pb-14 sm:pt-28 sm:pb-16">
       {/* Glow blobs */}
@@ -57,7 +60,7 @@ export default function PageBanner({
             className="flex items-center gap-1.5 text-[11px] font-semibold text-[#5A5955] mb-5 flex-wrap"
           >
             <Link href="/" className="flex items-center gap-1 hover:text-[#E8354A] transition-colors">
-              <Home size={11} /> Home
+              <Home size={11} /> {tn("home")}
             </Link>
             {breadcrumbs.map((b, i) => (
               <span key={i} className="flex items-center gap-1.5">

@@ -3,6 +3,7 @@ import { routing } from "./i18n/routing";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { SLUG_TO_CANONICAL, CANONICAL_TO_LOCALIZED } from "@/lib/seo/serviceSlugMappings";
+import { DUPLICATE_SERVICE_REDIRECTS } from "@/lib/seo/duplicateServices";
 
 const nextIntlMiddleware = createMiddleware(routing);
 
@@ -30,9 +31,16 @@ export default function middleware(request: NextRequest) {
     const canonical = SLUG_TO_CANONICAL[decodeURIComponent(secondSegment)];
     const isOrphanedSlug = segments.length === 3 && canonical != null;
 
+    const locale = firstHeader as "en" | "et" | "ru";
+    const servicePrefix = { en: "services", et: "teenused", ru: "услуги" }[locale];
+    if (segments.length === 4 && decodeURIComponent(secondSegment) === servicePrefix) {
+      const target = DUPLICATE_SERVICE_REDIRECTS[locale][decodeURIComponent(segments[3])];
+      if (target) {
+        return NextResponse.redirect(new URL(`/${locale}/${servicePrefix}/${target}`, request.url), 301);
+      }
+    }
+
     if (isOrphanedSlug) {
-      const locale = firstHeader as "en" | "et" | "ru";
-      const servicePrefix = { en: "services", et: "teenused", ru: "услуги" }[locale];
       const localizedSlug = CANONICAL_TO_LOCALIZED[canonical][locale];
 
       return NextResponse.redirect(new URL(`/${locale}/${servicePrefix}/${localizedSlug}`, request.url), 301);
