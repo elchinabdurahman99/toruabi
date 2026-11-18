@@ -1,6 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import dynamic from "next/dynamic";
 import Hero from "@/components/sections/Hero";
+import MtrNote from "@/components/sections/MtrNote";
 import JsonLd from "@/components/seo/JsonLd";
 
 // Below-fold — load after hero paints
@@ -78,6 +79,7 @@ export default async function Home({ params }: Props) {
       </>)}
       <JsonLd locale={locale} />
       <Hero slides={slides} />
+      <MtrNote locale={locale as Locale} />
       <ServicesPreview services={listedServices} totalCount={serviceTotal} />
       <Process />
       <TestimonialsSection items={testimonials ?? []} showList={true} showForm={false} />
