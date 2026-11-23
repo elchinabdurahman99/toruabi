@@ -534,5 +534,15 @@
     "goHome": "Go Home",
     "allServices": "All Services",
     "emergency": "Have a plumbing emergency?"
+  },
+  "registrations": {
+    "title": "Economic activity notices",
+    "note": "Quality and responsibility are guaranteed by state activity licences (MTR):",
+    "verify": "Verify in MTR",
+    "fields": {
+      "construction": "Construction and plumbing work",
+      "electrical": "Electrical work",
+      "gas": "Gas work"
+    }
   }
 }

@@ -560,5 +560,15 @@
     "goHome": "Avaleht",
     "allServices": "Kõik teenused",
     "emergency": "Torustiku avarii?"
+  },
+  "registrations": {
+    "title": "Majandustegevusteated",
+    "note": "Kvaliteet ja vastutus on tagatud riiklike tegevuslubadega (MTR):",
+    "verify": "Kontrolli MTR-is",
+    "fields": {
+      "construction": "Ehitustööd ja santehnilised tööd",
+      "electrical": "Elektritööd",
+      "gas": "Gaasitööd"
+    }
   }
 }

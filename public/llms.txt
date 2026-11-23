@@ -14,6 +14,15 @@
 - **Service area**: Tallinn (all 8 districts) + Harjumaa (Maardu, Keila, Saue, Viimsi, Rae, Saku, and surrounding municipalities)
 - **Legal entity**: Torudeabi24.ee OÜ, Vene tn 28, Tallinn 10111, Estonia
 
+## State activity licences (MTR)
+
+Quality and responsibility are guaranteed by state activity licences, registered in the Estonian Register of Economic Activities (MTR, Majandustegevuse register):
+
+- **Construction and plumbing work** (Ehitustööd ja santehnilised tööd): EEH012495
+- **Electrical work** (Elektritööd): TEL003775
+- **Gas work** (Gaasitööd): TGT000755
+- [Verify in MTR](https://mtr.ttja.ee/majandustegevusteade?m=98)
+
 ## Primary URLs
 
 - [Estonian homepage](https://torudeabi24.ee/et/): Eestikeelne peamine veebileht
